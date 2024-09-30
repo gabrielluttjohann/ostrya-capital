@@ -1,0 +1,90 @@
+/**
+  * =======================================
+  * 1 - Root
+  * 2 - Typography Sizes
+  * 3 - Buttons
+  * 4 - Header
+  * =======================================
+*/
+
+/**
+  * =======================================
+  * 1 - Root
+  * =======================================
+*/
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+
+:root {
+  --font-family: "Lato", sans-serif; /* Fonte padrão */
+
+  /* Tamanhos de texto em rem */
+  --font-size-small: 0.75rem; /* 12px */
+  --font-size-medium: 1rem; /* 16px */
+  --font-size-large: 1.25rem; /* 20px */
+  --font-size-xl: 1.5rem; /* 24px */
+  --font-size-xxl: 2rem; /* 32px */
+
+  /* Cores */
+  --color-green: #013220;
+  --color-golden: #b68d40;
+  --color-sky: #eff7ff;
+  --color-onhover: #ccc;
+}
+
+/**
+  * =======================================
+  * 2 - Typography Sizes
+  * =======================================
+*/
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-medium); /* Tamanho padrão */
+}
+
+.small-text {
+  font-size: var(--font-size-small);
+}
+
+.medium-text {
+  font-size: var(--font-size-medium);
+}
+
+.large-text {
+  font-size: var(--font-size-large);
+}
+
+.xl-text {
+  font-size: var(--font-size-xl);
+}
+
+.xxl-text {
+  font-size: var(--font-size-xxl);
+}
+
+/**
+  * =======================================
+  *  - Default Styles
+  * =======================================
+*/
+a {
+  color: var(--color-green);
+}
+
+a:hover {
+  color: var(--color-golden);
+}
+
+/**
+  * =======================================
+  *  - Buttons
+  * =======================================
+*/
+
+/**
+  * =======================================
+  *  - Header
+  * =======================================
+*/
+.navbar {
+  height: 3.75rem; /* 60px */
+}
