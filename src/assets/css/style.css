@@ -29,6 +29,7 @@
   --color-golden: #b68d40;
   --color-sky: #eff7ff;
   --color-onhover: #ccc;
+  --bg-green: #01322009;
 }
 
 /**
@@ -39,6 +40,13 @@
 body {
   font-family: var(--font-family);
   font-size: var(--font-size-medium); /* Tamanho padrão */
+}
+
+h5 {
+  color: #141313;
+}
+p {
+  color: #646363;
 }
 
 .small-text {
@@ -67,6 +75,10 @@ body {
   * =======================================
 */
 a {
+  text-decoration: none;
+}
+
+a {
   color: var(--color-green);
 }
 
@@ -74,17 +86,26 @@ a:hover {
   color: var(--color-golden);
 }
 
-/**
-  * =======================================
-  *  - Buttons
-  * =======================================
-*/
+.text-green {
+  color: var(--color-green);
+}
 
-/**
-  * =======================================
-  *  - Header
-  * =======================================
-*/
-.navbar {
-  height: 3.75rem; /* 60px */
+.text-golden {
+  color: var(--color-golden);
+}
+
+.bg-green {
+  background-color: var(--bg-green);
+}
+
+.bg-golden {
+  background-color: var(--color-golden);
+}
+
+.my-60 {
+  margin: 60px 0;
+}
+
+.py-100 {
+  padding: 100px 0;
 }

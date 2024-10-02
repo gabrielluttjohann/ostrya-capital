@@ -1,0 +1,15 @@
+.logo-hover {
+  transition: transform 0.3s ease;
+}
+
+.logo-hover:hover {
+  transform: scale(1.1);
+}
+
+.navbar-scrolled {
+  height: 4.5rem;
+}
+
+.nav-hover:hover {
+  border-bottom: 1px solid black;
+}
