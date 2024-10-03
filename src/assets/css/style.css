@@ -28,7 +28,7 @@
   --color-green: #013220;
   --color-golden: #b68d40;
   --color-sky: #eff7ff;
-  --color-onhover: #ccc;
+  --color-text-alt: #787977;
   --color-green-alt: #01322009;
 }
 
@@ -111,4 +111,8 @@ a:hover {
 
 .py-100 {
   padding: 100px 0;
+}
+
+.text-alt {
+  color: var(--color-text-alt);
 }

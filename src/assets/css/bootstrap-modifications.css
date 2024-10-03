@@ -1,3 +1,19 @@
 .navbar {
   height: 3.4rem;
 }
+
+.btn-primary {
+  background-color: var(--color-green) !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-golden) !important;
+}
+
+.btn-secondary {
+  background-color: var(--color-golden);
+}
+
+.btn-secondary:hover {
+  background: #d1a24a;
+}

@@ -1,6 +1,6 @@
 .about {
   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-    url("https://placehold.co/1200x600/png") left center no-repeat;
+    url("../../assets/img/analysis/analysis.png") left center no-repeat;
   background-size: cover;
 }
 

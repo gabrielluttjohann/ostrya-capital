@@ -9,8 +9,6 @@ import "@/assets/css/animate.min.css";
 import "@/assets/css/style.css";
 import "@/assets/css/bootstrap-modifications.css";
 
-
-
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>

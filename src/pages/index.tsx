@@ -18,14 +18,14 @@ const index: React.FC = () => {
       <Header />
       <Reestructure />
       <Evaluation />
-      <MeA />
       <Solutions />
+      <Services />
+      <Strategy />
+      {/* <MeA /> */}
       {/* <Recuperate /> */}
-      {/* <Services /> */}
-      {/* <Strategy /> */}
-      {/* <Analysis /> */}
-      {/* <ContactForm /> */}
-      {/* <About /> */}
+      <Analysis />
+      <ContactForm />
+      <About />
       {/* <Partners /> */}
     </>
   );

@@ -35,3 +35,5 @@ export const EVALUATION_IMAGE = require("@/assets/img/evaluation/evaluation.png"
  */
 
 export const RECUPERATE_IMAGE = require("@/assets/img/recuperate/recuperate.png");
+
+export const ANALYSIS_IMAGE = require("@/assets/img/analysis/analysis.png");

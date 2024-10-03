@@ -119,7 +119,9 @@ const CausesSection: React.FC = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-12 col-12 text-center mb-4">
-            <h5 className="fw-bold text-golden text-uppercase">Soluções</h5>
+            <h5 className="fw-bold text-golden text-uppercase mt-5">
+              Soluções
+            </h5>
             <h2 className="mb-3 display-5">
               Soluções de crédito para pessoas físicas e jurídicas
             </h2>
