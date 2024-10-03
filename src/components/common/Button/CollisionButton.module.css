@@ -17,13 +17,17 @@ a.collision {
   z-index: 0;
 }
 
+a.collision:hover {
+  border: 1px solid var(--color-golden);
+}
+
 a.collision::before,
 a.collision::after {
   position: absolute;
   content: "";
   width: 20px;
   height: 20px;
-  background: var(--color-green);
+  background: var(--color-golden);
   top: 50%;
   border-radius: 50%;
   z-index: -1;

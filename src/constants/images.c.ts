@@ -1,6 +1,37 @@
-const LOGO_IMAGE = require("@/assets/img/logo/logo.png");
+/**
+ * =========================================
+ * HEADER SECTION
+ * =========================================
+ */
+export const LOGO_IMAGE = require("@/assets/img/logo/logo.png");
 
-const ABOUT = require("@/assets/img/about/about.jpg");
-const PARTNER_01 = require("@/assets/img/partners/geile.png");
+/**
+ * =========================================
+ * ABOUT SECTION
+ * =========================================
+ */
 
-export { LOGO_IMAGE, ABOUT, PARTNER_01 };
+export const ABOUT = require("@/assets/img/about/about.jpg");
+
+/**
+ * =========================================
+ * REESTRUCTURE SECTION
+ * =========================================
+ */
+
+export const REESTRUCTURE_IMAGE = require("@/assets/img/reestructure/reestructure.png");
+
+/**
+ * =========================================
+ * EVALUATION SECTION
+ * =========================================
+ */
+export const EVALUATION_IMAGE = require("@/assets/img/evaluation/evaluation.png");
+
+/**
+ * =========================================
+ * RECUPERATE SECTION
+ * =========================================
+ */
+
+export const RECUPERATE_IMAGE = require("@/assets/img/recuperate/recuperate.png");

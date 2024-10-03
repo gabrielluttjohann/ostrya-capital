@@ -29,7 +29,7 @@
   --color-golden: #b68d40;
   --color-sky: #eff7ff;
   --color-onhover: #ccc;
-  --bg-green: #01322009;
+  --color-green-alt: #01322009;
 }
 
 /**
@@ -93,9 +93,12 @@ a:hover {
 .text-golden {
   color: var(--color-golden);
 }
-
 .bg-green {
-  background-color: var(--bg-green);
+  background-color: var(--color-green);
+}
+
+.bg-green-alt {
+  background-color: var(--color-green-alt);
 }
 
 .bg-golden {

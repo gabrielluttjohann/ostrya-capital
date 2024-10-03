@@ -1,65 +1,82 @@
 import React from "react";
+import CollisionButton from "../common/Button/CollisionButton";
+
+// Separação de estilos em constantes reutilizáveis
+const sectionStyle = {
+  backgroundImage: 'url("#")',
+  backgroundSize: "cover",
+  backgroundPosition: "center center",
+};
+
+const overlayStyle = {
+  backgroundColor: "rgba(1, 50, 32, 0.7)",
+  position: "absolute" as "absolute",
+  top: 0,
+  left: 0,
+  width: "100%",
+  height: "100%",
+};
+
+// Componente reutilizável para o botão
+interface CTAButtonProps {
+  text: string;
+  href: string;
+}
+
+const CTAButton: React.FC<CTAButtonProps> = ({ text, href }) => (
+  <div className="cta-btn s-cta-btn wow fadeInRight animated">
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="btn ss-btn smoth-scroll"
+    >
+      {text}
+    </a>
+  </div>
+);
+
+const Content: React.FC = () => {
+  const content = {
+    littleTitle: "Avaliação para fusões e aquisições (M&A).",
+    title: "Suporte Completo para Negociações Estratégicas",
+    descriptions: [
+      "Nosso serviço de fusões e aquisições (M&A) oferece suporte completo para você que deseja vender ou comprar uma empresa, além de auxiliar na busca pelo financiamento ideal para essas operações. Atuamos de maneira estratégica, identificando as melhores oportunidades no mercado, avaliando o valor justo do negócio e intermediando todas as etapas da negociação.",
+      "Seja para expandir seu portfólio ou para realizar uma venda bem concluída, nossa equipe acompanha de perto cada fase do processo, garantindo que todas as decisões sejam fundamentadas e alinhadas com seus objetivos. Também atuamos buscando as melhores opções de financiamento, facilitando o acesso ao capital necessário para essas transações.",
+    ],
+  };
+
+  const { littleTitle, title, descriptions } = content;
+  return (
+    <div className="col-lg-6 col-md-12">
+      <h5 className="fw-bold text-golden text-uppercase">{littleTitle}</h5>
+      <h2 className="mb-3 display-5 text-white">{title}</h2>
+      {descriptions.map((description, index) => {
+        return (
+          <>
+            <p key={index} className="text-white">
+              {description}
+            </p>
+          </>
+        );
+      })}
+      <CollisionButton
+        href=""
+        buttonStyles="w-50"
+        text="Fale Agora Com um Especialista"
+      />
+    </div>
+  );
+};
 
 const FamilyOfficeSection: React.FC = () => {
   return (
-    <div
-      className="py-5 position-relative"
-      style={{
-        backgroundImage: 'url("#")',
-        backgroundSize: "cover",
-        backgroundPosition: "center center",
-      }}
-    >
-      <div
-        className="overlay"
-        style={{
-          backgroundColor: "rgba(1, 50, 32, 0.7)",
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-        }}
-      ></div>
+    <div className="py-5 position-relative" style={sectionStyle}>
+      <div className="overlay" style={overlayStyle}></div>
       <div className="container my-5 position-relative">
         <div className="row align-items-center">
-          <div className="col-lg-6 col-md-12">
-            <h6 className="text-white text-uppercase mb-2">FAMILY OFFICE</h6>
-            <h2 className="text-white">
-              Saiba mais sobre nossa atuação como um{" "}
-              <span className="fw-bold text-oc-secondary">
-                Multi-Family Office
-              </span>{" "}
-              exclusivo
-            </h2>
-            <p className="text-white">
-              Nossa consultoria é especializada em investimentos e atuamos
-              também como um Multi-Family Office. Trabalhamos com famílias que
-              buscam uma administração completa de seus bens, oferecendo
-              serviços de assessoria patrimonial, planejamento sucessório e
-              gestão de investimentos. Nosso foco é garantir a segurança,
-              preservação e crescimento do patrimônio, sempre com soluções
-              personalizadas e estratégicas. Contamos com uma equipe altamente
-              qualificada para proporcionar tranquilidade e eficiência na gestão
-              financeira das famílias que atendemos, buscando sempre as melhores
-              oportunidades no mercado.
-            </p>
-            <div className="col-lg-4">
-              <div
-                className="cta-btn s-cta-btn wow fadeInRight animated"
-                data-animation="fadeInDown animated"
-              >
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn ss-btn smoth-scroll"
-                >
-                  Fale Com Um Especialista
-                </a>
-              </div>
-            </div>
-          </div>
+          <Content />
+          {/*  */}
           <div className="col-lg-6 col-md-12 mb-4 mb-lg-0"></div>
         </div>
       </div>
