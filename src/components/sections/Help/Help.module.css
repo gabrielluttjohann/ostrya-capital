@@ -1,0 +1,52 @@
+.serviceItem {
+  display: block;
+}
+
+.icon {
+  display: inline-block;
+  text-align: left;
+  left: 10px;
+  font-size: 2rem;
+}
+
+.iconWrapper {
+  width: 80px; /* Defina o tamanho do círculo */
+  height: 80px; /* Certifique-se de que largura e altura sejam iguais */
+  background-color: var(--color-green); /* Cor de fundo do círculo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%; /* Isso faz o círculo perfeito */
+}
+
+.serviceItem img {
+  width: 50px;
+}
+
+.serviceItem h3 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.service-section-1 {
+  background: #f7f7f7;
+  position: relative;
+  z-index: 1;
+  margin-top: -20px;
+  padding-top: 9rem;
+}
+
+@media (max-width: 991.98px) {
+  .service-section-1 {
+    padding-top: 3rem;
+  }
+}
+
+.service-section-1 .heading-content {
+  padding-right: 25%;
+}
+
+.service-section-1 .heading-content h2 {
+  margin-bottom: 20px;
+  font-weight: bold;
+}

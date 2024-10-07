@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["via.placeholder.com", ], // Adicione o domínio aqui
+    domains: ["via.placeholder.com", "i.ibb.co"], // Adicione o domínio aqui
   },
 };
 

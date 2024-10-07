@@ -37,3 +37,12 @@ export const EVALUATION_IMAGE = require("@/assets/img/evaluation/evaluation.png"
 export const RECUPERATE_IMAGE = require("@/assets/img/recuperate/recuperate.png");
 
 export const ANALYSIS_IMAGE = require("@/assets/img/analysis/analysis.png");
+
+export const MEA_IMAGE = require("@/assets/img/mea/mea.png");
+
+export const CREDIT_IMAGE = require("@/assets/img/credit/credit.png");
+
+export const HERO_IMAGE = require("@/assets/img/hero/hero.png");
+
+export const ABOUT_IMAGE_01 = require("@/assets/img/about/about-01.png");
+export const ABOUT_IMAGE_02 = require("@/assets/img/about/about-02.png");
