@@ -10,13 +10,13 @@
 }
 
 .iconWrapper {
-  width: 80px; /* Defina o tamanho do círculo */
-  height: 80px; /* Certifique-se de que largura e altura sejam iguais */
-  background-color: var(--color-green); /* Cor de fundo do círculo */
+  width: 80px;
+  height: 80px;
+  background-color: var(--color-green);
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%; /* Isso faz o círculo perfeito */
+  border-radius: 50%;
 }
 
 .serviceItem img {

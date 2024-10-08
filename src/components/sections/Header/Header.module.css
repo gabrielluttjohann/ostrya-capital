@@ -13,3 +13,18 @@
 .nav-hover:hover {
   border-bottom: 1px solid black;
 }
+
+/* Header.module.css */
+
+/* Adicionar transição suave para o mobile menu */
+.collapse {
+  transition: height 0.3s ease;
+}
+
+.navbar-nav {
+  text-align: center;
+}
+
+.navbar-nav .nav-link {
+  padding: 10px;
+}

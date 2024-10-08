@@ -155,3 +155,21 @@
 .hero .photo-info a {
   color: #fff;
 }
+
+
+/* Header.module.css */
+
+.navbar-toggler {
+  border: none; /* Remove a borda do botão */
+  background: transparent; /* Torna o fundo transparente */
+}
+
+.navbar-toggler-icon {
+  font-size: 24px; /* Ajuste o tamanho do ícone */
+  transition: opacity 0.3s ease; /* Transição suave para a opacidade */
+}
+
+.navbar-toggler-icon.d-none {
+  opacity: 0; /* Torna invisível */
+  pointer-events: none; /* Desativa os eventos de clique */
+}

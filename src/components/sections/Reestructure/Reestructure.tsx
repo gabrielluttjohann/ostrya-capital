@@ -1,22 +1,22 @@
 import React from "react";
 import Image from "next/image";
 import CollisionButton from "../../common/button/CollisionButton/CollisionButton";
-import { REESTRUCTURE_IMAGE } from "@/constants/images.c";
+import SplitScreen from "@/Layout/SplitScreen";
+import { reestructureData } from "@/data/reestructureData";
 
 const SectionImage: React.FC = () => (
-  <div className="col-lg-5" style={{ minHeight: "500px" }}>
+  <div style={{ minHeight: "500px", height: "100%" }}>
     <div className="position-relative h-100">
       <Image
         className="position-absolute w-100 h-100 rounded"
-        src={REESTRUCTURE_IMAGE}
+        src={reestructureData.image.src}
         width={500}
         height={500}
-        alt="Imagem da seção de reestruturação."
+        alt={reestructureData.image.alt}
         onError={(e) =>
-          (e.currentTarget.src =
-            "https://via.placeholder.com/500x500.png?text=Image+Unavailable")
+          (e.currentTarget.src = reestructureData.image.placeholder)
         }
-        style={{ objectFit: "cover" }}
+        style={{ objectFit: "cover", height: "100%" }}
       />
     </div>
   </div>
@@ -33,77 +33,53 @@ const FeatureItem: React.FC<{ text: string }> = ({ text }) => (
   </div>
 );
 
-const Features: React.FC = () => {
-  const features = [
-    "Negociação de dívidas",
-    "Reestruturação de crédito personalizada",
-    "Intermediação direta com grandes bancos ",
-    "Soluções financeiras estratégicas para otimização de prazos e taxas.",
-  ];
-  return (
-    <div className="row g-0 mb-3">
-      {features.map((feature, index) => (
-        <div className="col-sm-6" key={index}>
-          <FeatureItem text={feature} />
-        </div>
-      ))}
-    </div>
-  );
-};
+const Features: React.FC = () => (
+  <div className="row g-0 mb-3">
+    {reestructureData.features.map((feature, index) => (
+      <div className="col-sm-6" key={index}>
+        <FeatureItem text={feature} />
+      </div>
+    ))}
+  </div>
+);
 
-const Descriptions: React.FC = () => {
-  const descriptions = [
-    "A nossa equipe tem ampla experiência em restruturação financeira de empresas, já tendo participado diretamente da recuperação de alguns dos maiores grupos econômicos do sul do país, somando mais de R$ 3,0 bilhões em crédito restruturado.",
-    "A experiência nos mostra que a restruturação da empresa é mais importante do que apenas a restruturação do crédito, para que seja possível recuperar o negócio de forma sustentável. ",
-  ];
-  return (
-    <>
-      {descriptions.map((description, index) => (
-        <p key={index} className="mb-4">
-          {description}
-        </p>
-      ))}
-    </>
-  );
-};
-
-const Titles: React.FC<{
-  littleTitle: string;
-  title: string;
-}> = ({ littleTitle, title }) => (
+const Descriptions: React.FC = () => (
   <>
-    <h5 className="fw-bold text-golden text-uppercase">{littleTitle}</h5>
-    <h2 className="mb-3 display-5">{title}</h2>
+    {reestructureData.descriptions.map((description, index) => (
+      <p key={index} className="mb-4">
+        {description}
+      </p>
+    ))}
+  </>
+);
+
+const Titles: React.FC = () => (
+  <>
+    <h5 className="fw-bold text-golden text-uppercase">
+      {reestructureData.titles.littleTitle}
+    </h5>
+    <h2 className="mb-3 display-5">{reestructureData.titles.title}</h2>
   </>
 );
 
 const SectionContent: React.FC = () => (
-  <div className="col-lg-7">
-    <Titles
-      littleTitle="Reestruturação"
-      title="Reestruturação Financeira Empresarial"
-    />
+  <>
+    <Titles />
     <Descriptions />
     <Features />
     <CollisionButton
-      href="#"
-      buttonStyles="w-50"
-      text="Fale com um Consultor"
+      href={reestructureData.button.href}
+      buttonStyles={reestructureData.button.buttonStyles}
+      text={reestructureData.button.text}
     />
-  </div>
+  </>
 );
 
 const ReestructureSection: React.FC = () => (
-  <div className="section-title my-5">
-    <div className="container-fluid py-5">
-      <div className="container py-5">
-        <div className="row g-5">
-          <SectionContent />
-          <SectionImage />
-        </div>
-      </div>
-    </div>
-  </div>
+  <SplitScreen colSizes={[7, 5]} showColumns={[true, true]}>
+    <SectionContent />
+    <SectionImage />
+  </SplitScreen>
 );
 
 const Reestructure: React.FC = () => <ReestructureSection />;

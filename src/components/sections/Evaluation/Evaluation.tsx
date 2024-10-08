@@ -66,14 +66,16 @@ const Content: React.FC = () => {
 
 // Componente principal AboutSection
 const EvaluationSection: React.FC = () => (
-  <div className="container-xxl my-5 animated wow fadeInUp">
-    <div className="container">
-      <div className="row g-5">
-        <div className="col-lg-6">
-          <Images />
-        </div>
-        <div className="col-lg-6">
-          <Content />
+  <div className="my-120">
+    <div className="container-xxl  animated wow fadeInUp">
+      <div className="container">
+        <div className="row g-5">
+          <div className="col-lg-6">
+            <Images />
+          </div>
+          <div className="col-lg-6">
+            <Content />
+          </div>
         </div>
       </div>
     </div>

@@ -22,7 +22,9 @@ const BookingDescription: React.FC = () => {
 const BookingForm: React.FC = () => {
   return (
     <div className="bg-green h-100 d-flex flex-column justify-content-center text-center p-5">
-      <h1 className="text-white mb-4">Agende uma Reunião</h1>
+      <h2 className="text-white mb-4 display-5 fw-bold">
+        Solicite uma Simulação
+      </h2>
       <form>
         <div className="row g-3">
           <div className="col-12 col-sm-6">

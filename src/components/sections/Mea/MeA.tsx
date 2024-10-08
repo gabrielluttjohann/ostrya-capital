@@ -1,19 +1,11 @@
 import React from "react";
 import { meaData as data } from "@/data/meaData";
 import BackgroundImage from "@/components/common/background/BackgroundImage";
-import TwoColumnLayout from "@/Layout/ColumnsLayout";
-import TitleLayout from "@/Layout/TitleLayout";
-import CTAButton from "@/components/common/button/CTAButton/CTAButton";
-import ParagraphLayout from "@/Layout/ParagraphLayout";
+import GridColumn from "@/Layout/ColumnsLayout/GridLayout"; // Importando o GridColumn para gerenciar colunas
 import { SectionSpace } from "@/Layout/SectionSpace";
-
-interface ParagraphProps {
-  text: string;
-}
-
-const Paragraph: React.FC<ParagraphProps> = ({ text }) => (
-  <ParagraphLayout styles="text-white" text={text} />
-);
+import { Little, H2 } from "@/Layout/TitleLayout";
+import CTAButton from "@/components/common/button/CTAButton/CTAButton";
+import Paragraph from "@/Layout/ParagraphLayout";
 
 interface MeaContentProps {
   littleTitle: string;
@@ -31,10 +23,10 @@ const MeaContent: React.FC<MeaContentProps> = ({
   buttonLink,
 }) => (
   <>
-    <TitleLayout type="littleTitle" title={littleTitle} />
-    <TitleLayout type="h2" title={title} color="text-white" />
+    <Little title={littleTitle} />
+    <H2 title={title} styles="text-white" />
     {paragraphs.map((paragraph, index) => (
-      <Paragraph key={index} text={paragraph} />
+      <Paragraph key={index} styles="text-white" text={paragraph} />
     ))}
     <CTAButton href={buttonLink} text={buttonText} />
   </>
@@ -47,9 +39,8 @@ const Mea: React.FC = () => {
     <>
       <SectionSpace>
         <BackgroundImage imageSrc={image.src} alt={image.alt} isPriority>
-          <TwoColumnLayout
-            hasBackgroundImage
-            leftContent={
+          <div className="row align-items-center justify-content-center">
+            <GridColumn sizeLg={6} sizeMd={12} hasBackgroundImage>
               <MeaContent
                 littleTitle={content.littleTitle}
                 title={content.title}
@@ -57,9 +48,9 @@ const Mea: React.FC = () => {
                 buttonText={cta.text}
                 buttonLink={cta.link}
               />
-            }
-            rightContent={<></>}
-          />
+            </GridColumn>
+            <GridColumn sizeLg={6} sizeMd={12} children />
+          </div>
         </BackgroundImage>
       </SectionSpace>
     </>

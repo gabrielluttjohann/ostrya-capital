@@ -130,9 +130,7 @@ const Home: React.FC = () => {
     const [activeIndex, setActiveIndex] = useState<number>(0);
 
     return (
-      <section
-        className={`${styles["credit-bg-image"]} rellax container-xx my-5`}
-      >
+      <section className={`${styles["credit-bg-image"]}  container-xx my-5`}>
         <div className="container">
           <div className="row g-5 d-flex align-items-center justify-content-center ">
             <div className="col-lg-4">
@@ -165,7 +163,7 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="my-5 ">
+    <div className="my-120 ">
       <ServiceSection />
     </div>
   );

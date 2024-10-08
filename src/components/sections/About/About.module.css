@@ -49,7 +49,7 @@
   display: block;
   border: 10px solid #fff; /* Adicionando a borda nas imagens */
   box-shadow: 0 15px 30px -18px rgba(0, 0, 0, 0.2);
-  margin-bottom: 220px;
+  /* margin: 120px 0px; */
 }
 
 /* components/About/About.module.css */
@@ -66,5 +66,5 @@
 }
 
 .about-margin {
-  margin: 120px 0px;
+  margin: 4px 0px;
 }

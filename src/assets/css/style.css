@@ -29,7 +29,7 @@
   --color-green: #013220;
   --color-golden: #b68d40;
   --color-sky: #eff7ff;
-  --color-text-alt: #faf5ee;
+  --color-text-alt: #555555;
   --color-green-alt: #01322009;
 }
 
@@ -160,7 +160,8 @@ a:hover {
   margin-bottom: 220px;
 }
 .my-120 {
-  margin: 120px 0;
+  margin-top: 120px;
+  margin-bottom: 120px;
 }
 
 .mt-120 {
