@@ -1,21 +1,8 @@
-/* components/About/About.module.css */
-
-.section {
-  padding-top: 7rem;
-  padding-bottom: 7rem;
-}
-
-@media (max-width: 991.98px) {
-  .section {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
-}
-
 .heading {
   font-size: 38px;
   color: var(--color-green);
   font-weight: 700;
+  overflow-x: hidden;
 }
 
 @media (max-width: 991.98px) {
@@ -28,43 +15,41 @@
   position: relative;
   width: 100%;
   z-index: 2;
+  overflow-x: hidden; /* Adicionado para evitar overflow horizontal */
 }
 
 .imageStack__item__bottom {
   position: absolute;
-  right: 10%;
-  top: -50%;
+  right: 0;
+  top: -35%;
   width: 65%;
   z-index: -1;
+  overflow: hidden;
 }
 
 .imageStack__item__top {
-  padding-top: 20px;
-  padding-right: 30%;
-  width: 70%;
+  padding-top: 42px;
+  width: 40%;
 }
 
 .imageStack img {
-  width: 100%;
+  max-width: 100%; /* Garantir que as imagens sejam responsivas */
+  width: auto;
   display: block;
-  border: 10px solid #fff; /* Adicionando a borda nas imagens */
+  border: 10px solid #fff;
   box-shadow: 0 15px 30px -18px rgba(0, 0, 0, 0.2);
-  /* margin: 120px 0px; */
 }
 
-/* components/About/About.module.css */
-
-/* Classe específica para a seção 2 */
-.section2 {
-  padding: 10rem 0 !important;
-}
-
-@media (max-width: 991.98px) {
-  .section2 {
-    padding: 3rem 0 !important;
+@media (min-width: 992px) {
+  .aboutMargin {
+    margin-top: 40px;
+    margin-bottom: 40px;
   }
 }
 
-.about-margin {
-  margin: 4px 0px;
+@media (min-width: 375px) and (max-width: 991px) {
+  .aboutMargin {
+    margin-top: 40px; /* Reduzi para evitar overflow */
+    margin-bottom: 40px; /* Reduzi para evitar overflow */
+  }
 }

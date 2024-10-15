@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import CollisionButton from "../../common/button/CollisionButton/CollisionButton";
 import { EVALUATION_IMAGE } from "@/constants/images.c";
+import SplitScreen from "@/layouts/SplitScreen/SplitScreen";
 
 // Componente de imagem sobreposta
 const Images: React.FC = () => (
@@ -46,9 +47,9 @@ const Content: React.FC = () => {
   const { littleTitle, title, descriptions } = content;
 
   return (
-    <div className="h-100">
+    <div className="d-flex flex-column justify-content-center text-left h-100">
       <h5 className="fw-bold text-golden text-uppercase">{littleTitle}</h5>
-      <h2 className="display-5 mb-4">{title}</h2>
+      <h2 className="display-5 fw-bold mb-4">{title}</h2>
       {descriptions.map((description, index) => {
         return (
           <>
@@ -66,20 +67,10 @@ const Content: React.FC = () => {
 
 // Componente principal AboutSection
 const EvaluationSection: React.FC = () => (
-  <div className="my-120">
-    <div className="container-xxl  animated wow fadeInUp">
-      <div className="container">
-        <div className="row g-5">
-          <div className="col-lg-6">
-            <Images />
-          </div>
-          <div className="col-lg-6">
-            <Content />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <SplitScreen colSizes={[6, 6]} showColumns={[true, true]}>
+    <Images />
+    <Content />
+  </SplitScreen>
 );
 
 const Evaluation: React.FC = () => <EvaluationSection />;

@@ -1,30 +1,25 @@
-.logo-hover {
-  transition: transform 0.3s ease;
+.header {
+  width: 100%;
 }
 
-.logo-hover:hover {
-  transform: scale(1.1);
+.topBar {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 10px 0;
 }
 
-.navbar-scrolled {
-  height: 4.5rem;
+.navbar {
+  transition: all 0.3s ease-in-out;
+  z-index: 1050;
 }
 
-.nav-hover:hover {
-  border-bottom: 1px solid black;
+.nav {
+  padding: 34px 0px;
 }
 
-/* Header.module.css */
 
-/* Adicionar transição suave para o mobile menu */
-.collapse {
-  transition: height 0.3s ease;
-}
-
-.navbar-nav {
-  text-align: center;
-}
-
-.navbar-nav .nav-link {
-  padding: 10px;
+@media (min-width: 0px) and (max-width: 991px) {
+  .nav {
+    padding: 0px;
+  }
 }

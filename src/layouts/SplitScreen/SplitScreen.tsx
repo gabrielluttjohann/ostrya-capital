@@ -24,27 +24,31 @@ interface SplitScreenProps {
 
 const SplitScreen: React.FC<SplitScreenProps> = ({
   children,
-  colSizes = [3, 3, 3, 3, 3], 
-  showColumns = [true, true, true, true, true], 
+  colSizes = [3, 3, 3, 3, 3],
+  showColumns = [true, true, true, true, true],
 }) => {
-  const childArray = React.Children.toArray(children); 
+  const childArray = React.Children.toArray(children);
 
   const adjustedColSizes = colSizes.slice(0, childArray.length);
   const adjustedShowColumns = showColumns.slice(0, childArray.length);
 
   return (
-    <Container className={cx("my-120")}>
-      <Row>
-        {childArray.map((child, index) => (
-          <Column
-            key={index}
-            show={adjustedShowColumns[index]}
-            colSize={adjustedColSizes[index]}
-          >
-            {child}
-          </Column>
-        ))}
-      </Row>
+    <Container>
+      <Container className="row align-items-center justify-content-center">
+        <Container className={cx("z-2 my-120")}>
+          <Row>
+            {childArray.map((child, index) => (
+              <Column
+                key={index}
+                show={adjustedShowColumns[index]}
+                colSize={adjustedColSizes[index]}
+              >
+                {child}
+              </Column>
+            ))}
+          </Row>
+        </Container>
+      </Container>
     </Container>
   );
 };

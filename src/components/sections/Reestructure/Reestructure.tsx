@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import CollisionButton from "../../common/button/CollisionButton/CollisionButton";
-import SplitScreen from "@/Layout/SplitScreen";
+import SplitScreen from "@/layouts/SplitScreen/SplitScreen";
 import { reestructureData } from "@/data/reestructureData";
 
-const SectionImage: React.FC = () => (
+const RenderImage: React.FC = () => (
   <div style={{ minHeight: "500px", height: "100%" }}>
     <div className="position-relative h-100">
       <Image
@@ -22,7 +22,7 @@ const SectionImage: React.FC = () => (
   </div>
 );
 
-const FeatureItem: React.FC<{ text: string }> = ({ text }) => (
+const RenderFeatureItem: React.FC<{ text: string }> = ({ text }) => (
   <div className="d-flex py-3">
     <div>
       <i className="fa fa-check text-golden me-3"></i>
@@ -33,17 +33,17 @@ const FeatureItem: React.FC<{ text: string }> = ({ text }) => (
   </div>
 );
 
-const Features: React.FC = () => (
+const RenderFeatures: React.FC = () => (
   <div className="row g-0 mb-3">
     {reestructureData.features.map((feature, index) => (
       <div className="col-sm-6" key={index}>
-        <FeatureItem text={feature} />
+        <RenderFeatureItem text={feature} />
       </div>
     ))}
   </div>
 );
 
-const Descriptions: React.FC = () => (
+const RenderDescriptions: React.FC = () => (
   <>
     {reestructureData.descriptions.map((description, index) => (
       <p key={index} className="mb-4">
@@ -53,20 +53,20 @@ const Descriptions: React.FC = () => (
   </>
 );
 
-const Titles: React.FC = () => (
+const RenderTitles: React.FC = () => (
   <>
     <h5 className="fw-bold text-golden text-uppercase">
       {reestructureData.titles.littleTitle}
     </h5>
-    <h2 className="mb-3 display-5">{reestructureData.titles.title}</h2>
+    <h2 className="mb-3 display-5 fw-bold">{reestructureData.titles.title}</h2>
   </>
 );
 
-const SectionContent: React.FC = () => (
+const RenderContent: React.FC = () => (
   <>
-    <Titles />
-    <Descriptions />
-    <Features />
+    <RenderTitles />
+    <RenderDescriptions />
+    <RenderFeatures />
     <CollisionButton
       href={reestructureData.button.href}
       buttonStyles={reestructureData.button.buttonStyles}
@@ -77,8 +77,8 @@ const SectionContent: React.FC = () => (
 
 const ReestructureSection: React.FC = () => (
   <SplitScreen colSizes={[7, 5]} showColumns={[true, true]}>
-    <SectionContent />
-    <SectionImage />
+    <RenderContent />
+    <RenderImage />
   </SplitScreen>
 );
 

@@ -1,102 +1,125 @@
 import React from "react";
+import SplitScreen from "@/layouts/SplitScreen/SplitScreen";
+import { CONTENT_DATA, INPUT_DATA } from "@/data/contactFormData";
 
-// Componente para o cabeçalho da seção de descrição
-const BookingDescription: React.FC = () => {
+const BookingDescription: React.FC<{
+  title: string;
+  paragraphs: Array<string>;
+}> = ({ title, paragraphs }) => {
   return (
-    <div className="col-lg-6 py-5">
-      <div className="py-5">
-        <h2 className="text-black mb-4">
-          Marque uma reunião para avaliarmos as necessidades de sua empresa
-        </h2>
-        <p className="text-black mb-0">
-          Por favor, preencha o formulário abaixo para que um de nossos
-          especialistas entre em contato com você. Estamos prontos para entender
-          suas necessidades e oferecer a melhor solução financeira.
+    <div className="ms-4 d-flex flex-column justify-content-center align-items-center h-100">
+      <h2 className="mb-3 display-6 fw-bold">{title}</h2>
+      {paragraphs.map((paragraph, index) => (
+        <p key={index} className="mb-2">
+          {paragraph}
         </p>
+      ))}
+    </div>
+  );
+};
+
+interface InputFieldProps {
+  type: string;
+  placeholder: string;
+  style?: React.CSSProperties;
+}
+
+const RenderInputs: React.FC<{ fields: Array<InputFieldProps> }> = ({
+  fields,
+}) => (
+  <>
+    {fields.map((field, index) => (
+      <div key={index} className="col-12 col-sm-6">
+        <input
+          type={field.type}
+          className="form-control border-0"
+          placeholder={field.placeholder}
+          style={field.style}
+        />
+      </div>
+    ))}
+  </>
+);
+
+const RenderOptions: React.FC<{ options: Array<string> }> = ({ options }) => (
+  <div className="col-12 col-sm-6">
+    <select className="form-select border-0" style={{ height: "55px" }}>
+      {options.map((option, index) =>
+        index === 0 ? (
+          <option key={index} selected>
+            {option}
+          </option>
+        ) : (
+          <option key={index} value={index}>
+            {option}
+          </option>
+        )
+      )}
+    </select>
+  </div>
+);
+
+const TextArea: React.FC<{
+  placeholder: string;
+  rows?: number;
+}> = ({ placeholder, rows = 3 }) => (
+  <div className="col-12">
+    <textarea
+      className="form-control border-0"
+      placeholder={placeholder}
+      rows={rows}
+    ></textarea>
+  </div>
+);
+
+const Button: React.FC<{
+  btnText: string;
+  onClick?: () => void;
+}> = ({ btnText, onClick }) => (
+  <div className="col-12">
+    <button
+      className="btn btn-secondary w-100 py-3"
+      type="button"
+      onClick={onClick}
+    >
+      {btnText}
+    </button>
+  </div>
+);
+
+const BookingForm: React.FC<{
+  fields: Array<InputFieldProps>;
+  options: Array<string>;
+  btnText: string;
+}> = ({ fields, options, btnText }) => {
+  return (
+    <div className="mb-5">
+      <div className="bg-green h-100 d-flex flex-column justify-content-center text-center p-5">
+        <h2 className="text-white mb-4 display-5 fw-bold">
+          Solicite uma Simulação
+        </h2>
+        <form>
+          <div className="row g-3">
+            <RenderInputs fields={fields} />
+            <RenderOptions options={options} />
+            <TextArea placeholder="Mensagem" />
+            <Button btnText={btnText} />
+          </div>
+        </form>
       </div>
     </div>
   );
 };
 
-// Componente para o formulário de agendamento
-const BookingForm: React.FC = () => {
-  return (
-    <div className="bg-green h-100 d-flex flex-column justify-content-center text-center p-5">
-      <h2 className="text-white mb-4 display-5 fw-bold">
-        Solicite uma Simulação
-      </h2>
-      <form>
-        <div className="row g-3">
-          <div className="col-12 col-sm-6">
-            <input
-              type="text"
-              className="form-control border-0"
-              placeholder="Nome"
-              style={{ height: "55px" }}
-            />
-          </div>
-          <div className="col-12 col-sm-6">
-            <input
-              type="email"
-              className="form-control border-0"
-              placeholder="Email"
-              style={{ height: "55px" }}
-            />
-          </div>
-          <div className="col-12 col-sm-6">
-            <select className="form-select border-0" style={{ height: "55px" }}>
-              <option selected>Selecione uma opção</option>
-              <option value="1">Contratação de Crédito</option>
-              <option value="2">Reestruturação de Dívidas</option>
-              <option value="3">Consultoria Financeira</option>
-              <option value="4">Avaliação de Empresas</option>
-              <option value="5">Fusões e aquisições</option>
-              <option value="6">Recuperação Judicial</option>
-              <option value="7">Outro</option>
-            </select>
-          </div>
-          <div className="col-12 col-sm-6">
-            <div data-target-input="nearest">
-              <input
-                type="text"
-                className="form-control border-0 datetimepicker-input"
-                placeholder="Telefone"
-                data-target="#date1"
-                data-toggle="datetimepicker"
-                style={{ height: "55px" }}
-              />
-            </div>
-          </div>
-          <div className="col-12">
-            <textarea
-              className="form-control border-0"
-              placeholder="Mensagem"
-            ></textarea>
-          </div>
-          <div className="col-12">
-            <button className="btn btn-secondary w-100 py-3" type="submit">
-              Enviar
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
-  );
-};
-
-// Componente principal da seção de agendamento
 const BookingSection: React.FC = () => {
+  const { title, paragraphs } = CONTENT_DATA;
+  const { fields, options, btnText } = INPUT_DATA;
+
   return (
-    <div className="container-fluid my-120 booking my-5">
-      <div className="container">
-        <div className="row gx-5">
-          <div className="col-lg-6">
-            <BookingForm />
-          </div>
-          <BookingDescription />
-        </div>
-      </div>
-    </div>
+    <SplitScreen colSizes={[6, 6]} showColumns={[true, true]}>
+      <BookingForm fields={fields} options={options} btnText={btnText} />
+      <BookingDescription title={title} paragraphs={paragraphs} />
+    </SplitScreen>
   );
 };
 

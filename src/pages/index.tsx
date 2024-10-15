@@ -1,32 +1,31 @@
-import React from "react";
+import Footer from "@/components/sections/Footer/Footer";
+import Hero from "@/components/sections/Hero/Hero";
+import Mea from "@/components/sections/Mea/MeA";
+import Reestructure from "@/components/sections/Reestructure/Reestructure";
+import StrategySection from "@/components/sections/Strategy/Strategy";
+import Credit from "@/components/sections/Credit/Credit";
+import Analysis from "@/components/sections/Analysis/Analysis";
+import Evaluation from "@/components/sections/Evaluation/Evaluation";
+import Assistance from "@/components/sections/Assistance/Assistance";
 import Header from "@/components/sections/Header/Header";
 import About from "@/components/sections/About/About";
-import Reestructure from "@/components/sections/Reestructure/Reestructure";
-import MeA from "@/components/sections/Mea/MeA";
-import ContactForm from "@/components/sections/ContactForm/ContactForm";
-import Evaluation from "@/components/sections/Evaluation/Evaluation";
-import Strategy from "@/components/sections/Strategy/Strategy";
-import Analysis from "@/components/sections/Analysis/Analysis";
-import Credit from "@/components/sections/Credit/Credit";
-import Hero from "@/components/sections/Hero/Hero";
-import Help from "@/components/sections/Assistance/Assistance";
 
-const index: React.FC = () => {
+const Index: React.FC = () => {
   return (
     <>
       <Header />
       <Hero />
       <About />
+      <Assistance />
       <Credit />
-      <Help />
-      <ContactForm />
       <Reestructure />
+      <Mea />
       <Evaluation />
-      <Strategy />
-      <MeA />
-      <Analysis />
+      <StrategySection />
+      {/* <Analysis /> */}
+      <Footer />
     </>
   );
 };
 
-export default index;
+export default Index;

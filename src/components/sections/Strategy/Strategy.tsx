@@ -2,7 +2,7 @@ import React from "react";
 import cx from "classnames";
 import { Row, Col, Button, Card } from "react-bootstrap";
 import { strategyFeatures, strategyTexts } from "@/data/strategyData";
-import SplitScreen from "@/Layout/SplitScreen";
+import SplitScreen from "@/layouts/SplitScreen/SplitScreen";
 
 const CustomButton: React.FC<{ href: string; text: string }> = ({
   href,
@@ -31,7 +31,7 @@ const StrategyHeader: React.FC = () => (
     >
       {strategyTexts.header}
     </h5>
-    <h2 className={cx("display-7", "mb-4")}>{strategyTexts.title}</h2>
+    <h2 className={cx("display-7", "mb-4", "fw-bold")}>{strategyTexts.title}</h2>
     <p>{strategyTexts.description}</p>
     <CustomButton href="#" text="Saiba Mais" />
   </div>

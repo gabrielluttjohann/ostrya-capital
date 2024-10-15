@@ -1,11 +1,12 @@
 import React from "react";
 import { meaData as data } from "@/data/meaData";
-import BackgroundImage from "@/components/common/background/BackgroundImage";
-import GridColumn from "@/Layout/ColumnsLayout/GridLayout"; // Importando o GridColumn para gerenciar colunas
-import { SectionSpace } from "@/Layout/SectionSpace";
-import { Little, H2 } from "@/Layout/TitleLayout";
+
+import { Little, H2 } from "@/layouts/TitleLayout";
 import CTAButton from "@/components/common/button/CTAButton/CTAButton";
-import Paragraph from "@/Layout/ParagraphLayout";
+import Paragraph from "@/layouts/ParagraphLayout";
+import ImageScreen from "@/layouts/ImageScreen/ImageScreen";
+import { HERO_IMAGE, MEA_IMAGE } from "@/constants/images.c";
+import SplitScreen from "@/layouts/SplitScreen/SplitScreen";
 
 interface MeaContentProps {
   littleTitle: string;
@@ -28,31 +29,34 @@ const MeaContent: React.FC<MeaContentProps> = ({
     {paragraphs.map((paragraph, index) => (
       <Paragraph key={index} styles="text-white" text={paragraph} />
     ))}
+
     <CTAButton href={buttonLink} text={buttonText} />
   </>
 );
 
 const Mea: React.FC = () => {
-  const { image, content, cta } = data;
+  const { content, cta } = data;
 
   return (
     <>
-      <SectionSpace>
-        <BackgroundImage imageSrc={image.src} alt={image.alt} isPriority>
-          <div className="row align-items-center justify-content-center">
-            <GridColumn sizeLg={6} sizeMd={12} hasBackgroundImage>
-              <MeaContent
-                littleTitle={content.littleTitle}
-                title={content.title}
-                paragraphs={content.paragraphs}
-                buttonText={cta.text}
-                buttonLink={cta.link}
-              />
-            </GridColumn>
-            <GridColumn sizeLg={6} sizeMd={12} children />
-          </div>
-        </BackgroundImage>
-      </SectionSpace>
+      <ImageScreen
+        src={MEA_IMAGE}
+        alt=""
+        // imgHeight="view-height-75"
+        addOverlay
+        addParallax
+      >
+        <SplitScreen showColumns={[true, true]} colSizes={[6, 6]}>
+          <MeaContent
+            littleTitle={content.littleTitle}
+            title={content.title}
+            paragraphs={content.paragraphs}
+            buttonText={cta.text}
+            buttonLink={cta.link}
+          />
+          <div></div>
+        </SplitScreen>
+      </ImageScreen>
     </>
   );
 };

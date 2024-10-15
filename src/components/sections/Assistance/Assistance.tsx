@@ -2,8 +2,8 @@ import React from "react";
 import styles from "./Assistance.module.css";
 import { assistances } from "@/data/assistanceData";
 import CTAButton from "@/components/common/button/CTAButton/CTAButton";
-import { H2 } from "@/Layout/TitleLayout";
-import SplitScreen from "@/Layout/SplitScreen"; // Assumindo que o SplitScreen foi salvo neste caminho
+import { H2 } from "@/layouts/TitleLayout";
+import SplitScreen from "@/layouts/SplitScreen/SplitScreen"; // Assumindo que o SplitScreen foi salvo neste caminho
 
 const ServiceItem: React.FC<{
   title: string;
@@ -23,7 +23,7 @@ const ServiceItem: React.FC<{
   </div>
 );
 
-const ServiceSection: React.FC = () => (
+const Assistance: React.FC = () => (
   <SplitScreen
     colSizes={[4, 2, 2, 2, 2]}
     showColumns={[true, true, true, true, true]}
@@ -39,4 +39,4 @@ const ServiceSection: React.FC = () => (
   </SplitScreen>
 );
 
-export default ServiceSection;
+export default Assistance;

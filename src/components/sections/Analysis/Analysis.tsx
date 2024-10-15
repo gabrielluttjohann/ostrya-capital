@@ -2,7 +2,7 @@ import React from "react";
 import styles from "@/components/sections/Analysis/Analysis.module.css";
 
 // Componente principal About
-const About: React.FC = () => {
+const Analysis: React.FC = () => {
   return (
     <div className={`container-xxl ${styles.about} rounded my-5`}>
       <div className="container">
@@ -48,4 +48,4 @@ const About: React.FC = () => {
   );
 };
 
-export default About;
+export default Analysis;

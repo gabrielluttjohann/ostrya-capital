@@ -1,0 +1,30 @@
+.parallaxContainer {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.parallaxBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/path-to-your-image.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: -1;
+}
+
+.parallaxContent {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 100px 20px;
+  color: #fff;
+}
+
+
+.bgImage {
+  background-image: url("../assets/img/hero/hero.png");
+}

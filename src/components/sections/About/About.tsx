@@ -1,9 +1,10 @@
-// components/About/Section.tsx
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import styles from "@/components/sections/About/About.module.css";
 import { ABOUT_IMAGE_01, ABOUT_IMAGE_02 } from "@/constants/images.c";
 import Rellax from "rellax";
+import SplitScreen from "@/layouts/SplitScreen/SplitScreen";
+import CTAButton from "@/components/common/button/CTAButton/CTAButton";
 
 interface SectionProps {
   heading: string;
@@ -27,18 +28,22 @@ const ImageStackItem: React.FC<{
 
   return (
     <div
-      className={`${itemClass} `}
+      className={`${itemClass} ${styles.aboutMargin}`}
       data-aos="fade-up"
       data-aos-delay={delay}
       data-rellax-speed="2"
     >
-      <Image
-        src={src}
-        alt={alt}
-        width={600}
-        height={400}
-        className={`img-fluid ${isRellax ? "rellax" : ""}`}
-      />
+      <div className={`${styles.aboutMargin}`}>
+        <Image
+          src={src}
+          alt={alt}
+          width={600}
+          height={400}
+          className={`${styles.aboutMargin} img-fluid ${
+            isRellax ? `rellax ` : ""
+          }`}
+        />
+      </div>
     </div>
   );
 };
@@ -56,21 +61,36 @@ const content: SectionProps = {
   img2Src: ABOUT_IMAGE_02,
 };
 
+const Content: React.FC = () => (
+  <>
+    <h2 className={styles.heading} data-aos="fade-up" data-aos-delay="100">
+      {content.heading}
+    </h2>
+    {content.descriptions.map((description, index) => (
+      <p key={index} data-aos="fade-up">
+        {description}
+      </p>
+    ))}
+    {/* <p className="my-4">
+      <CTAButton href="" text={content.buttonText} />
+    </p> */}
+  </>
+);
+
 // Componente principal Section
-const Section: React.FC = () => {
+const About: React.FC = () => {
   const [isImageNear, setIsImageNear] = useState(false);
   const textRef = useRef<HTMLDivElement | null>(null);
   const imageRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const rellax = new Rellax(".rellax"); // Inicializando o Rellax
+    const rellax = new Rellax(".rellax");
 
     const handleScroll = () => {
       if (textRef.current && imageRef.current) {
         const textRect = textRef.current.getBoundingClientRect();
         const imageRect = imageRef.current.getBoundingClientRect();
 
-        // Verifica se o texto está próximo da imagem
         const distanceThreshold = window.innerWidth < 768 ? 80 : 100; // Ajuste para telas menores
 
         if (textRect.top < imageRect.bottom + distanceThreshold) {
@@ -84,67 +104,20 @@ const Section: React.FC = () => {
     window.addEventListener("scroll", handleScroll);
 
     return () => {
-      rellax.destroy(); // Limpeza ao desmontar
+      rellax.destroy();
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
-    <div
-      className={`${styles.section} ${styles["about-margin"]} animated wow fadeInUp`}
-    >
-      <div className="container">
-        <div className="row align-items-center justify-content-between">
-          <div className="col-lg-6 order-lg-2 mb-5 mb-lg-0">
-            <div className={styles.imageStack} ref={imageRef}>
-              <ImageStackItem src={content.img1Src} alt="Imagem 1" isRellax />
-              <ImageStackItem
-                src={content.img2Src}
-                alt="Imagem 2"
-                delay={100}
-                isTop
-              />
-            </div>
-          </div>
-          <div className="col-lg-4 order-lg-1">
-            <div
-              ref={textRef}
-              style={{
-                transition: "margin-top 0.3s ease",
-                marginTop: isImageNear
-                  ? window.innerWidth < 768
-                    ? "30px"
-                    : "50px"
-                  : "0px", // Ajuste a distância em telas menores
-              }}
-            >
-              <h2
-                className={styles.heading}
-                data-aos="fade-up"
-                data-aos-delay="100"
-              >
-                {content.heading}
-              </h2>
-              {content.descriptions.map((description, index) => (
-                <p
-                  key={index}
-                  data-aos="fade-up"
-                  data-aos-delay={200 + index * 100}
-                >
-                  {description}
-                </p>
-              ))}
-              <p className="my-4" data-aos="fade-up" data-aos-delay="300">
-                <a href="#" className="btn btn-primary">
-                  {content.buttonText}
-                </a>
-              </p>
-            </div>
-          </div>
-        </div>
+    <SplitScreen colSizes={[6, 6]} showColumns={[true, true]}>
+      <Content />
+      <div className={styles.imageStack} ref={imageRef}>
+        <ImageStackItem src={content.img1Src} alt="" isRellax />
+        <ImageStackItem src={content.img2Src} alt="" delay={100} isTop />
       </div>
-    </div>
+    </SplitScreen>
   );
 };
 
-export default Section;
+export default About;
