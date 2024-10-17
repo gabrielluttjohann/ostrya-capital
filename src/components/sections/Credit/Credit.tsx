@@ -33,7 +33,7 @@ const Home: React.FC = () => {
         "Crédito com Garantia de Imóvel",
         "Crédito com Garantia de Veículo",
         "Financiamento de Veículo",
-        "Crédito Consignado Privado",
+        "Crédito Consignado Privado.",
       ],
       link: "#",
     },
