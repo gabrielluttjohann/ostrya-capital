@@ -40,9 +40,10 @@ const CallToAction: React.FC = () => {
     <section>
       <div className="py-24 bg-light py-5">
         <div className="container">
-          <div className="w-50 mx-auto text-center">
+          {/* Limitar a largura a 50% apenas em dispositivos grandes */}
+          <div className="w-100 w-lg-50 mx-auto text-center">
             <h2 className="mb-6 display-5 fw-bold mb-4">
-              Reestruturação Financeira Empresarial.
+              Reestruturação Financeira Empresarial
             </h2>
             <p className="mb-6 lh-lg">
               A nossa equipe tem ampla experiência em restruturação financeira
