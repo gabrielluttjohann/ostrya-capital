@@ -84,7 +84,7 @@ const Header: React.FC = () => {
 
           <div
             className={`collapse navbar-collapse ${
-              isMenuOpen ? "show bg-light mt-4 p-5" : ""
+              isMenuOpen ? "show bg-white mt-1" : ""
             }`}
             ref={menuRef}
           >
@@ -124,7 +124,11 @@ const NavItem: React.FC<{
   closeMenu: () => void;
 }> = ({ link, label, closeMenu }) => (
   <li className={`nav-item px-2 ${styles.menuItem}`}>
-    <Link href={link} className={`${styles.menuText} nav-link`} onClick={closeMenu}>
+    <Link
+      href={link}
+      className={`${styles.menuText} nav-link`}
+      onClick={closeMenu}
+    >
       {label}
     </Link>
   </li>

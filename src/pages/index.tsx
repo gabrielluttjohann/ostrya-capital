@@ -17,12 +17,6 @@ import hero from "../assets/img/hero/hero.jpg";
 const Index: React.FC = () => {
   return (
     <>
-      {/* <ParallaxEffect imageUrl={hero} minHeight={500}>
-        <div>
-          <p>hello</p>
-        </div>
-      </ParallaxEffect> */}
-
       <Header />
       <Hero />
       <About />

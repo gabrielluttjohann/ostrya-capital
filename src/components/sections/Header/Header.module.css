@@ -31,9 +31,6 @@
     display: none;
   }
 
-  .menuItem {
-    border: 1px solid rgba(0, 0, 0, 0.192);
-  }
   .menuItem:hover {
     background-color: var(--color-green);
     color: white;
