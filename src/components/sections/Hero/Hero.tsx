@@ -17,7 +17,7 @@ const RenderHeroContent: React.FC<{ title: string; paragraph: string }> = ({
 const HeroSection: React.FC = () => {
   const content = {
     title: "Bem-Vindo à Ostrya Capital",
-    paragraph: "Conheça as nossas soluções financeiras",
+    paragraph: "Conheça as nossas soluções financeiras.",
   };
   return (
     <>
