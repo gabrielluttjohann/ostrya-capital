@@ -28,7 +28,7 @@
 }
 
 .imageStack__item__top {
-  padding-top: 42px;
+  overflow: hidden;
   width: 40%;
 }
 

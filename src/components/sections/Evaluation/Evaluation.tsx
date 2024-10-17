@@ -24,12 +24,10 @@ const Images: React.FC = () => (
 // Componente de botões de ação
 const Actions: React.FC = () => (
   <div className="row g-4">
-    <div className="col-sm-6">
+    <div className="col-sm-6 ">
       <CollisionButton href="" text="Saiba Mais" />
     </div>
-    <div className="col-sm-6">
-      {/* <CollisionButton href="" text="+51 995099-494" /> */}
-    </div>
+   
   </div>
 );
 
@@ -47,7 +45,7 @@ const Content: React.FC = () => {
   const { littleTitle, title, descriptions } = content;
 
   return (
-    <div className="d-flex flex-column justify-content-center text-left h-100">
+    <div className="d-flex flex-column justify-content-center text-left h-100 my-4">
       <h5 className="fw-bold text-golden text-uppercase">{littleTitle}</h5>
       <h2 className="display-5 fw-bold mb-4">{title}</h2>
       {descriptions.map((description, index) => {

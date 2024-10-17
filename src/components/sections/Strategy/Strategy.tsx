@@ -10,7 +10,7 @@ const CustomButton: React.FC<{ href: string; text: string }> = ({
 }) => (
   <Button
     variant="primary"
-    className={cx("rounded-pill", "py-3", "px-5", "mt-2")}
+    className={cx("rounded-pill", "py-3", "px-5", "my-4")}
     href={href}
   >
     {text}

@@ -34,8 +34,8 @@ const SplitScreen: React.FC<SplitScreenProps> = ({
 
   return (
     <Container>
-      <Container className="row align-items-center justify-content-center">
-        <Container className={cx("z-2 my-120")}>
+      <Container className="row align-items-center justify-content-center mb-60">
+        <Container className={cx("z-2 py-5")}>
           <Row>
             {childArray.map((child, index) => (
               <Column

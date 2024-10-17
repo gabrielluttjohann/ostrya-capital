@@ -4,9 +4,9 @@ import { meaData as data } from "@/data/meaData";
 import { Little, H2 } from "@/layouts/TitleLayout";
 import CTAButton from "@/components/common/button/CTAButton/CTAButton";
 import Paragraph from "@/layouts/ParagraphLayout";
-import ImageScreen from "@/layouts/ImageScreen/ImageScreen";
-import { HERO_IMAGE, MEA_IMAGE } from "@/constants/images.c";
 import SplitScreen from "@/layouts/SplitScreen/SplitScreen";
+import ParallaxEffect from "@/components/effects/Parallax/Parallax";
+import MEA_IMAGE from "@/assets/img/mea/mea.png"
 
 interface MeaContentProps {
   littleTitle: string;
@@ -39,13 +39,7 @@ const Mea: React.FC = () => {
 
   return (
     <>
-      <ImageScreen
-        src={MEA_IMAGE}
-        alt=""
-        // imgHeight="view-height-75"
-        addOverlay
-        addParallax
-      >
+      <ParallaxEffect imageUrl={MEA_IMAGE} minHeight="70vh">
         <SplitScreen showColumns={[true, true]} colSizes={[6, 6]}>
           <MeaContent
             littleTitle={content.littleTitle}
@@ -56,7 +50,7 @@ const Mea: React.FC = () => {
           />
           <div></div>
         </SplitScreen>
-      </ImageScreen>
+      </ParallaxEffect>
     </>
   );
 };

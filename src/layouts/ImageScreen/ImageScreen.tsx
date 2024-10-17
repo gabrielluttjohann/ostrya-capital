@@ -1,52 +1,66 @@
-import React, { useRef } from "react";
-import Image from "next/image";
-import Overlay from "@/components/common/overlay/Overlay";
-import styles from "./ImageScreen.module.css";
-import ParallaxEffect from "@/components/effects/Parallax/Parallax";
+// ParallaxEffect.tsx
 
-interface ImageScreenProps {
+import React, { useRef, useEffect } from "react";
+import styles from "./Parallax.module.css";
+import Image from "next/image";
+
+interface ParallaxEffectProps {
+  layout: string;
+  objectFit: string;
   src: string;
   alt: string;
-  layout?: "fill" | "intrinsic" | "responsive" | "fixed";
-  objectFit?: "contain" | "cover" | "none" | "scale-down";
-  screenHeight?: string;
-  children?: React.ReactNode;
-  addOverlay?: boolean;
-  isPriority?: boolean;
-  addParallax?: boolean
+  imgHeight?: string; // Torne imgHeight opcional
 }
 
-const ImageScreen: React.FC<ImageScreenProps> = ({
+const ParallaxEffect: React.FC<ParallaxEffectProps> = ({
+  layout,
+  objectFit,
   src,
   alt,
-  layout = "fill",
-  objectFit = "cover",
-  screenHeight = "75vh",
-  children,
-  addOverlay,
-  isPriority,
+  imgHeight = "100vh", // Valor padrão
 }) => {
+  const parallaxRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLImageElement | null>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (parallaxRef.current && imageRef.current) {
+        const rect = parallaxRef.current.getBoundingClientRect();
+        const imageOffset = window.pageYOffset + rect.top;
+        const scrollY = window.pageYOffset;
+        const offsetY = (scrollY - imageOffset) * 0.8;
+        imageRef.current.style.transform = `translateY(${offsetY}px)`;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // Atualização inicial
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <div
+      ref={parallaxRef}
       className={styles.parallaxContainer}
-      style={{
-        height: screenHeight,
-        position: "relative",
-        overflow: "hidden",
-      }}
+      style={{ "--img-height": imgHeight } as React.CSSProperties} // Passa a altura como variável CSS
     >
-     
-     <ParallaxEffect alt="" imgHeight="vh-100" layout={""} objectFit={objectFit} src={src} />
-      {addOverlay && (
-        <div className={styles.overlay}>
-          <Overlay />
-        </div>
-      )}
-
-      <div className={styles.contentWrapper}>{children}</div>
+      <Image
+        ref={(node) => {
+          if (node) {
+            imageRef.current = node as HTMLImageElement;
+          }
+        }}
+        src={src}
+        alt={alt}
+        layout="fill"
+        objectFit={objectFit}
+        className={styles.parallaxBg}
+        priority
+      />
     </div>
   );
 };
 
-export default ImageScreen;
+export default ParallaxEffect;

@@ -1,7 +1,8 @@
 import React from "react";
-import { HERO_IMAGE } from "@/constants/images.c";
-import ImageScreen from "@/layouts/ImageScreen/ImageScreen";
 import SplitScreen from "@/layouts/SplitScreen/SplitScreen";
+import styles from "./Hero.module.css";
+import ParallaxEffect from "@/components/effects/Parallax/Parallax";
+import HERO_IMAGE from "../../../assets/img/hero/hero.jpg";
 
 const RenderHeroContent: React.FC<{ title: string; paragraph: string }> = ({
   title,
@@ -20,13 +21,7 @@ const HeroSection: React.FC = () => {
   };
   return (
     <>
-      <ImageScreen
-        src={HERO_IMAGE}
-        alt=""
-        isPriority
-        addOverlay
-        addParallax
-      >
+      <ParallaxEffect imageUrl={HERO_IMAGE} minHeight="80vh">
         <SplitScreen colSizes={[12, 0]} showColumns={[true, true]}>
           <RenderHeroContent
             title={content.title}
@@ -34,7 +29,7 @@ const HeroSection: React.FC = () => {
           />
           <div></div>
         </SplitScreen>
-      </ImageScreen>
+      </ParallaxEffect>
     </>
   );
 };

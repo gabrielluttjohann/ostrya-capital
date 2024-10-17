@@ -31,6 +31,6 @@ export const meaData: MeaData = {
   },
   cta: {
     link: "",
-    text: "",
+    text: "Fale com um especialista",
   },
 };

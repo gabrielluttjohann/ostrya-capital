@@ -62,9 +62,9 @@ const Header: React.FC = () => {
 
       {/* Navbar (se torna fixa após o scroll) */}
       <nav
-        className={`navbar navbar-expand-lg navbar-light bg-white shadow-sm ${styles.nav} ${
-          isSticky ? "fixed-top" : ""
-        }`}
+        className={`navbar navbar-expand-lg navbar-light bg-white shadow-sm ${
+          styles.nav
+        } ${isSticky ? "fixed-top " : ""}`}
       >
         <div className="container d-flex justify-content-between align-items-center">
           <Link href="/" className="navbar-brand">
@@ -83,26 +83,34 @@ const Header: React.FC = () => {
           </button>
 
           <div
-            className={`collapse navbar-collapse ${isMenuOpen ? "show" : ""}`}
+            className={`collapse navbar-collapse ${
+              isMenuOpen ? "show bg-light mt-4 p-5 " : ""
+            }`}
             ref={menuRef}
           >
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
-              <NavItem link="/" label="Home" closeMenu={closeMenu} />
+            <ul className="navbar-nav me-auto p-2 mb-2 mb-lg-0 ">
+              <NavItem link="/" label="Início" closeMenu={closeMenu} />
               <NavItem
-                link="/services"
-                label="Services"
+                link="/servicos"
+                label="Serviços"
                 closeMenu={closeMenu}
               />
-              <NavItem link="/about" label="About" closeMenu={closeMenu} />
-              <NavItem link="/contact" label="Contact" closeMenu={closeMenu} />
+              <NavItem link="/sobre" label="Sobre" closeMenu={closeMenu} />
+              <NavItem
+                link="/fale-conosco"
+                label="Fale Conosco"
+                closeMenu={closeMenu}
+              />
             </ul>
 
             {/* Collision Button */}
-            <CollisionButton
-              href="https://wa.me/00000000000"
-              icon="fab fa-whatsapp"
-              text="Fale Conosco"
-            />
+            <div className={styles.mobile}>
+              <CollisionButton
+                href="https://wa.me/00000000000"
+                icon="fab fa-whatsapp"
+                text="Fale Conosco"
+              />
+            </div>
           </div>
         </div>
       </nav>
@@ -115,8 +123,8 @@ const NavItem: React.FC<{
   label: string;
   closeMenu: () => void;
 }> = ({ link, label, closeMenu }) => (
-  <li className="nav-item">
-    <Link href={link} className="nav-link" onClick={closeMenu}>
+  <li className={`nav-item px-2 ${styles.menuItem}`}>
+    <Link href={link} className={`${styles.menuText} nav-link`} onClick={closeMenu}>
       {label}
     </Link>
   </li>

@@ -1,5 +1,6 @@
 .header {
   width: 100%;
+  z-index: 9999999;
 }
 
 .topBar {
@@ -17,9 +18,32 @@
   padding: 34px 0px;
 }
 
-
 @media (min-width: 0px) and (max-width: 991px) {
   .nav {
     padding: 0px;
+  }
+
+  .topBar {
+    display: none;
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  .menuItem {
+    border: 1px solid rgba(0, 0, 0, 0.192);
+  }
+  .menuItem:hover {
+    background-color: var(--color-green);
+    color: white;
+  }
+
+  .menuText {
+    color: black;
+  }
+
+  .menuText:hover {
+    color: white;
   }
 }

@@ -10,10 +10,3 @@
 .credit:hover {
   background: #ccc;
 }
-
-.credit-bg-image {
-  background-image: url("../../../assets/img/credit/credit.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  z-index: -1;
-}

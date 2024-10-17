@@ -67,19 +67,23 @@ const RenderContent: React.FC = () => (
     <RenderTitles />
     <RenderDescriptions />
     <RenderFeatures />
-    <CollisionButton
-      href={reestructureData.button.href}
-      buttonStyles={reestructureData.button.buttonStyles}
-      text={reestructureData.button.text}
-    />
+    <div className="my-4">
+      <CollisionButton
+        href={reestructureData.button.href}
+        buttonStyles={reestructureData.button.buttonStyles}
+        text={reestructureData.button.text}
+      />
+    </div>
   </>
 );
 
 const ReestructureSection: React.FC = () => (
-  <SplitScreen colSizes={[7, 5]} showColumns={[true, true]}>
-    <RenderContent />
-    <RenderImage />
-  </SplitScreen>
+  <div className="mt-60">
+    <SplitScreen colSizes={[7, 5]} showColumns={[true, true]}>
+      <RenderContent />
+      <RenderImage />
+    </SplitScreen>
+  </div>
 );
 
 const Reestructure: React.FC = () => <ReestructureSection />;

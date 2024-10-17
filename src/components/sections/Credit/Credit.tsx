@@ -1,7 +1,8 @@
-import { CREDIT_IMAGE } from "@/constants/images.c";
 import React, { useState } from "react";
 // Definindo os tipos para as variáveis
 import styles from "@/components/sections/Credit/Credit.module.css";
+import ParallaxEffect from "@/components/effects/Parallax/Parallax";
+import CREDIT_IMAGE from "@/assets/img/credit/credit.png";
 
 interface Service {
   title: string;
@@ -130,42 +131,40 @@ const Home: React.FC = () => {
     const [activeIndex, setActiveIndex] = useState<number>(0);
 
     return (
-      <section className={`${styles["credit-bg-image"]}  container-xx my-5`}>
-        <div className="container">
-          <div className="row g-5 d-flex align-items-center justify-content-center ">
-            <div className="col-lg-4">
-              <div className="nav w-100 d-flex flex-column" id="v-pills-tab">
-                {serviceList.map((service, index) => (
-                  <ServiceItem
-                    key={index}
-                    service={service}
-                    isActive={activeIndex === index}
-                    onClick={() => setActiveIndex(index)}
-                  />
-                ))}
-              </div>
+      <div className="container py-5">
+        <div className="row g-5 d-flex align-items-center justify-content-center ">
+          <div className="col-lg-4">
+            <div className="nav w-100 d-flex flex-column" id="v-pills-tab">
+              {serviceList.map((service, index) => (
+                <ServiceItem
+                  key={index}
+                  service={service}
+                  isActive={activeIndex === index}
+                  onClick={() => setActiveIndex(index)}
+                />
+              ))}
             </div>
-            <div className="col-lg-2"></div>
-            <div className="col-lg-6 card p-5 bg-white my-5 ">
-              <div className="tab-content w-100 h-100">
-                {serviceList.map((service, index) => (
-                  <ServiceTab
-                    key={index}
-                    service={{ ...service, active: activeIndex === index }}
-                  />
-                ))}
-              </div>
+          </div>
+          <div className="col-lg-2"></div>
+          <div className="col-lg-6 card p-5 bg-white my-5 ">
+            <div className="tab-content w-100 h-100">
+              {serviceList.map((service, index) => (
+                <ServiceTab
+                  key={index}
+                  service={{ ...service, active: activeIndex === index }}
+                />
+              ))}
             </div>
           </div>
         </div>
-      </section>
+      </div>
     );
   };
 
   return (
-    <div className="my-120 ">
+    <ParallaxEffect imageUrl={CREDIT_IMAGE} minHeight="70vh">
       <ServiceSection />
-    </div>
+    </ParallaxEffect>
   );
 };
 

@@ -1,47 +1,43 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Parallax.module.css";
-import Image from "next/image";
+import { StaticImageData } from "next/image";
 
-const ParallaxEffect: React.FC<{
-  layout: string;
-  objectFit: string;
-  src: string;
-  alt: string;
-  imgHeight: string;
-}> = ({ layout, objectFit, src, alt, imgHeight }) => {
-  const [offsetY, setOffsetY] = useState(0);
-  const parallaxRef = useRef<HTMLDivElement>(null);
+interface ParallaxEffectProps {
+  imageUrl: StaticImageData;
+  minHeight?: string;
+  children?: React.ReactNode;
+}
+
+const ParallaxEffect: React.FC<ParallaxEffectProps> = ({
+  imageUrl,
+  minHeight: minViewportHeight = "100vh",
+  children,
+}) => {
+  const [isParallaxSupported, setIsParallaxSupported] = useState(true);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (parallaxRef.current) {
-        const rect = parallaxRef.current.getBoundingClientRect();
-        const imageOffset = window.scrollY + rect.top; // Posição da imagem
-        const scrollY = window.scrollY; // Valor absoluto do scroll
-        setOffsetY((scrollY - imageOffset) * 0.5); // Parallax relativo à imagem
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    const isSupported = window.matchMedia("(min-width: 1024px)").matches;
+    setIsParallaxSupported(isSupported);
   }, []);
 
   return (
     <div
-      ref={parallaxRef}
-      className={`${styles.parallaxContainer} ${imgHeight}`}
+      className={styles.parallax}
+      style={{
+        backgroundImage: `url(${imageUrl.src})`,
+        minHeight: `${minViewportHeight}`,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundAttachment: isParallaxSupported ? "fixed" : "scroll",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        WebkitBackgroundSize: "cover",
+        MozBackgroundSize: "cover",
+        OBackgroundSize: "cover",
+      }}
     >
-      <Image
-        src={src}
-        alt={alt}
-        layout="fill"
-        objectFit={objectFit}
-        className={styles.parallaxBg}
-        style={{ transform: `translateY(${offsetY}px)` }}
-        priority
-      />
+      {children}
     </div>
   );
 };
