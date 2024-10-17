@@ -1,67 +1,45 @@
 import React from "react";
-import Image from "next/image";
-import styles from "@/components/sections/About/About.module.css";
-import { ABOUT_IMAGE_01, ABOUT_IMAGE_02 } from "@/constants/images.c";
-import SplitScreen from "@/layouts/SplitScreen/SplitScreen";
+import ABOUT_IMAGE from "@/assets/img/about/about.jpg";
 
-// Interface para as propriedades da seção
-interface SectionProps {
-  heading: string;
-  descriptions: Array<string>;
-  buttonText: string;
-  img1Src: string;
-  img2Src: string;
-}
-
-// Conteúdo da seção
-const content: SectionProps = {
-  heading:
-    "Conte com uma equipe que já participou da análise de mais de R$ 50,0 bilhões em crédito",
-  descriptions: [
-    "Como parceira de diversas instituições financeiras, oferecemos um serviço personalizado que permite comparar taxas de juros e demais condições disponíveis em vários bancos, de forma que podemos oferecer a solução de crédito mais interessante para você.",
-    "Conheça todos os nossos serviços e entenda como a Ostrya Capital pode auxiliar você e sua empresa.",
-  ],
-  buttonText: "Fale Com Um Especialista",
-  img1Src: ABOUT_IMAGE_01,
-  img2Src: ABOUT_IMAGE_02,
-};
-
-// Componente para exibir a imagem
-const ImageStackItem: React.FC<{ src: string; alt: string }> = ({
-  src,
-  alt,
-}) => (
-  <div className={`${styles.imageStackItem} ${styles.aboutMargin}`}>
-    <Image src={src} alt={alt} width={500} height={500} className="img-fluid" />
-  </div>
-);
-
-// Componente de conteúdo
-const Content: React.FC = () => (
-  <div className="d-flex flex-column align-items-center">
-    <h2 className={styles.heading} data-aos="fade-up" data-aos-delay="100">
-      {content.heading}
-    </h2>
-    {content.descriptions.map((description, index) => (
-      <p key={index} data-aos="fade-up">
-        {description}
-      </p>
-    ))}
-  </div>
-);
-
-// Componente principal Section
-const About: React.FC = () => {
+const Section: React.FC = () => {
   return (
-    <SplitScreen colSizes={[6, 6]} showColumns={[true, true]}>
-      <div className="d-flex flex-column justify-content-center align-items-center h-100">
-        <Content />
+    <section className="bg-light position-relative py-5">
+      <div className="container">
+        <div className="row">
+          <div className="col-12 col-lg-5 d-flex flex-column align-items-start">
+            <img
+              className="img-fluid mb-5 d-lg-none"
+              src={ABOUT_IMAGE.src}
+              alt=""
+            />
+            <h2 className="display-6 mb-4 fw-bold">
+              Conte com uma equipe que já participou da análise de mais de R$
+              50,0 bilhões em crédito
+            </h2>
+            <p className="text-muted mb-4">
+              Como parceira de diversas instituições financeiras, oferecemos um
+              serviço personalizado que permite comparar taxas de juros e demais
+              condições disponíveis em vários bancos, de forma que podemos
+              oferecer a solução de crédito mais interessante para você.
+            </p>
+            <p className="text-muted mb-4">
+              Conheça todos os nossos serviços e entenda como a Ostrya Capital
+              pode auxiliar você e sua empresa.
+            </p>
+          </div>
+          <div
+            className="d-none d-lg-block position-absolute top-0 end-0 h-100"
+            style={{
+              width: "50%",
+              backgroundImage: `url('${ABOUT_IMAGE.src}')`,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+            }}
+          ></div>
+        </div>
       </div>
-      <div className="d-flex flex-column justify-content-center align-items-center h-100">
-        <Image alt="" width={500} height={500} src={content.img1Src} />
-      </div>
-    </SplitScreen>
+    </section>
   );
 };
 
-export default About;
+export default Section;

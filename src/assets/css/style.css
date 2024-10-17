@@ -196,3 +196,7 @@ body {
 .mt-60 {
   margin-top: 60px;
 }
+
+.py-120 {
+  padding: 120px 0;
+}

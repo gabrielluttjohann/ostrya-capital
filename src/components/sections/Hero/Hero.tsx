@@ -6,7 +6,7 @@ import HERO_IMAGE_3 from "../../../assets/img/hero/hero-3.png"; // Adicione suas
 
 const HeroSection: React.FC = () => {
   return (
-    <div>
+    <div className="bg-light">
       <Carousel interval={2000}>
         <Carousel.Item>
           <div
@@ -131,7 +131,7 @@ const FeatureSection: React.FC = () => {
   ];
 
   return (
-    <div className="container pt-4">
+    <div className="container  pt-4">
       <div className="row justify-content-center">
         {features.map((feature, index) => (
           <FeatureItem
