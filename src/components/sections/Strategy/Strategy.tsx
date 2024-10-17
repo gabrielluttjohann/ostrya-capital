@@ -1,91 +1,52 @@
 import React from "react";
-import cx from "classnames";
-import { Row, Col, Button, Card } from "react-bootstrap";
-import { strategyFeatures, strategyTexts } from "@/data/strategyData";
-import SplitScreen from "@/layouts/SplitScreen/SplitScreen";
-
-const CustomButton: React.FC<{ href: string; text: string }> = ({
-  href,
-  text,
-}) => (
-  <Button
-    variant="primary"
-    className={cx("rounded-pill", "py-3", "px-5", "my-4")}
-    href={href}
-  >
-    {text}
-  </Button>
-);
-
-const StrategyHeader: React.FC = () => (
-  <div>
-    <h5
-      className={cx(
-        "d-inline-block",
-        "rounded-pill",
-        "mb-3",
-        "text-golden",
-        "text-uppercase",
-        "fw-bold"
-      )}
-    >
-      {strategyTexts.header}
-    </h5>
-    <h2 className={cx("display-7", "mb-4", "fw-bold")}>{strategyTexts.title}</h2>
-    <p>{strategyTexts.description}</p>
-    <CustomButton href="#" text="Saiba Mais" />
-  </div>
-);
-
-const StrategyItem: React.FC<{
-  iconClass: string;
-  title: string;
-  description: string;
-}> = ({ iconClass, title, description }) => (
-  <Col sm={12} className={cx("mb-3")}>
-    <Card className="border-0">
-      <Card.Body className="d-flex align-items-start">
-        <div className="flex-shrink-0 me-3">
-          <i
-            className={cx(
-              "fa",
-              iconClass,
-              "p-3",
-              "rounded-circle",
-              "text-white",
-              "bg-green"
-            )}
-          ></i>
-        </div>
-        <div>
-          <Card.Title className="mb-2">{title}</Card.Title>
-          <Card.Text className="text-alt">{description}</Card.Text>
-        </div>
-      </Card.Body>
-    </Card>
-  </Col>
-);
+import { strategyTexts, strategyFeatures } from "@/data/strategyData"; // Ajuste o caminho conforme necessário
 
 const StrategySection: React.FC = () => {
-  const renderStrategyItems = (start: number, end: number) => (
-    <Row>
-      {strategyFeatures.slice(start, end).map((feature, index) => (
-        <StrategyItem
-          key={index + start}
-          iconClass={feature.iconClass}
-          title={feature.title}
-          description={feature.description}
-        />
-      ))}
-    </Row>
-  );
-
   return (
-    <SplitScreen colSizes={[4, 4, 4]} showColumns={[true, true, true]}>
-      <StrategyHeader />
-      {renderStrategyItems(0, 3)}
-      {renderStrategyItems(3, 6)}
-    </SplitScreen>
+    <section className="">
+      <div className="bg-light py-5 my-60 ">
+        <div className="container-xxl max-w-screen-xl ">
+          <div className="row align-items-center ">
+            <div className="col-lg-8">
+              <h2 className="display-5 fw-bold display-5 mb-3 ">
+                {strategyTexts.title}
+              </h2>
+              <p className="text-lg">{strategyTexts.description}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="container-xxl max-w-screen-xl">
+        <div className="row mt-20">
+          <div className="col-lg-12 mx-auto">
+            <div className="row g-16">
+              {strategyFeatures.map((feature, index) => (
+                <div className="col-sm-6 col-md-4" key={index}>
+                  <section>
+                    <div
+                      className="icon icon-lg text-green mb-3"
+                      style={{
+                        width: "60px", // Ajuste o tamanho do círculo
+                        height: "60px", // Ajuste o tamanho do círculo
+                        borderRadius: "50%", // Círculo perfeito
+                        border: "2px solid #ccc", // Borda circular
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
+                      <i className={`fas ${feature.iconClass} fa-2x`}></i>
+                    </div>
+                    <h3 className="h4 fw-bold mb-2">{feature.title}</h3>
+                    <p>{feature.description}</p>
+                  </section>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 
