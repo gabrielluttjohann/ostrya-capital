@@ -8,12 +8,7 @@ import Evaluation from "@/components/sections/Evaluation/Evaluation";
 import Assistance from "@/components/sections/Assistance/Assistance";
 import Header from "@/components/sections/Header/Header";
 import About from "@/components/sections/About/About";
-import CTA from "@/components/sections/CTA/CTA.tsx"
-import ParallaxEffect from "@/components/effects/Parallax/Parallax";
-import { HERO_IMAGE } from "@/constants/images.c";
-// import { HERO_IMAGE, MEA_IMAGE } from "@/constants/images.c";
-// const heroImage = require("/assets/img/hero/hero.png");
-import hero from "../assets/img/hero/hero.jpg";
+import CTA from "@/components/sections/CTA/CTA"
 import ContactForm from "@/components/sections/ContactForm/ContactForm";
 
 const Index: React.FC = () => {
@@ -23,9 +18,9 @@ const Index: React.FC = () => {
       <Hero />
       <About />
       <Assistance />
-      <CTA />
       <Credit />
       <Reestructure />
+      <CTA />
       <Mea />
       <Evaluation />
       <StrategySection />

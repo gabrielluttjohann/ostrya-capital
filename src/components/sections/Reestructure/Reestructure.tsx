@@ -1,91 +1,89 @@
 import React from "react";
-import Image from "next/image";
-import CollisionButton from "../../common/button/CollisionButton/CollisionButton";
-import SplitScreen from "@/layouts/SplitScreen/SplitScreen";
-import { reestructureData } from "@/data/reestructureData";
 
-const RenderImage: React.FC = () => (
-  <div style={{ minHeight: "500px", height: "100%" }}>
-    <div className="position-relative h-100">
-      <Image
-        className="position-absolute w-100 h-100 rounded"
-        src={reestructureData.image.src}
-        width={500}
-        height={500}
-        alt={reestructureData.image.alt}
-        onError={(e) =>
-          (e.currentTarget.src = reestructureData.image.placeholder)
-        }
-        style={{ objectFit: "cover", height: "100%" }}
-      />
-    </div>
-  </div>
-);
-
-const RenderFeatureItem: React.FC<{ text: string }> = ({ text }) => (
-  <div className="d-flex py-3">
-    <div>
-      <i className="fa fa-check text-golden me-3"></i>
-    </div>
-    <div>
-      <span>{text}</span>
-    </div>
-  </div>
-);
-
-const RenderFeatures: React.FC = () => (
-  <div className="row g-0 mb-3">
-    {reestructureData.features.map((feature, index) => (
-      <div className="col-sm-6" key={index}>
-        <RenderFeatureItem text={feature} />
+const CallToAction: React.FC = () => {
+  const CallToActionCard = ({
+    iconClass,
+    title,
+    description,
+  }: {
+    iconClass: string;
+    title: string;
+    description: string;
+  }) => {
+    return (
+      <div className="col-12 col-lg-4 mb-8 mb-lg-0">
+        <div className="mw-xs mx-auto text-center">
+          <div
+            style={{
+              width: "60px", // Tamanho do círculo
+              height: "60px", // Tamanho do círculo
+              backgroundColor: "#f0f0f0", // Cor de fundo do círculo
+              borderRadius: "50%", // Círculo perfeito
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              marginBottom: "1rem", // Espaçamento abaixo do círculo
+              border: "2px solid #ccc", // Borda circular (pode ser ajustada)
+              margin: "0 auto", // Alinhamento central
+            }}
+          >
+            <i className={`${iconClass} fa-2x`} aria-hidden="true"></i>
+          </div>
+          <h5 className="mt-6 mb-2 lh-lg font-heading">{title}</h5>
+          <p className="mb-0">{description}</p>
+        </div>
       </div>
-    ))}
-  </div>
-);
+    );
+  };
 
-const RenderDescriptions: React.FC = () => (
-  <>
-    {reestructureData.descriptions.map((description, index) => (
-      <p key={index} className="mb-4">
-        {description}
-      </p>
-    ))}
-  </>
-);
+  return (
+    <section>
+      <div className="py-24 bg-light py-5">
+        <div className="container">
+          <div className="w-50 mx-auto text-center">
+            <h2 className="mb-6 display-5 fw-bold mb-4">
+              Reestruturação Financeira Empresarial.
+            </h2>
+            <p className="mb-6 lh-lg">
+              A nossa equipe tem ampla experiência em restruturação financeira
+              de empresas, já tendo participado diretamente da recuperação de
+              alguns dos maiores grupos econômicos do sul do país, somando mais
+              de R$ 3,0 bilhões em crédito restruturado.
+            </p>
+            <p className="mb-6 lh-lg">
+              A experiência nos mostra que a restruturação da empresa é mais
+              importante do que apenas a restruturação do crédito, para que seja
+              possível recuperar o negócio de forma sustentável.
+            </p>
+            <a className="btn btn-primary p-3 rounded-pill" href="#">
+              Saiba Mais
+            </a>
+          </div>
+        </div>
+      </div>
+      <div className="bg-white my-60">
+        <div className="container">
+          <div className="row">
+            <CallToActionCard
+              iconClass="fas fa-handshake"
+              title="Negociação de dívidas"
+              description="Reestruturação de crédito personalizada"
+            />
+            <CallToActionCard
+              iconClass="fas fa-building"
+              title="Intermediação direta com grandes bancos"
+              description="Equipes especializadas para intermediação"
+            />
+            <CallToActionCard
+              iconClass="fas fa-chart-line"
+              title="Soluções financeiras estratégicas"
+              description="Otimização de prazos e taxas"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
-const RenderTitles: React.FC = () => (
-  <>
-    <h5 className="fw-bold text-golden text-uppercase">
-      {reestructureData.titles.littleTitle}
-    </h5>
-    <h2 className="mb-3 display-5 fw-bold">{reestructureData.titles.title}</h2>
-  </>
-);
-
-const RenderContent: React.FC = () => (
-  <>
-    <RenderTitles />
-    <RenderDescriptions />
-    <RenderFeatures />
-    <div className="my-4">
-      <CollisionButton
-        href={reestructureData.button.href}
-        buttonStyles={reestructureData.button.buttonStyles}
-        text={reestructureData.button.text}
-      />
-    </div>
-  </>
-);
-
-const ReestructureSection: React.FC = () => (
-  <div className="mt-60">
-    <SplitScreen colSizes={[7, 5]} showColumns={[true, true]}>
-      <RenderContent />
-      <RenderImage />
-    </SplitScreen>
-  </div>
-);
-
-const Reestructure: React.FC = () => <ReestructureSection />;
-
-export default Reestructure;
+export default CallToAction;

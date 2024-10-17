@@ -1,44 +1,24 @@
-import React, { useState } from "react";
-import styles from "@/components/sections/Credit/Credit.module.css";
-import CREDIT_IMAGE from "@/assets/img/credit/credit.png";
+import { useState, useEffect } from "react";
 
-interface Service {
-  title: string;
-  icon: string;
-  description: string;
-  features: string[];
-  link: string;
-}
-
-const credit = {
-  imageSrc: CREDIT_IMAGE,
-  descriptions: [
-    "A nossa equipe tem ampla experiência na análise e deliberação de crédito para empresas de diversos portes e segmentos e para pessoas físicas, <strong>já tendo participado diretamente da concessão de mais de R$ 50,0 bilhões em crédito</strong>. Assim, você terá ao seu lado profissionais com muito conhecimento e experiência em crédito.",
-    "<strong>Como parceira de diversas instituições financeiras, oferecemos um serviço personalizado que permite comparar taxas de juros e demais condições disponíveis em vários bancos, de forma que podemos oferecer a solução de crédito mais interessante para você</strong>. Assim, atuamos como consultores especializados, conectando você às melhores opções de crédito disponíveis no mercado.",
-    "<strong>Nosso compromisso é encontrar as soluções mais vantajosas</strong>, comparando taxas e benefícios de forma transparente e personalizada.",
-  ],
-};
-
-const serviceList: Service[] = [
+const sections = [
   {
+    id: "personal",
     title: "Para Você",
-    icon: "fa-user",
     description:
       "Soluções de financiamento para atender suas necessidades pessoais.",
-    features: [
+    items: [
       "Financiamento Imobiliário",
       "Crédito com Garantia de Imóvel",
       "Crédito com Garantia de Veículo",
       "Financiamento de Veículo",
-      "Crédito Consignado Privado.",
+      "Crédito Consignado Privado",
     ],
-    link: "#",
   },
   {
-    title: "Para sua Empresa",
-    icon: "fa-building",
+    id: "business",
+    title: "Para Sua Empresa",
     description: "Soluções financeiras específicas para o seu negócio.",
-    features: [
+    items: [
       "Conta corrente",
       "Cartão de crédito",
       "Desconto de recebíveis",
@@ -48,27 +28,25 @@ const serviceList: Service[] = [
       "Leasing",
       "Câmbio",
     ],
-    link: "#",
   },
   {
+    id: "agro",
     title: "Para o Agronegócio",
-    icon: "fa-leaf",
     description: "Financiamentos voltados para o desenvolvimento agrícola.",
-    features: [
+    items: [
       "Custeio",
       "Investimento",
       "Comercialização",
       "Cédula de Produto Rural",
       "Certificado Depósito Agropecuário",
     ],
-    link: "#",
   },
   {
+    id: "other",
     title: "Outras Soluções",
-    icon: "fa-cogs",
     description:
       "Outras opções financeiras que podem atender suas necessidades.",
-    features: [
+    items: [
       "Conta Escrow",
       "Cessão de Precatórios",
       "Cessão de direitos Creditórios",
@@ -76,89 +54,92 @@ const serviceList: Service[] = [
       "Consórcio",
       "Seguros",
     ],
-    link: "#",
   },
 ];
 
-const ServiceItem: React.FC<{
-  service: Service;
-  isActive: boolean;
-  onClick: () => void;
-}> = ({ service, isActive, onClick }) => {
-  return (
-    <button
-      className={`nav-link border w-100 d-flex align-items-center text-start p-4 mb-4 ${
-        isActive ? "bg-primary text-white shadow-lg" : "bg-white text-dark"
-      }`}
-      onClick={onClick}
-      type="button"
-      style={{
-        borderRadius: "10px",
-        transition: "background-color 0.3s ease, transform 0.2s ease",
-        transform: isActive ? "scale(1.05)" : "none",
-      }}
-    >
-      <i className={`fa ${service.icon} fa-2x me-3`}></i>
-      <h4 className="m-0">{service.title}</h4>
-    </button>
-  );
-};
+const FinancialSolutions = () => {
+  const [selectedSection, setSelectedSection] = useState(0);
 
-const ServiceTab: React.FC<{
-  service: Service & { active: boolean };
-}> = ({ service }) => (
-  <div className={`tab-pane fade ${service.active ? "show active" : ""}`}>
-    <div className="row g-1">
-      <h3 className="mb-3 fw-bold fs-2 text-primary">{service.description}</h3>
-      {service.features.map((feature, index) => (
-        <p key={index}>
-          <i className="fa fa-check text-success me-3"></i>
-          {feature}
-        </p>
-      ))}
-      <a href={service.link} className="btn btn-primary py-3 px-5 mt-3">
-        Fale com um especialista <i className="fa fa-arrow-right ms-2"></i>
-      </a>
-    </div>
-  </div>
-);
-
-const ServiceSection: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState<number>(0);
+  // Faz a troca automática dos slides a cada 5 segundos
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSelectedSection((prev) => (prev + 1) % sections.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <div className="container py-5">
-      <div className="row g-5 d-flex align-items-center justify-content-center">
-        <div className="col-lg-4">
-          <div className="nav w-100 d-flex flex-column" id="v-pills-tab">
-            {serviceList.map((service, index) => (
-              <ServiceItem
-                key={index}
-                service={service}
-                isActive={activeIndex === index}
-                onClick={() => setActiveIndex(index)}
-              />
-            ))}
+    <section className="py-5 bg-green">
+      <div className="container">
+        <div className="row align-items-center">
+          <div className="col-lg-auto d-none d-lg-block">
+            <button
+              className="btn bg-white d-flex align-items-center justify-content-center p-0"
+              style={{ width: "64px", height: "64px" }}
+              onClick={() =>
+                setSelectedSection(
+                  (selectedSection - 1 + sections.length) % sections.length
+                )
+              }
+            >
+              <svg
+                style={{ width: "24px", height: "24px" }}
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.70711 12H18.5C18.7761 12 19 12.2239 19 12.5C19 12.7761 18.7761 13 18.5 13H8.70711L11.8536 16.1464C12.0488 16.3417 12.0488 16.6583 11.8536 16.8536C11.6583 17.0488 11.3417 17.0488 11.1464 16.8536L7.14645 12.8536C6.95118 12.6583 6.95118 12.3417 7.14645 12.1464L11.1464 8.14645C11.3417 7.95118 11.6583 7.95118 11.8536 8.14645C12.0488 8.34171 12.0488 8.65829 11.8536 8.85355L8.70711 12Z"
+                  fill="#1C1917"
+                />
+              </svg>
+            </button>
           </div>
-        </div>
-        <div className="col-lg-2"></div>
-        <div className="col-lg-6 card p-5 bg-white shadow-sm my-5 rounded">
-          <div className="tab-content w-100 h-100">
-            {serviceList.map((service, index) => (
-              <ServiceTab
-                key={index}
-                service={{ ...service, active: activeIndex === index }}
-              />
-            ))}
+
+          <div className="col-12 col-lg-8 mx-auto text-center">
+            <h2 className="display-5 fw-bold mb-4 text-white">
+              {sections[selectedSection].title}
+            </h2>
+            <p className="text-white">
+              {sections[selectedSection].description}
+            </p>
+            <div className="lead">
+              <div className="d-flex flex-column align-items-center justify-content-center">
+                {sections[selectedSection].items.map((item, index) => (
+                  <div className="col-md-6 text-start" key={index}>
+                    <i className="fas fa-check text-white me-2"></i>
+                    <span className="text-white">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="col-lg-auto d-none d-lg-block">
+            <button
+              className="btn bg-white d-flex align-items-center justify-content-center p-0"
+              style={{ width: "64px", height: "64px" }}
+              onClick={() =>
+                setSelectedSection((selectedSection + 1) % sections.length)
+              }
+            >
+              <svg
+                style={{ width: "24px", height: "24px" }}
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17.2929 13H7.5C7.22386 13 7 12.7761 7 12.5C7 12.2239 7.22386 12 7.5 12H17.2929L14.1464 8.85355C13.9512 8.65829 13.9512 8.34171 14.1464 8.14645C14.3417 7.95118 14.6583 7.95118 14.8536 8.14645L18.8536 12.1464C19.0488 12.3417 19.0488 12.6583 18.8536 12.8536L14.8536 16.8536C14.6583 17.0488 14.3417 17.0488 14.1464 16.8536C13.9512 16.6583 13.9512 16.3417 14.1464 16.1464L17.2929 13Z"
+                  fill="#1C1917"
+                />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-const Home: React.FC = () => {
-  return <ServiceSection />;
-};
-
-export default Home;
+export default FinancialSolutions;

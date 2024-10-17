@@ -3,7 +3,7 @@ import CIRCLE from "@/assets/img/utils/circle.png";
 
 const CTA: React.FC = () => {
   return (
-    <section className="position-relative overflow-hidden">
+    <section className="my-120 position-relative overflow-hidden">
       <div className="position-relative container">
         <div className="py-120 position-relative bg-green overflow-hidden">
           <img
