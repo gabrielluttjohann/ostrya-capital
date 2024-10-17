@@ -84,7 +84,7 @@ const Header: React.FC = () => {
 
           <div
             className={`collapse navbar-collapse ${
-              isMenuOpen ? "show bg-light mt-4 p-5 " : ""
+              isMenuOpen ? "show bg-light mt-4 p-5" : ""
             }`}
             ref={menuRef}
           >
