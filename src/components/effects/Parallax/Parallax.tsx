@@ -13,13 +13,6 @@ const ParallaxEffect: React.FC<ParallaxEffectProps> = ({
   minHeight: minViewportHeight = "100vh",
   children,
 }) => {
-  const [isParallaxSupported, setIsParallaxSupported] = useState(true);
-
-  useEffect(() => {
-    const isSupported = window.matchMedia("(min-width: 1024px)").matches;
-    setIsParallaxSupported(isSupported);
-  }, []);
-
   return (
     <div
       className={styles.parallax}
@@ -29,7 +22,7 @@ const ParallaxEffect: React.FC<ParallaxEffectProps> = ({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        backgroundAttachment: isParallaxSupported ? "fixed" : "scroll",
+        backgroundAttachment: "fixed",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         WebkitBackgroundSize: "cover",
