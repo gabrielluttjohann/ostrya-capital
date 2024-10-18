@@ -1,0 +1,11 @@
+.heroSection {
+  height: 90vh;
+}
+
+@media (max-width: 992px) {
+  .heroSection {
+    height: auto;
+  }
+
+ 
+}

@@ -1,18 +1,3 @@
-/**
-  * =======================================
-  * 1 - Root
-  * 2 - Typography Sizes
-  * 3 - Buttons
-  * 4 - Header
-  * =======================================
-*/
-
-/**
-  * =======================================
-  * 1 - Root
-  * =======================================
-*/
-/* styles/globals.css */
 @import url("https://fonts.googleapis.com/css2?family=Brygada+1918:wght@400;500;600;700&display=swap");
 
 :root {
@@ -33,58 +18,19 @@
   --color-green-alt: #013220d2;
 }
 
-/**
-  * =======================================
-  * 2 - Typography Sizes
-  * =======================================
-*/
 body {
   font-family: var(--font-family);
-  font-size: var(--font-size-medium); /* Tamanho padrão */
+  font-size: var(--font-size-medium);
+  cursor: none;
 }
 
-h5 {
-  color: #141313;
-}
 p {
   color: #646363;
 }
 
-.small-text {
-  font-size: var(--font-size-small);
-}
-
-.medium-text {
-  font-size: var(--font-size-medium);
-}
-
-.large-text {
-  font-size: var(--font-size-large);
-}
-
-.xl-text {
-  font-size: var(--font-size-xl);
-}
-
-.xxl-text {
-  font-size: var(--font-size-xxl);
-}
-
-/**
-  * =======================================
-  *  - Default Styles
-  * =======================================
-*/
-a {
-  text-decoration: none;
-}
-
 a {
   color: var(--color-green);
-}
-
-a:hover {
-  color: var(--color-golden);
+  text-decoration: none;
 }
 
 .text-green {
@@ -142,19 +88,6 @@ a:hover {
     padding-bottom: 3rem;
   }
 }
-.section .subheading {
-  color: #f17945;
-}
-.section .heading {
-  font-size: 46px;
-  color: #343661;
-  font-weight: 700;
-}
-@media (max-width: 991.98px) {
-  .section .heading {
-    font-size: 30px;
-  }
-}
 
 .mb-120 {
   margin-bottom: 220px;
@@ -171,32 +104,4 @@ a:hover {
 html,
 body {
   overflow-x: hidden;
-}
-
-.view-height-100 {
-  height: 100vh;
-}
-
-.view-height-80 {
-  height: 75vh;
-}
-
-.view-height-75 {
-  height: 75vh;
-}
-
-.vh-70 {
-  height: 70vh;
-}
-
-.mb-60 {
-  margin-bottom: 60px;
-}
-
-.mt-60 {
-  margin-top: 60px;
-}
-
-.py-120 {
-  padding: 120px 0;
 }

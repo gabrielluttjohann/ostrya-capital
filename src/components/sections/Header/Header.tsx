@@ -2,13 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Header.module.css";
-import CollisionButton from "@/components/common/button/CollisionButton/CollisionButton";
 import { LOGO_IMAGE } from "@/constants/images.c";
-import { SOCIAL_LINKS, CONTACT_INFORMATION } from "@/data/headerData";
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSticky, setIsSticky] = useState(false); // Estado para navbar fixa
+  const [isSticky, setIsSticky] = useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -19,7 +17,7 @@ const Header: React.FC = () => {
   const handleScroll = () => {
     if (headerRef.current) {
       const headerHeight = headerRef.current.offsetHeight;
-      setIsSticky(window.scrollY > headerHeight); // Define a navbar como fixa após ultrapassar o header
+      setIsSticky(window.scrollY > headerHeight);
     }
   };
 
@@ -41,7 +39,7 @@ const Header: React.FC = () => {
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     window.addEventListener("resize", handleResize);
-    window.addEventListener("scroll", handleScroll); // Monitoramento do scroll
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
@@ -52,28 +50,43 @@ const Header: React.FC = () => {
 
   return (
     <header ref={headerRef} className={styles.header}>
-      {/* Seção superior: Informações de Contato e Redes Sociais */}
-      <div className={`${styles.topBar}`}>
-        <div className="container d-flex justify-content-between align-items-center py-2">
-          <ContactInfo />
-          <SocialLinks />
-        </div>
-      </div>
-
-      {/* Navbar (se torna fixa após o scroll) */}
       <nav
-        className={`navbar navbar-expand-lg navbar-light bg-white shadow-sm ${
-          styles.nav
-        } ${isSticky ? "fixed-top " : ""}`}
+        className={`py-2 navbar-expand-lg bg-white shadow-sm ${styles.nav} ${
+          isSticky ? "fixed-top" : ""
+        }`}
       >
         <div className="container d-flex justify-content-between align-items-center">
-          <Link href="/" className="navbar-brand">
-            <Image src={LOGO_IMAGE} alt="Logo" width={80} height={40} />
+          {/* Logo à esquerda */}
+          <Link href="/" className="me-auto">
+            <Image src={LOGO_IMAGE} alt="Logo" width={100} height={50} />
           </Link>
+
+          {/* Itens do menu no centro */}
+          <div className="d-none d-lg-block mx-auto">
+            <ul className="navbar-nav">
+              <NavItem link="/" label="Início" closeMenu={closeMenu} />
+              <NavItem
+                link="/servicos"
+                label="Serviços"
+                closeMenu={closeMenu}
+              />
+              <NavItem link="/sobre" label="Sobre" closeMenu={closeMenu} />
+            </ul>
+          </div>
+
+          {/* Botão "Fale Conosco" no mobile */}
+          <div className={styles.mobile}>
+            <a
+              className={`py-3 btn btn-outline-dark d-block d-sm-inline-block`}
+              href="/fale-conosco"
+            >
+              Fale Conosco
+            </a>
+          </div>
 
           <button
             ref={buttonRef}
-            className="navbar-toggler"
+            className="navbar-toggler d-lg-none p-4"
             type="button"
             onMouseDown={(e) => e.preventDefault()}
             onClick={toggleMenu}
@@ -81,14 +94,13 @@ const Header: React.FC = () => {
           >
             {isMenuOpen ? "✖" : "☰"}
           </button>
+        </div>
+      </nav>
 
-          <div
-            className={`collapse navbar-collapse ${
-              isMenuOpen ? "show bg-white mt-1" : ""
-            }`}
-            ref={menuRef}
-          >
-            <ul className="navbar-nav me-auto p-2 mb-2 mb-lg-0 ">
+      {isMenuOpen && (
+        <div ref={menuRef} className="navbar-collapse bg-white">
+          <div className="container">
+            <ul className="navbar-nav me-auto p-2 mb-2 mb-lg-0">
               <NavItem link="/" label="Início" closeMenu={closeMenu} />
               <NavItem
                 link="/servicos"
@@ -102,18 +114,9 @@ const Header: React.FC = () => {
                 closeMenu={closeMenu}
               />
             </ul>
-
-            {/* Collision Button */}
-            <div className={styles.mobile}>
-              <CollisionButton
-                href="https://wa.me/00000000000"
-                icon="fab fa-whatsapp"
-                text="Fale Conosco"
-              />
-            </div>
           </div>
         </div>
-      </nav>
+      )}
     </header>
   );
 };
@@ -132,33 +135,6 @@ const NavItem: React.FC<{
       {label}
     </Link>
   </li>
-);
-
-const SocialLinks: React.FC = () => (
-  <div className="d-flex">
-    {SOCIAL_LINKS.map((link, index) => (
-      <a
-        key={index}
-        href={link.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="me-3"
-      >
-        <i className={link.icon}></i>
-      </a>
-    ))}
-  </div>
-);
-
-const ContactInfo: React.FC = () => (
-  <ul className="list-unstyled d-flex mb-0">
-    {CONTACT_INFORMATION.map((contact, index) => (
-      <li key={index} className="me-4 d-flex align-items-center">
-        <i className={`${contact.icon} me-2`}></i>
-        <span>{contact.text}</span>
-      </li>
-    ))}
-  </ul>
 );
 
 export default Header;

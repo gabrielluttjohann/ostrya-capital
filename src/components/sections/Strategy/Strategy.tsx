@@ -1,53 +1,58 @@
 import React from "react";
-import { strategyTexts, strategyFeatures } from "@/data/strategyData"; // Ajuste o caminho conforme necessário
+import SplitScreen from "@/layout/SplitScreen/SplitScreen";
+import cx from "classnames";
+import { strategyTexts, strategyFeatures } from "@/data/strategyData";
+import { Container, Row } from "react-bootstrap";
+import styles from "./Strategy.module.css";
 
-const StrategySection: React.FC = () => {
+const StrategyContent: React.FC = () => {
   return (
-    <section className="">
-      <div className="bg-light py-5 my-60 ">
-        <div className="container-xxl max-w-screen-xl ">
-          <div className="row align-items-center ">
-            <div className="col-lg-8">
-              <h2 className="display-5 fw-bold display-5 mb-3 ">
-                {strategyTexts.title}
-              </h2>
-              <p className="text-lg">{strategyTexts.description}</p>
-            </div>
-          </div>
-        </div>
+    <SplitScreen colSizes={[8]} showColumns={[true]}>
+      <div>
+        <h2 className="display-5 fw-bold display-5 mb-3 ">
+          {strategyTexts.title}
+        </h2>
+        <p> {strategyTexts.description}</p>
       </div>
-      <div className="container-xxl max-w-screen-xl">
-        <div className="row mt-20">
-          <div className="col-lg-12 mx-auto">
-            <div className="row g-16">
-              {strategyFeatures.map((feature, index) => (
-                <div className="col-sm-6 col-md-4" key={index}>
-                  <section>
-                    <div
-                      className="icon icon-lg text-green mb-3"
-                      style={{
-                        width: "60px", // Ajuste o tamanho do círculo
-                        height: "60px", // Ajuste o tamanho do círculo
-                        borderRadius: "50%", // Círculo perfeito
-                        border: "2px solid #ccc", // Borda circular
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                      }}
-                    >
-                      <i className={`fas ${feature.iconClass} fa-2x`}></i>
-                    </div>
-                    <h3 className="h4 fw-bold mb-2">{feature.title}</h3>
-                    <p>{feature.description}</p>
-                  </section>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    </SplitScreen>
   );
 };
 
-export default StrategySection;
+const StrategyFeatures: React.FC = () => {
+  return (
+    <Row>
+      {strategyFeatures.map((feature, index) => (
+        <SplitScreen colSizes={[4]} key={index}>
+          <div className="py-4 text-center">
+            <div className={`text-green text-center`}>
+              <i
+                className={`fas ${feature.iconClass} fa-2x mb-3 rounded border p-4 bg-light`}
+              ></i>
+            </div>
+            <h3 className="h4 fw-bold mb-2">{feature.title}</h3>
+            <p>{feature.description}</p>
+          </div>
+        </SplitScreen>
+      ))}
+    </Row>
+  );
+};
+
+function Strategy() {
+  return (
+    <section>
+      <div className="bg-light py-5 my-60 ">
+        <Container>
+          <StrategyContent />
+        </Container>
+      </div>
+      <div className="mb-60">
+        <Container>
+          <StrategyFeatures />
+        </Container>
+      </div>
+    </section>
+  );
+}
+
+export default Strategy;

@@ -42,7 +42,7 @@ export const MEA_IMAGE = require("@/assets/img/mea/mea.png");
 
 export const CREDIT_IMAGE = require("@/assets/img/credit/credit.png");
 
-export const HERO_IMAGE = require("@/assets/img/hero/hero.jpg");
+// export const HERO_IMAGE = require("@/assets/img/hero/hero.jpg");
 
 export const ABOUT_IMAGE_01 = require("@/assets/img/about/about-01.png");
 export const ABOUT_IMAGE_02 = require("@/assets/img/about/about-02.png");

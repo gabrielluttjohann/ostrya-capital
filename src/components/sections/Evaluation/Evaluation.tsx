@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import CollisionButton from "../../common/button/CollisionButton/CollisionButton";
 import { EVALUATION_IMAGE } from "@/constants/images.c";
-import SplitScreen from "@/layouts/SplitScreen/SplitScreen";
+import SplitScreen from "@/layout/SplitScreen/SplitScreen";
 
 // Componente de imagem sobreposta
 const Images: React.FC = () => (
