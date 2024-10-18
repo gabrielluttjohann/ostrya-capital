@@ -46,7 +46,7 @@ const SectionComponent: React.FC = () => {
               </p>
               <div>
                 <a
-                  className="my-60 p-4 btn bg-blue text-white d-block d-sm-inline-block"
+                  className="my-60 p-4 btn btn-primary text-white d-block d-sm-inline-block"
                   href="#"
                 >
                   Fale Agora Com um Especialista

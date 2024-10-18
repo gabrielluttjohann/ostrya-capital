@@ -3,12 +3,12 @@
 }
 
 .btn-primary {
-  background-color: var(--color-green) !important;
+  background-color: var(--color-blue) !important;
   border: 1px solid black;
 }
 
 .btn-primary:hover {
-  background-color: var(--color-green-alt) !important;
+  background-color: var(--color-blue) !important;
   border: 1px solid black;
 }
 
