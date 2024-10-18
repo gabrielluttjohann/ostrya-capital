@@ -34,7 +34,7 @@ const Actions: React.FC = () => (
 // Componente de conteúdo textual
 const Content: React.FC = () => {
   const content = {
-    littleTitle: "Avaliação",
+    littleTitle: "Avaliação.",
     title: "Avaliação de Empresas: Decisões Estratégicas Baseadas em Valor",
     descriptions: [
       "A avaliação de empresas  é fundamental para subsidiar decisões estratégicas em diversos momentos do ciclo de vida de uma empresa. Nosso serviço de avaliação oferece uma análise detalhada para estimar o valor do seu negócio.",
