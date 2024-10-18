@@ -12,7 +12,7 @@ const socialLinks = [
 const SectionComponent: React.FC = () => {
   return (
     <section
-      className={`position-relative overflow-hidden ${styles.heroSection}`}
+      className={`bg-light position-relative overflow-hidden ${styles.heroSection}`}
     >
       <div
         className="d-flex flex-column-reverse flex-lg-row align-items-center"
@@ -46,10 +46,10 @@ const SectionComponent: React.FC = () => {
               </p>
               <div>
                 <a
-                  className="my-60 p-4 btn btn-primary d-block d-sm-inline-block"
+                  className="my-60 p-4 btn bg-blue text-white d-block d-sm-inline-block"
                   href="#"
                 >
-                  Fale Agora com um Especialista
+                  Fale Agora Com um Especialista
                 </a>
               </div>
 

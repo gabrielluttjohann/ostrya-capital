@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./Assistance.module.css";
 
 // Componente para o cartão
 const Card: React.FC<{
@@ -9,9 +10,8 @@ const Card: React.FC<{
     {" "}
     {/* Alterado para col-lg-3 */}
     <div className="text-left">
-      <h4 className="fw-bold display-7 mb-3">{title}</h4>
-      <p className="text-secondary">{description}</p>
-     
+      <h4 className="fw-bold h3 my-5 text-white">{title}</h4>
+      <p className="text-white lead">{description}</p>
     </div>
   </div>
 );
@@ -42,7 +42,9 @@ const MainSection: React.FC = () => {
   ];
 
   return (
-    <section className="my-120 py-12 py-sm-24 position-relative overflow-hidden">
+    <section
+      className={`py-120 position-relative overflow-hidden bg-blue`}
+    >
       <img
         className="position-absolute top-0 start-100 translate-middle"
         src="flaro-assets/images/cta/gradient4.svg"
@@ -50,7 +52,9 @@ const MainSection: React.FC = () => {
       />
       <div className="container position-relative">
         <div className="mb-4 pb-4 border-bottom">
-          <h1 className="display-5 fw-bold h2">Como Facilitamos seu acesso ao crédito?</h1>
+          <h2 className="display-5 fw-bold mb-5 text-white">
+            Como Facilitamos Seu Acesso ao Crédito?
+          </h2>
         </div>
         <div className="row">
           {cardData.map((card, index) => (

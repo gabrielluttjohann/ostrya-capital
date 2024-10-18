@@ -9,6 +9,7 @@ import Evaluation from "@/components/sections/Evaluation/Evaluation";
 import Assistance from "@/components/sections/Assistance/Assistance";
 import CTA from "@/components/sections/CTA/CTA";
 import ContactForm from "@/components/sections/ContactForm/ContactForm";
+import Section from "@/components/sections/Section/Section";
 
 const Index: React.FC = () => {
   return (
@@ -16,7 +17,8 @@ const Index: React.FC = () => {
       <Header />
       <Hero />
       <Assistance />
-      <Credit />
+      <Section />
+      {/* <Credit /> */}
       <Reestructure />
       <CTA />
       <Mea />

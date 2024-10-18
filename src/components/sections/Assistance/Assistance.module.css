@@ -1,14 +1,14 @@
 .wallet {
-  --bg-color: #CEB2FC;
-  --bg-color-light: #F0E7FF;
+  --bg-color: #ceb2fc;
+  --bg-color-light: #f0e7ff;
   --text-color-hover: #fff;
   --box-shadow-color: rgba(206, 178, 252, 0.48);
 }
 
 .human-resources {
-  --bg-color: #DCE9FF;
+  --bg-color: #dce9ff;
   --bg-color-light: #f1f7ff;
-  --text-color-hover: #4C5656;
+  --text-color-hover: #4c5656;
   --box-shadow-color: rgba(220, 233, 255, 0.48);
 }
 
@@ -59,7 +59,7 @@
 
 .card p {
   font-size: 17px;
-  color: #4C5656;
+  color: #4c5656;
   margin-top: 30px;
   z-index: 1000;
   transition: color 0.3s ease-out;
@@ -107,4 +107,8 @@
   position: absolute;
   z-index: 0;
   transition: transform 0.3s ease-out;
+}
+
+.bgColor {
+  background-color: #243a5e;
 }

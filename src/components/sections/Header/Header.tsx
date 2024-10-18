@@ -55,7 +55,7 @@ const Header: React.FC = () => {
           isSticky ? "fixed-top" : ""
         }`}
       >
-        <div className="container d-flex justify-content-between align-items-center">
+        <div className="mx-5 d-flex justify-content-between align-items-center">
           {/* Logo à esquerda */}
           <Link href="/" className="me-auto">
             <Image src={LOGO_IMAGE} alt="Logo" width={100} height={50} />
