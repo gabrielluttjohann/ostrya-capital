@@ -86,7 +86,7 @@ const Header: React.FC = () => {
 
           <button
             ref={buttonRef}
-            className="navbar-toggler d-lg-none p-4"
+            className="navbar-toggler d-lg-none px-2 py-1  border"
             type="button"
             onMouseDown={(e) => e.preventDefault()}
             onClick={toggleMenu}
