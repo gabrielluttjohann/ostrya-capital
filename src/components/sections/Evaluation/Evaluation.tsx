@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import CollisionButton from "../../common/button/CollisionButton/CollisionButton";
+// import CollisionButton from "../../common/button/CollisionButton/CollisionButton";
 import { EVALUATION_IMAGE } from "@/constants/images.c";
 import SplitScreen from "@/layout/SplitScreen/SplitScreen";
 
@@ -25,7 +25,7 @@ const Images: React.FC = () => (
 const Actions: React.FC = () => (
   <div className="row g-4">
     <div className="col-sm-6 ">
-      <CollisionButton href="" text="Saiba Mais" />
+      {/* <CollisionButton href="" text="Saiba Mais" /> */}
     </div>
    
   </div>
