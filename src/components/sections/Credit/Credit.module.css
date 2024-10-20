@@ -1,12 +1,7 @@
-.credit {
-  background-color: var(--color-green-alt);
-  color: black;
-}
-
-.credit-active {
-  background: var(--color-green);
-}
-
-.credit:hover {
-  background: #ccc;
+@media (min-width: 375px) and (max-width: 1400px) {
+  .imgResponsive {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
 }

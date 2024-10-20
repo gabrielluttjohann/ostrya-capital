@@ -10,8 +10,8 @@ const Card: React.FC<{
     {" "}
     {/* Alterado para col-lg-3 */}
     <div className="text-left">
-      <h4 className="fw-bold h3 my-5 text-white">{title}</h4>
-      <p className="text-white lead">{description}</p>
+      <h4 className="fw-bold h3 my-5 text-black">{title}</h4>
+      <p className=" lead">{description}</p>
     </div>
   </div>
 );
@@ -42,9 +42,7 @@ const MainSection: React.FC = () => {
   ];
 
   return (
-    <section
-      className={`py-120 position-relative overflow-hidden bg-blue`}
-    >
+    <section className={`py-120 position-relative overflow-hidden bg-white`}>
       <img
         className="position-absolute top-0 start-100 translate-middle"
         src="flaro-assets/images/cta/gradient4.svg"
@@ -52,7 +50,7 @@ const MainSection: React.FC = () => {
       />
       <div className="container position-relative">
         <div className="mb-4 pb-4 border-bottom">
-          <h2 className="display-5 fw-bold mb-5 text-white">
+          <h2 className="display-5 fw-bold mb-5 text-black">
             Como Facilitamos Seu Acesso ao Crédito?
           </h2>
         </div>

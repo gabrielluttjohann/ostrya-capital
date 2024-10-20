@@ -1,140 +1,77 @@
-import { useState, useEffect } from "react";
+import React from "react";
+import Image from "next/image";
+import FOR_YOU_IMAGE from "@/assets/img/credit/for-you.png";
+import styles from "./Credit.module.css";
 
-const sections = [
-  {
-    id: "personal",
-    title: "Para Você",
-    description:
-      "Soluções de financiamento para atender suas necessidades pessoais.",
-    items: [
-      "Financiamento Imobiliário",
-      "Crédito com Garantia de Imóvel",
-      "Crédito com Garantia de Veículo",
-      "Financiamento de Veículo",
-      "Crédito Consignado Privado",
-    ],
-  },
-  {
-    id: "business",
-    title: "Para Sua Empresa",
-    description: "Soluções financeiras específicas para o seu negócio.",
-    items: [
-      "Conta corrente",
-      "Cartão de crédito",
-      "Desconto de recebíveis",
-      "Capital de giro",
-      "CDC máquinas e equipamentos",
-      "Financiamento de frota",
-      "Leasing",
-      "Câmbio",
-    ],
-  },
-  {
-    id: "agro",
-    title: "Para o Agronegócio",
-    description: "Financiamentos voltados para o desenvolvimento agrícola.",
-    items: [
-      "Custeio",
-      "Investimento",
-      "Comercialização",
-      "Cédula de Produto Rural",
-      "Certificado Depósito Agropecuário",
-    ],
-  },
-  {
-    id: "other",
-    title: "Outras Soluções",
-    description:
-      "Outras opções financeiras que podem atender suas necessidades.",
-    items: [
-      "Conta Escrow",
-      "Cessão de Precatórios",
-      "Cessão de direitos Creditórios",
-      "Mercado Livre de Energia",
-      "Consórcio",
-      "Seguros",
-    ],
-  },
-];
+interface FeatureProps {
+  title: string;
+  description: string;
+  linkHref: string;
+}
 
-const FinancialSolutions = () => {
-  const [selectedSection, setSelectedSection] = useState(0);
-
-  // Faz a troca automática dos slides a cada 5 segundos
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSelectedSection((prev) => (prev + 1) % sections.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
+const Feature: React.FC<FeatureProps> = ({ title, description, linkHref }) => {
   return (
-    <section className="py-5 bg-green">
-      <div className="container">
-        <div className="row align-items-center">
-          <div className="col-lg-auto d-none d-lg-block">
-            <button
-              className="btn bg-white d-flex align-items-center justify-content-center p-0"
-              style={{ width: "64px", height: "64px" }}
-              onClick={() =>
-                setSelectedSection(
-                  (selectedSection - 1 + sections.length) % sections.length
-                )
-              }
-            >
-              <svg
-                style={{ width: "24px", height: "24px" }}
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M8.70711 12H18.5C18.7761 12 19 12.2239 19 12.5C19 12.7761 18.7761 13 18.5 13H8.70711L11.8536 16.1464C12.0488 16.3417 12.0488 16.6583 11.8536 16.8536C11.6583 17.0488 11.3417 17.0488 11.1464 16.8536L7.14645 12.8536C6.95118 12.6583 6.95118 12.3417 7.14645 12.1464L11.1464 8.14645C11.3417 7.95118 11.6583 7.95118 11.8536 8.14645C12.0488 8.34171 12.0488 8.65829 11.8536 8.85355L8.70711 12Z"
-                  fill="#1C1917"
-                />
-              </svg>
-            </button>
-          </div>
+    <div className="mb-4">
+      <div className="my-4 d-flex align-items-center justify-content-between">
+        <h3 className="h4 fw-bold">{title}</h3>
+      </div>
+      <div>
+        <p className="text-muted lead">{description}</p>
+      </div>
+      <div className="border"></div>
+    </div>
+  );
+};
 
-          <div className="col-12 col-lg-8 mx-auto text-center">
-            <h2 className="display-5 fw-bold mb-4 text-white">
-              {sections[selectedSection].title}
-            </h2>
-            <p className="text-white">
-              {sections[selectedSection].description}
-            </p>
-            <div className="lead">
-              <div className="d-flex flex-column align-items-center justify-content-center">
-                {sections[selectedSection].items.map((item, index) => (
-                  <div className="col-md-6 text-start" key={index}>
-                    <i className="fas fa-check text-white me-2"></i>
-                    <span className="text-white">{item}</span>
-                  </div>
-                ))}
-              </div>
+const FeaturesSection: React.FC = () => {
+  return (
+    <section className="bg-light py-5 overflow-hidden">
+      <div className="container">
+        <div
+          className="border-start lead ps-4 border-3 mb-60"
+          style={{ maxWidth: "900px" }}
+        >
+          <h2 className="display-5 mb-4 fw-bold">Para Você</h2>
+          <p>
+            Soluções de Crédito Personalizadas para Pessoas Físicas:
+            Financiamentos e Linhas de Crédito com Garantia, Desenvolvidas para
+            Atender às Suas Necessidades de Aquisição, Reestruturação e
+            Crescimento Patrimonial
+          </p>
+        </div>
+
+        <div className={`row align-items-center mb-5 ${styles.imgResponsive}`}>
+          <div className="col-12  order-lg-1">
+            <div className="d-flex justify-content-center">
+              <Image
+                className="position-relative w-100 img-fluid"
+                src={FOR_YOU_IMAGE}
+                alt="Team"
+                layout="fill"
+                placeholder="blur"
+                blurDataURL="https://via.placeholder.com/500x300.png"
+              />
             </div>
           </div>
-
-          <div className="col-lg-auto d-none d-lg-block">
-            <button
-              className="btn bg-white d-flex align-items-center justify-content-center p-0"
-              style={{ width: "64px", height: "64px" }}
-              onClick={() =>
-                setSelectedSection((selectedSection + 1) % sections.length)
-              }
-            >
-              <svg
-                style={{ width: "24px", height: "24px" }}
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M17.2929 13H7.5C7.22386 13 7 12.7761 7 12.5C7 12.2239 7.22386 12 7.5 12H17.2929L14.1464 8.85355C13.9512 8.65829 13.9512 8.34171 14.1464 8.14645C14.3417 7.95118 14.6583 7.95118 14.8536 8.14645L18.8536 12.1464C19.0488 12.3417 19.0488 12.6583 18.8536 12.8536L14.8536 16.8536C14.6583 17.0488 14.3417 17.0488 14.1464 16.8536C13.9512 16.6583 13.9512 16.3417 14.1464 16.1464L17.2929 13Z"
-                  fill="#1C1917"
-                />
-              </svg>
-            </button>
+          {/* Conteúdo (com tamanho fixo ao lado da imagem em desktop e embaixo no mobile) */}
+          <div className="col-12  order-lg-2 my-5">
+            <div>
+              <Feature
+                title="Financiamento de Veículo"
+                description="Linhas de crédito para aquisição de veículos novos e usados, incluindo veículos leves, utilitários, caminhões e motocicletas. Oferece prazos de pagamento de até 60 meses, financiando até 80% do valor do veículo, com condições especiais para diferentes tipos de veículos."
+                linkHref="#"
+              />
+              <Feature
+                title="Financiamento Imobiliário"
+                description="Crédito destinado à compra, construção ou reforma de imóveis residenciais e comerciais, com opções de prazos longos e taxas atrativas para pessoas físicas e jurídicas que desejam adquirir seu imóvel ou realizar melhorias."
+                linkHref="#"
+              />
+              <Feature
+                title="Crédito com Garantia de Imóvel ou Veículo"
+                description="Linha de crédito que utiliza um imóvel ou veículo como garantia para obtenção de valores maiores e taxas mais competitivas. Ideal para consolidar dívidas, investir em novos projetos ou obter capital para diversas finalidades pessoais ou empresariais."
+                linkHref="#"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -142,4 +79,4 @@ const FinancialSolutions = () => {
   );
 };
 
-export default FinancialSolutions;
+export default FeaturesSection;

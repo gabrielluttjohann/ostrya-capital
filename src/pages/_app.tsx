@@ -4,7 +4,7 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import "@/assets/css/style.css"; // Verifique se a fonte está importada corretamente aqui
+import "@/assets/css/style.css"; 
 import "@/assets/css/spacing.css";
 import "@/assets/css/bootstrap-modifications.css";
 import "@/assets/css/fontawesome-all.min.css";
