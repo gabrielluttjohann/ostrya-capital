@@ -28,30 +28,19 @@ const ContactSection: React.FC = () => {
   return (
     <section className="py-5 bg-light">
       <div className="container mb-5">
-        <div className="row ">
-          {contactDetails.map((contact, index) => (
-            <div
-              key={index}
-              className="col-12 col-md-4 text-center mb-5 mb-md-0"
-            >
-              <Icon iconClass="fas fa-map-marker-alt" />
-              <p className="mb-1">{contact.address}</p>
-              <p className="mb-0">{contact.additionalInfo}</p>
-            </div>
-          ))}
-        </div>
+        <div className="row "></div>
       </div>
       <ContactWithMap mapIframe={mapIframe} />
       <div className="container" style={{ marginTop: "-96px" }}>
         <div className="row">
           <div className="col-12 col-md-9 col-lg-7 mx-auto">
-            <div className="p-3 p-lg-5 text-center rounded border bg-light">
-              <span className="text-muted">Lorem ipsum</span>
-              <h2 className="display-6 fw-bold mt-2 mb-5">
+            {/* <div className="p-3 p-lg-5 text-center rounded border bg-light"> */}
+            {/* <span className="text-muted">Lorem ipsum</span> */}
+            {/* <h2 className="display-6 fw-bold mt-2 mb-5">
                 Lorem ipsum dolor sit amet consectutar domor at elis
               </h2>
-              <ContactForm />
-            </div>
+              <ContactForm /> */}
+            {/* </div> */}
           </div>
         </div>
       </div>
@@ -59,25 +48,19 @@ const ContactSection: React.FC = () => {
   );
 };
 
-const ContactForm: React.FC = () => (
-  <form action="#">
-    <input className="form-control mb-3" type="text" placeholder="Name" />
-    <input className="form-control mb-3" type="email" placeholder="E-mail" />
-    <textarea
-      className="form-control mb-3"
-      name="message"
-      cols={30}
-      rows={10}
-      placeholder="Your Message..."
-    ></textarea>
-    <button className="btn btn-primary w-100">Action</button>
-  </form>
-);
-
-const contactDetails = [
-  { address: "1686, Geraldine Lane", additionalInfo: "New York, NY 10013" },
-  { address: "hello@wireframes.org", additionalInfo: "" },
-  { address: "+7-843-672-431", additionalInfo: "" },
-];
+// const ContactForm: React.FC = () => (
+//   <form action="#">
+//     <input className="form-control mb-3" type="text" placeholder="Name" />
+//     <input className="form-control mb-3" type="email" placeholder="E-mail" />
+//     <textarea
+//       className="form-control mb-3"
+//       name="message"
+//       cols={30}
+//       rows={10}
+//       placeholder="Your Message..."
+//     ></textarea>
+//     <button className="btn btn-primary w-100">Action</button>
+//   </form>
+// );
 
 export default ContactSection;

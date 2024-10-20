@@ -32,8 +32,8 @@ const Index: React.FC = () => {
       {/* <Evaluation /> */}
       {/* <Strategy /> */}
       {/* <Analysis /> */}
-      {/* <ContactForm /> */}
       <CTA2 />
+      <ContactForm />
       <Footer />
     </>
   );
