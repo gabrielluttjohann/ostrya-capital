@@ -1,8 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Brygada+1918:wght@400;500;600;700&display=swap");
 
 :root {
-  --font-family: "Brygada 1918", serif;
-
   --color-green: #013220;
   --color-golden: #b68d40;
   --color-sky: #eff7ff;
@@ -12,7 +9,7 @@
 }
 
 body {
-  font-family: var(--font-family);
+  font-family: "Brygada 1918", serif;
 }
 
 p {
