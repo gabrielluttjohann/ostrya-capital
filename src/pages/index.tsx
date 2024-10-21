@@ -25,7 +25,10 @@ const useScrollReveal = () => {
           }
         });
       },
-      { threshold: 0.3 }
+      {
+        threshold: 0.2, // Aumenta o threshold para detectar melhor a visibilidade
+        rootMargin: "0px 0px -10% 0px", // Ajusta o limite inferior da viewport (ajuste conforme necessário)
+      }
     );
 
     elements.forEach((el) => observer.observe(el));

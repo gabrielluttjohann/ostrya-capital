@@ -109,3 +109,15 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Mídia query para dispositivos móveis */
+@media (max-width: 768px) {
+  .reveal-on-scroll {
+    transform: translateY(30px); /* Reduz o deslocamento no celular */
+    transition: opacity 1s ease-out, transform 1s ease-out;
+  }
+  
+  .reveal-on-scroll.visible {
+    transform: translateY(0); /* Menos deslocamento no celular */
+  }
+}
