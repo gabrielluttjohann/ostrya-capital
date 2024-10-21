@@ -1,6 +1,6 @@
 const CTA2: React.FC = () => {
   return (
-    <section className="py-60 bg-light">
+    <section className="pt-120 bg-light">
       <div className="container">
         <div className="row">
           <div className="col-md-8">

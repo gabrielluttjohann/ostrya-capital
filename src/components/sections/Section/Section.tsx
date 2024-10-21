@@ -3,7 +3,7 @@ import BG from "@/assets/img/bg/bg.png";
 function Section() {
   return (
     <div
-      className="mb-120"
+      className="mb-60"
       style={{
         backgroundImage: `url(${BG.src})`,
         backgroundRepeat: "no-repeat",

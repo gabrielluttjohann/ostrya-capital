@@ -1,17 +1,17 @@
 import React from "react";
-import styles from "./Assistance.module.css";
+import styles from "./Assistance.module.css"; // Aplique estilos adicionais aqui
 
 // Componente para o cartão
 const Card: React.FC<{
   title: string;
   description: string;
 }> = ({ title, description }) => (
-  <div className="col-12 col-lg-3 mb-4">
-    {" "}
-    {/* Alterado para col-lg-3 */}
-    <div className="text-left">
-      <h4 className="fw-bold h3 my-5 text-black">{title}</h4>
-      <p className=" lead">{description}</p>
+  <div className="col-12 col-md-6 col-lg-3 mb-4">
+    <div className="card shadow-sm border-0 h-100">
+      <div className="card-body">
+        <h4 className="fw-bold h3 text-black mb-3">{title}</h4>
+        <p className="lead mb-0">{description}</p>
+      </div>
     </div>
   </div>
 );
@@ -20,7 +20,7 @@ const Card: React.FC<{
 const MainSection: React.FC = () => {
   const cardData = [
     {
-      title: "Parceria",
+      title: "Acesso aos bancos",
       description:
         "Somos parceiros de diversos bancos, o que nos permite simular e comparar taxas, prazos e outras condições, garantindo a melhor opção para o seu perfil.",
     },
@@ -42,7 +42,7 @@ const MainSection: React.FC = () => {
   ];
 
   return (
-    <section className={`py-120 position-relative overflow-hidden bg-white`}>
+    <section className="py-120 px-3 position-relative overflow-hidden bg-white">
       <img
         className="position-absolute top-0 start-100 translate-middle"
         src="flaro-assets/images/cta/gradient4.svg"

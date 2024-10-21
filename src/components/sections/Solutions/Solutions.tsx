@@ -1,78 +1,70 @@
-import Image from "next/image";
-const SERVICE_IMAGE_01 = require("@/assets/img/services/service-01.png");
-const SERVICE_IMAGE_02 = require("@/assets/img/services/service-02.png");
-const SERVICE_IMAGE_03 = require("@/assets/img/services/service-03.png");
+import React from "react";
+import styles from "./Solutions.module.css"; // Importando o arquivo CSS Module
+import { Card, Col, Row, Container } from "react-bootstrap";
+import IMAGE_01 from "@/assets/img/services/service-01.png";
+import IMAGE_02 from "@/assets/img/services/service-02.png";
+import IMAGE_03 from "@/assets/img/services/service-03.png";
 
-const consultingData = [
-  {
-    href: "/insights/diferenca-de-consultoria-e-assessoria",
-    imgSrc: SERVICE_IMAGE_01,
-    imgAlt: "Consultoria x Assessoria: Entenda a Diferença",
-    title: "Energia Sustentável: Economize Até 35% na Conta de Luz",
-  },
-  {
-    href: "/insights/aposentadoria-como-rs-1000-mensais-podem-render-mais-de-1-milhao",
-    imgSrc: SERVICE_IMAGE_02,
-    imgAlt: "Aposentadoria: Investindo para o futuro",
-    title: "Negociação de Precatório: Agilidade e Segurança no Processo",
-  },
-  {
-    href: "/insights/transparencia-e-alinhamento-entenda-a-remuneracao",
-    imgSrc: SERVICE_IMAGE_03,
-    imgAlt: "Transparência e Alinhamento: Entenda a Remuneração",
-    title: "Crédito Consignado para seus Funcionários: Vantagem Exclusiva",
-  },
-];
+// Componente reutilizável para os cards
+interface CustomCardProps {
+  title: string;
+  text: string;
+  image: string;
+}
 
-const ConsultingSection = () => {
+const CustomCard: React.FC<CustomCardProps> = ({ title, text, image }) => {
   return (
-    <section id="investments" className="event pt-120 pb-90 p-relative fix">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-12 p-relative">
-            <div
-              className="center-align mb-50 text-center wow fadeInDown animated"
-              data-animation="fadeInDown"
-              data-delay=".4s"
-            >
-              <h2 className="display-5 fw-bold mb-120">
-                Outras soluções Customizadas
-              </h2>
-            </div>
-          </div>
-        </div>
-        <div className="row">
-          {consultingData.map((item, index) => (
-            <div
-              className="col-lg-4 col-md-6 wow fadeInUp animated mb-120"
-              key={index}
-              data-animation="fadeInUp"
-              data-delay=".4s"
-            >
-              <div className="card event-item h-100 d-flex flex-column hover-zoomin">
-                <div className="thumb">
-                  <a href={item.href}>
-                    <Image
-                      src={item.imgSrc}
-                      alt={item.imgAlt}
-                      width={300}
-                      height={200}
-                      layout="responsive"
-                    />
-                  </a>
-                </div>
-                <div className="card-body d-flex flex-column justify-content-between h-100">
-                  <h3 className="fw-bold my-3 text-center">
-                    <a href={item.href}>{item.title}</a>
-                  </h3>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+    <Card className={`${styles.customCard} h-100 shadow-sm border-0`}>
+      <div
+        className={`${styles.cardImage} bg-light`}
+        style={{
+          backgroundImage: `url(${image})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          height: "200px",
+        }}
+      ></div>
+      <Card.Body className="d-flex flex-column justify-content-between">
+        <Card.Title className="text-center fs-4 fw-bold">{title}</Card.Title>
+        <Card.Text className="text-muted lead mt-4">{text}</Card.Text>
+      </Card.Body>
+    </Card>
+  );
+};
+
+const CardSection: React.FC = () => {
+  return (
+    <section className={`${styles.cardSection} my-120`}>
+      <Container>
+        <h2 className="text-center mb-5 display-5 fw-bold">
+          Outras soluções Customizadas
+        </h2>
+        <Row xs={1} sm={1} md={2} lg={3} className="g-4">
+          <Col>
+            <CustomCard
+              title="Energia Sustentável: Economize Até 35% na Conta de Luz"
+              text="Adote soluções sustentáveis e reduza seus custos com energia elétrica. Nossa proposta ajuda sua empresa a economizar até 35% na conta de luz, promovendo a eficiência energética e contribuindo para o meio ambiente."
+              image={IMAGE_01.src}
+            />
+          </Col>
+          <Col>
+            <CustomCard
+              title="Negociação de Precatório: Agilidade e Segurança no Processo"
+              text="Garanta mais agilidade e segurança na negociação de precatórios. Oferecemos um processo transparente e eficiente, assegurando que você possa resolver pendências financeiras de forma rápida e segura."
+              image={IMAGE_02.src}
+            />
+          </Col>
+          <Col>
+            <CustomCard
+              title="Crédito Consignado para seus Funcionários: Vantagem Exclusiva"
+              text="Proporcione uma opção de crédito vantajosa e com condições diferenciadas para seus funcionários. Oferecemos uma solução exclusiva, com benefícios que podem melhorar a qualidade de vida da sua equipe."
+              image={IMAGE_03.src}
+            />
+          </Col>
+        </Row>
+      </Container>
     </section>
   );
 };
 
-export default ConsultingSection;
+export default CardSection;

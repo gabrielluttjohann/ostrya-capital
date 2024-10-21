@@ -1,6 +1,6 @@
-import { LOGO_IMAGE } from "@/constants/images.c";
 import Image from "next/image";
 import React from "react";
+const LOGO_IMAGE = require("@/assets/img/logo/logo-white.png");
 
 const SocialLinks: React.FC<{
   links: { href: string; iconClass: string; alt: string }[];
@@ -43,52 +43,36 @@ const LinksList: React.FC<{
 const Footer: React.FC = () => {
   const socialLinks = [
     {
-      href: "#",
+      href: "https://instagram.com",
       iconClass: "fa-instagram",
       alt: "Instagram",
     },
     {
-      href: "#",
+      href: "https://linkedin.com",
       iconClass: "fa-linkedin",
       alt: "LinkedIn",
     },
     {
-      href: "#",
+      href: "https://wa.me",
       iconClass: "fa-whatsapp",
       alt: "WhatsApp",
     },
   ];
 
-  const companyLinks = [
-    { href: "#", text: "About Us" },
-    { href: "#", text: "Careers" },
-    { href: "#", text: "Press" },
-    { href: "#", text: "Blog" },
+  const contactLinks = [
+    { href: "mailto:contato@ostrya.com", text: "contato@ostrya.com" },
+    { href: "tel:+555199999999", text: "(51) 99999-9999" },
   ];
 
-  const pageLinks = [
-    { href: "#", text: "Login" },
-    { href: "#", text: "Register" },
-    { href: "#", text: "Add list" },
-    { href: "#", text: "Contact" },
-  ];
-
-  const legalLinks = [
-    { href: "#", text: "Terms" },
-    { href: "#", text: "About Us" },
-    { href: "#", text: "Team" },
-    { href: "#", text: "Privacy" },
-  ];
-
-  const resourceLinks = [
-    { href: "#", text: "Blog" },
-    { href: "#", text: "Service" },
-    { href: "#", text: "Product" },
-    { href: "#", text: "Pricing" },
+  const addressLinks = [
+    {
+      href: "#",
+      text: "R. Tamandaré, 140, sala 901, Novo Hamburgo - RS, 93410-150",
+    },
   ];
 
   return (
-    <footer className="py-5 bg-green text-white">
+    <footer className="py-120 bg-green text-white">
       <div className="container">
         <div className="row border-bottom">
           <div className="col-12 col-lg-3 mb-5">
@@ -96,21 +80,21 @@ const Footer: React.FC = () => {
               <Image
                 className="img-fluid"
                 src={LOGO_IMAGE}
-                alt="Logo"
-                width="96"
+                alt="Ostrya Logo"
+                width={96}
+                height={96}
               />
             </a>
             <p className="mb-5 text-white">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Conectando soluções financeiras para pessoas e empresas, com foco
+              em inovação e crescimento sustentável.
             </p>
             <SocialLinks links={socialLinks} />
           </div>
           <div className="col-12 col-lg-9">
             <div className="row">
-              <LinksList title="Company" links={companyLinks} />
-              <LinksList title="Páginas" links={pageLinks} />
-              <LinksList title="Legal" links={legalLinks} />
-              <LinksList title="Endereço" links={resourceLinks} />
+              <LinksList title="Contato" links={contactLinks} />
+              <LinksList title="Endereço" links={addressLinks} />
             </div>
           </div>
         </div>

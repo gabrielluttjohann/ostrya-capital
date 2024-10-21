@@ -1,0 +1,26 @@
+/* Estilos para o Card */
+.customCard {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeitos de hover */
+.customCard:hover {
+  transform: scale(1.05); /* Aumenta o tamanho do card ao passar o mouse */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra mais intensa */
+  cursor: pointer;
+}
+
+.customCard .card-body {
+  transition: transform 0.3s ease;
+}
+
+/* Efeito de elevação no conteúdo do card */
+.customCard:hover .card-body {
+  transform: translateY(-5px); /* Leve elevação no conteúdo do card */
+}
+
+/* Estilos para a imagem do card */
+.cardImage {
+  border-radius: 8px;
+  overflow: hidden;
+}

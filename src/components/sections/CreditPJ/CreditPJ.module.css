@@ -1,0 +1,59 @@
+.card {
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  border: 2px solid #f0f0f0;
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card p {
+  display: none;
+}
+
+.card:hover {
+  background-color: var(--color-blue);
+  cursor: pointer;
+  transform: translateY(-10px);
+}
+
+.card:hover i, 
+.card:hover h5 {
+  display: none;
+}
+
+.card:hover p {
+  display: block;
+  color: black;
+}
+
+/* Estilo para o container do ícone */
+.icon-container {
+  width: 80px; /* Largura do círculo */
+  height: 80px; /* Altura do círculo */
+  border-radius: 50%; /* Cria o círculo */
+  background-color: #f8f9fa; /* Cor de fundo do círculo (cinza claro) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+  border: 2px solid #dee2e6; /* Adiciona uma borda leve ao círculo */
+  transition: opacity 0.3s; /* Transição suave ao esconder o círculo */
+}
+
+/* Ao passar o mouse, o círculo desaparece */
+.card:hover .icon-container {
+  display: none;
+}
+
+/* Estilo para os ícones */
+.icon {
+  font-size: 2rem; /* Tamanho do ícone */
+  color: #013220; /* Cor verde do logo */
+  transition: opacity 0.3s; /* Transição suave ao esconder o ícone */
+}
+

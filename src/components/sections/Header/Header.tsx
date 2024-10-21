@@ -49,51 +49,53 @@ const Header: React.FC = () => {
   }, [isMenuOpen]);
 
   return (
-    <header ref={headerRef} className={styles.header}>
+    <header ref={headerRef} className={`${styles.header} bg-white`}>
       <nav
-        className={`py-2 navbar-expand-lg bg-white shadow-sm ${styles.nav} ${
+        className={` py-2 navbar-expand-lg bg-white shadow-sm ${styles.nav} ${
           isSticky ? "fixed-top" : ""
         }`}
       >
-        <div className="mx-5 d-flex justify-content-between align-items-center">
-          {/* Logo à esquerda */}
-          <Link href="/" className="me-auto">
-            <Image src={LOGO_IMAGE} alt="Logo" width={100} height={50} />
-          </Link>
+        <div className="bg-white container">
+          <div className="mx-5 d-flex justify-content-between align-items-center">
+            {/* Logo à esquerda */}
+            <Link href="/" className="me-auto">
+              <Image src={LOGO_IMAGE} alt="Logo" width={100} height={50} />
+            </Link>
 
-          {/* Itens do menu no centro */}
-          <div className="d-none d-lg-block mx-auto">
-            <ul className="navbar-nav">
-              <NavItem link="/" label="Início" closeMenu={closeMenu} />
-              <NavItem
-                link="/servicos"
-                label="Serviços"
-                closeMenu={closeMenu}
-              />
-              <NavItem link="/sobre" label="Sobre" closeMenu={closeMenu} />
-            </ul>
-          </div>
+            {/* Itens do menu no centro */}
+            <div className="d-none d-lg-block mx-auto">
+              <ul className="navbar-nav">
+                <NavItem link="/" label="Início" closeMenu={closeMenu} />
+                <NavItem
+                  link="/servicos"
+                  label="Serviços"
+                  closeMenu={closeMenu}
+                />
+                <NavItem link="/sobre" label="Sobre" closeMenu={closeMenu} />
+              </ul>
+            </div>
 
-          {/* Botão "Fale Conosco" no mobile */}
-          <div className={styles.mobile}>
-            <a
-              className={`py-3 btn btn-outline-dark d-block d-sm-inline-block`}
-              href="/fale-conosco"
+            {/* Botão "Fale Conosco" no mobile */}
+            <div className={styles.mobile}>
+              <a
+                className={`py-3 btn btn-outline-dark d-block d-sm-inline-block`}
+                href="/fale-conosco"
+              >
+                Fale Conosco
+              </a>
+            </div>
+
+            <button
+              ref={buttonRef}
+              className="navbar-toggler d-lg-none px-2 py-1  border"
+              type="button"
+              onMouseDown={(e) => e.preventDefault()}
+              onClick={toggleMenu}
+              aria-label="Toggle navigation"
             >
-              Fale Conosco
-            </a>
+              {isMenuOpen ? "✖" : "☰"}
+            </button>
           </div>
-
-          <button
-            ref={buttonRef}
-            className="navbar-toggler d-lg-none px-2 py-1  border"
-            type="button"
-            onMouseDown={(e) => e.preventDefault()}
-            onClick={toggleMenu}
-            aria-label="Toggle navigation"
-          >
-            {isMenuOpen ? "✖" : "☰"}
-          </button>
         </div>
       </nav>
 
@@ -102,11 +104,19 @@ const Header: React.FC = () => {
           <div className="container">
             <ul className="navbar-nav me-auto p-2 mb-2 mb-lg-0">
               <NavItem link="/" label="Início" closeMenu={closeMenu} />
+
+              <NavItem
+                link="/sobre"
+                label="Sobre"
+                closeMenu={closeMenu}
+              />
+
               <NavItem
                 link="/servicos"
                 label="Serviços"
                 closeMenu={closeMenu}
               />
+
               <NavItem link="/sobre" label="Sobre" closeMenu={closeMenu} />
               <NavItem
                 link="/fale-conosco"
