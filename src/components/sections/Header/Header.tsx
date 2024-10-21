@@ -17,7 +17,13 @@ const Header: React.FC = () => {
   const handleScroll = () => {
     if (headerRef.current) {
       const headerHeight = headerRef.current.offsetHeight;
-      setIsSticky(window.scrollY > headerHeight);
+      const isStickyNow = window.scrollY > headerHeight;
+      setIsSticky(isStickyNow);
+
+      // Fechar o menu quando rolar para cima.
+      if (window.scrollY < headerHeight) {
+        setIsMenuOpen(false);
+      }
     }
   };
 
@@ -48,21 +54,35 @@ const Header: React.FC = () => {
     };
   }, [isMenuOpen]);
 
+  const NavItem: React.FC<{
+    link: string;
+    label: string;
+    closeMenu: () => void;
+  }> = ({ link, label, closeMenu }) => (
+    <li className={`nav-item px-2 ${styles.menuItem}`}>
+      <Link
+        href={link}
+        className={`${styles.menuText} nav-link`}
+        onClick={closeMenu}
+      >
+        {label}
+      </Link>
+    </li>
+  );
+
   return (
     <header ref={headerRef} className={`${styles.header} bg-white`}>
       <nav
-        className={` py-2 navbar-expand-lg bg-white shadow-sm ${styles.nav} ${
+        className={`py-2 navbar-expand-lg bg-white shadow-sm ${styles.nav} ${
           isSticky ? "fixed-top" : ""
         }`}
       >
         <div className="bg-white container">
           <div className="mx-5 d-flex justify-content-between align-items-center">
-            {/* Logo à esquerda */}
             <Link href="/" className="me-auto">
               <Image src={LOGO_IMAGE} alt="Logo" width={100} height={50} />
             </Link>
 
-            {/* Itens do menu no centro */}
             <div className="d-none d-lg-block mx-auto">
               <ul className="navbar-nav">
                 <NavItem link="/" label="Início" closeMenu={closeMenu} />
@@ -75,7 +95,6 @@ const Header: React.FC = () => {
               </ul>
             </div>
 
-            {/* Botão "Fale Conosco" no mobile */}
             <div className={styles.mobile}>
               <a
                 className={`py-3 btn btn-outline-dark d-block d-sm-inline-block`}
@@ -87,7 +106,7 @@ const Header: React.FC = () => {
 
             <button
               ref={buttonRef}
-              className="navbar-toggler d-lg-none px-2 py-1  border"
+              className="navbar-toggler d-lg-none px-2 py-1 border"
               type="button"
               onMouseDown={(e) => e.preventDefault()}
               onClick={toggleMenu}
@@ -100,23 +119,19 @@ const Header: React.FC = () => {
       </nav>
 
       {isMenuOpen && (
-        <div ref={menuRef} className="navbar-collapse bg-white">
+        <div
+          ref={menuRef}
+          className={`navbar-collapse bg-white ${isSticky ? "fixed-top mt-60" : ""}`}
+        >
           <div className="container">
             <ul className="navbar-nav me-auto p-2 mb-2 mb-lg-0">
               <NavItem link="/" label="Início" closeMenu={closeMenu} />
-
-              <NavItem
-                link="/sobre"
-                label="Sobre"
-                closeMenu={closeMenu}
-              />
-
+              <NavItem link="/sobre" label="Sobre" closeMenu={closeMenu} />
               <NavItem
                 link="/servicos"
                 label="Serviços"
                 closeMenu={closeMenu}
               />
-
               <NavItem link="/sobre" label="Sobre" closeMenu={closeMenu} />
               <NavItem
                 link="/fale-conosco"
@@ -130,21 +145,5 @@ const Header: React.FC = () => {
     </header>
   );
 };
-
-const NavItem: React.FC<{
-  link: string;
-  label: string;
-  closeMenu: () => void;
-}> = ({ link, label, closeMenu }) => (
-  <li className={`nav-item px-2 ${styles.menuItem}`}>
-    <Link
-      href={link}
-      className={`${styles.menuText} nav-link`}
-      onClick={closeMenu}
-    >
-      {label}
-    </Link>
-  </li>
-);
 
 export default Header;

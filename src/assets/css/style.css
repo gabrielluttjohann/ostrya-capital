@@ -97,3 +97,15 @@ html,
 body {
   overflow-x: hidden;
 }
+
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1.6s ease-out, transform 1.6s ease-out;
+}
+
+.reveal-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
