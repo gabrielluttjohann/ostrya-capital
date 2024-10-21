@@ -9,7 +9,6 @@ import "@/assets/css/bootstrap-modifications.css";
 import "@/assets/css/fontawesome-all.min.css";
 import "@/assets/css/animate.min.css";
 import "@/assets/css/mouse-effect.css";
-import Cursor from "@/components/sections/Cursor/Cursor";
 import "@/assets/css/style.css";
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
@@ -18,7 +17,6 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <Cursor />
       <Component {...pageProps} />
     </>
   );
