@@ -77,7 +77,7 @@
 
 .card:hover .cardTitle {
   bottom: auto; /* Remove a posição no final */
-  transform: translateY(-120px); /* Sobe para ficar acima do conteúdo */
+  transform: translateY(-150px); /* Sobe para ficar acima do conteúdo */
 }
 
 .card:hover .overlay {
