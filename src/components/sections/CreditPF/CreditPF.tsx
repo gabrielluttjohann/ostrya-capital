@@ -28,7 +28,7 @@ const CreditPF: React.FC = () => {
           <div className="col-md-7 mb-4">
             <p className="m-0 text-highlight fw-bold">S O L U Ç Õ E S</p>
             <h2 className="text-medium mt-0 mb-4">Para Você</h2>
-            <p className="lead">
+            <p className="">
               Soluções de Crédito Personalizadas para Pessoas Físicas:
               Financiamentos e Linhas de Crédito com Garantia, Desenvolvidas
               para Atender às Suas Necessidades de Aquisição, Reestruturação e
