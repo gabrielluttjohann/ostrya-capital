@@ -1,0 +1,23 @@
+.customCard {
+  background-color: #f8f9fa; /* Cor de fundo clara */
+  border: 1px solid #dee2e6; /* Borda leve */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex; /* Flex container */
+  flex-direction: column; /* Permite que os filhos se empilhem verticalmente */
+  min-height: 370px; /* Defina uma altura mínima que você achar adequada */
+  height: 100%; /* Garante que o card ocupe toda a altura disponível */
+}
+
+.customCard:hover {
+  transform: translateY(-10px); /* Efeito de elevação no hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais forte no hover */
+}
+
+.card-title {
+  color: #013220; /* Cor do título */
+}
+
+.card-text {
+  color: #6c757d; /* Cor do texto */
+}

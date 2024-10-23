@@ -1,123 +1,232 @@
-
 :root {
-  --color-green: #013220;
-  --color-golden: #b68d40;
-  --color-sky: #eff7ff;
-  --color-text-alt: #555555;
-  --color-green-alt: #013220d2;
-  --color-blue: #EFF7FF;
+  /* 
+  Use this color for prominent elements such as the header, 
+  footer and main buttons (call-to-action). Being a strong color, 
+  it conveys seriousness and confidence, which is essential for 
+  a financial advice website.
+   */
+  --color-dark-forest-green: #013220;
+
+  /* 
+  It can be used for blocks of text or important sections, 
+  such as about the company, services offered or contact information. 
+  It is also a good choice for sidebars or navigation menus 
+  */
+  --color-pine-green: #3b7761;
+
+  /* 
+  This color can be used in the background of cards or banners, offering 
+  contrast with darker elements without losing sophistication. It helps 
+  to break up content while maintaining a clean and professional appearance.
+  */
+  --color-soft-mint-green: #4c997d;
+
+  /* 
+  Ideal for small details such as icons, borders or text highlights. 
+  It can also be used on secondary buttons, such as additional reading 
+  buttons or navigation buttons between sections.
+  */
+  --color-light-emerald-green: #5dbb99;
+
+  /* 
+  Use this color for soft backgrounds, as sections between content 
+  blocks or to create spacing. It keeps the look light and modern, 
+  without taking the focus away from the main areas.
+  */
+  --color-pastel-aqua-green: #73e6bb;
+
+  --color-text-dark: #000;
+  --color-text-light: #fff;
+
+  --color-background-light: #f9f9f9;
+}
+
+.text-highlight {
+  color: var(--color-light-emerald-green);
 }
 
 body {
-  font-family: "Brygada 1918", serif;
+  font-family: "Jost", sans-serif; /* Atualizando para a fonte Joel */
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-dark); /* Cor do texto principal */
+  background-color: var(--color-background-light); /* Cor de fundo padrão */
+  margin: 0;
+}
+
+/* Títulos e Destaques */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Jost", sans-serif;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-dark-forest-green); /* Cor principal para títulos */
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2.75rem;
+}
+
+h3 {
+  font-size: 1.75rem;
 }
 
 p {
-  color: #646363;
+  font-size: 1.125rem;
 }
 
+/* Textos em destaque */
+.lead {
+  font-family: "Jost", sans-serif;
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  color: var(--color-pine-green); /* Cor Pine Green para destaque */
+}
+
+/* Pequenos textos */
+.small-text {
+  font-size: 0.875rem;
+  color: var(
+    --color-light-emerald-green
+  ); /* Cor Light Emerald Green para textos menores */
+}
+
+/* Links */
 a {
-  color: var(--color-green);
+  color: var(--color-dark-forest-green);
   text-decoration: none;
 }
 
-.text-green {
-  color: var(--color-green);
+/* Botões principais (call-to-action) */
+.btn-primary {
+  background-color: var(--color-dark-forest-green);
+  color: var(--color-text-light);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 0.25rem;
+  cursor: pointer;
 }
 
-.text-golden {
-  color: var(--color-golden);
-}
-.bg-green {
-  background-color: var(--color-green);
+.btn-primary:hover {
+  background-color: var(--color-pine-green); /* Tom mais suave no hover */
 }
 
-.bg-green-alt {
-  background-color: var(--color-green-alt);
+/* Botões secundários */
+.btn-secondary {
+  background-color: var(--color-light-emerald-green);
+  color: var(--color-text-light);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 0.25rem;
+  cursor: pointer;
 }
 
-.bg-golden {
-  background-color: var(--color-golden);
+.btn-secondary:hover {
+  background-color: var(--color-soft-mint-green); /* Suave no hover */
 }
 
-.bg-blue {
-  background-color: var(--color-blue);
+/* Cards */
+.card {
+  background-color: var(--color-soft-mint-green); /* Fundo de card Soft Mint */
+  border: 1px solid var(--color-light-emerald-green);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.my-60 {
-  margin: 60px 0;
+.card-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  color: var(--color-dark-forest-green);
 }
 
-.py-100 {
-  padding: 100px 0;
+.card-text {
+  color: var(--color-text-dark);
 }
 
-.text-alt {
-  color: var(--color-text-alt);
+/* Seções com fundo Pastel Aqua */
+.section-bg-light {
+  background-color: var(
+    --color-pastel-aqua-green
+  ); /* Fundo claro para separar seções */
+  padding: 2rem 0;
 }
 
-.credit-text-width {
-  width: 70%;
+/* Header e Footer */
+header,
+footer {
+  background-color: var(
+    --color-dark-forest-green
+  ); /* Fundo escuro para header/footer */
+  color: var(--color-text-light); /* Texto claro em header/footer */
+  padding: 1rem 0;
+  text-align: center;
 }
 
-.credit-hover:hover {
-  background-color: #064b32;
+header h1,
+footer h1 {
+  color: var(--color-text-light);
 }
 
-@media (min-width: 375px) and (max-width: 991px) {
-  .credit-text-width {
-    width: 100%;
-  }
+footer p {
+  font-size: 0.875rem;
+  color: var(--color-text-light);
 }
 
-.section {
-  padding-top: 7rem;
-  padding-bottom: 7rem;
-}
-@media (max-width: 991.98px) {
-  .section {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
+.nav-link {
+  font-size: 1.188rem;
 }
 
-.mb-120 {
-  margin-bottom: 220px;
-}
-.my-120 {
-  margin-top: 120px;
-  margin-bottom: 120px;
+.text-light {
+  font-family: var(--font-jost-light);
+  font-weight: 300;
 }
 
-.mt-120 {
-  margin-top: 120px;
+.text-normal {
+  font-family: var(--font-jost-normal);
+  font-weight: 400;
 }
 
-html,
-body {
-  overflow-x: hidden;
+.text-medium {
+  font-family: var(--font-jost-medium);
+  font-weight: 500;
 }
 
-
-.reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+.text-bold {
+  font-family: var(--font-jost-bold);
+  font-weight: 600;
 }
 
-.reveal-on-scroll.visible {
-  opacity: 1;
-  transform: translateY(0);
+.text-extrabold {
+  font-family: var(--font-jost-extrabold);
+  font-weight: 700;
 }
 
-/* Mídia query para dispositivos móveis */
-@media (max-width: 768px) {
-  .reveal-on-scroll {
-    transform: translateY(30px); /* Reduz o deslocamento no celular */
-    transition: opacity 1s ease-out, transform 1s ease-out;
-  }
-  
-  .reveal-on-scroll.visible {
-    transform: translateY(0); /* Menos deslocamento no celular */
-  }
+.mb-60 {
+  margin-bottom: 60px;
+}
+
+.btn {
+  background-color: var(--color-pastel-aqua-green);
+  padding: 20px;
+  border: 1px solid black;
+}
+
+.btn:hover {
+  background-color: #81ecc5;
+  border: 1px solid black;
 }

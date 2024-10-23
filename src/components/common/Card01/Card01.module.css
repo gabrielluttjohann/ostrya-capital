@@ -1,0 +1,90 @@
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUpTitle {
+  from {
+    transform: translateY(100%); /* Começa no final do card */
+  }
+  to {
+    transform: translateY(-40px); /* Sobe para uma posição acima do conteúdo */
+  }
+}
+
+.card {
+  min-height: 600px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.cardContent {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
+  color: white;
+  text-align: left;
+  z-index: 1;
+  padding: 20px;
+}
+
+.cardTitle {
+  font-size: 29px;
+  border-bottom: 3px solid var(--color-light-emerald-green);
+  display: inline-block;
+  opacity: 1;
+  position: absolute;
+  bottom: 0; /* O título começa no final do card */
+  left: 15px;
+  transition: transform 0.5s ease, bottom 0.5s ease; /* Transição suave */
+}
+
+.cardDescription {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Quando o card for hover */
+.card:hover .cardDescription {
+  opacity: 1;
+  transform: translateY(0);
+  animation: slideUp 0.5s ease forwards; /* Animação de subida do conteúdo */
+}
+
+.card:hover .cardTitle {
+  bottom: auto; /* Remove a posição no final */
+  transform: translateY(-120px); /* Sobe para ficar acima do conteúdo */
+}
+
+.card:hover .overlay {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.cardId {
+  font-weight: light;
+  font-size: 14px;
+}

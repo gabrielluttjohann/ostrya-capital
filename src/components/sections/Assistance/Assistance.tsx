@@ -1,71 +1,76 @@
 import React from "react";
-import styles from "./Assistance.module.css"; // Aplique estilos adicionais aqui
+import Card01 from "@/components/common/Card01/Card01";
+import Slider01 from "@/components/common/Slider01/Slider01";
+import BG_ALT from "@/assets/img/placeholder/design-alt.png";
+import HELP_IMAGE_01 from "@/assets/img/assistance/help-1.png";
+import HELP_IMAGE_02 from "@/assets/img/assistance/help-2.png";
+import HELP_IMAGE_03 from "@/assets/img/assistance/help-3.png";
+import HELP_IMAGE_04 from "@/assets/img/assistance/help-4.png";
+import styles from "./Assistance.module.css";
 
-// Componente para o cartão
-const Card: React.FC<{
-  title: string;
-  description: string;
-}> = ({ title, description }) => (
-  <div className="col-12 col-md-6 col-lg-3 mb-4">
-    <div className="card shadow-sm border-0 h-100">
-      <div className="card-body">
-        <h4 className="fw-bold h3 text-black mb-3">{title}</h4>
-        <p className="lead mb-0">{description}</p>
-      </div>
-    </div>
-  </div>
-);
-
-// Componente principal da seção
-const MainSection: React.FC = () => {
-  const cardData = [
+const Assistance: React.FC = () => {
+  const cardsData = [
     {
-      title: "Acesso aos bancos",
-      description:
+      id: "01",
+      imageSrc: HELP_IMAGE_01,
+      title: "Acesso aos Bancos",
+      content:
         "Somos parceiros de diversos bancos, o que nos permite simular e comparar taxas, prazos e outras condições, garantindo a melhor opção para o seu perfil.",
     },
     {
+      id: "02",
+      imageSrc: HELP_IMAGE_02,
       title: "Projeto",
-      description:
+      content:
         "Elaboramos todos os projetos necessários para a aprovação do crédito, ajustando cada detalhe de acordo com as exigências do banco.",
     },
     {
+      id: "03",
+      imageSrc: HELP_IMAGE_03,
       title: "Proposta",
-      description:
+      content:
         "Encaminhamos a proposta completa, organizamos toda a documentação e acompanhamos de perto cada etapa até a liberação do crédito.",
     },
     {
+      id: "04",
+      imageSrc: HELP_IMAGE_04,
       title: "Monitoramento",
-      description:
+      content:
         "Após a liberação, seguimos monitorando o mercado em busca de novas oportunidades para garantir sempre as melhores condições para você.",
     },
   ];
 
   return (
-    <section className="py-120 px-3 position-relative overflow-hidden bg-white">
-      <img
-        className="position-absolute top-0 start-100 translate-middle"
-        src="flaro-assets/images/cta/gradient4.svg"
-        alt=""
-      />
-      <div className="container position-relative">
-        <div className="mb-4 pb-4 border-bottom">
-          <h2 className="display-5 fw-bold mb-5 text-black">
-            Como Facilitamos Seu Acesso ao Crédito?
+    <div
+      className={`bg-light ${styles.spacing}`}
+      style={{ backgroundImage: `url(${BG_ALT.src})` }}
+    >
+      <div className="container">
+        <div className="text-center ">
+          <p className="text-highlight fs-1">|</p>
+          <br />
+          <p className="text-highlight fw-bold p-0 m-0">C R É D I T O</p>
+          <h2 className="text-center fw-medium mb-3 mt-0 ">
+            Acesso ao Crédito
           </h2>
-        </div>
-        <div className="row">
-          {cardData.map((card, index) => (
-            <Card
-              key={index}
-              title={card.title}
-              description={card.description}
-            />
-          ))}
+          <p className="mb-4">Como podemos facilitar seu acesso ao crédito?</p>
         </div>
       </div>
-    </section>
+
+      <Slider01 autoPlayInterval={3000} showControls={false}>
+        {cardsData.map((cardData) => (
+          <div key={cardData.id}>
+            <Card01
+              id={cardData.id}
+              imageSrc={cardData.imageSrc}
+              title={cardData.title}
+              content={cardData.content}
+            />
+          </div>
+        ))}
+      </Slider01>
+    </div>
   );
 };
 
-export default MainSection;
+export default Assistance;

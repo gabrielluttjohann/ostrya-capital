@@ -1,0 +1,79 @@
+.slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.sliderContent {
+  display: flex;
+  transition: transform 1s ease-in-out; /* Smooth sliding animation */
+}
+
+.slide {
+  flex: 0 0 auto; /* Each slide has a fixed size */
+  width: calc(100% / 4); /* Adjusts the size for four slides */
+  display: flex;
+  justify-content: center; /* Center contents of the slide */
+  align-items: center; /* Center contents of the slide vertically */
+  padding: 20px; /* Add some padding for better visual appeal */
+  box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.sliderControls {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+  z-index: 1;
+  transition: transform 0.3s, opacity 0.3s;
+  opacity: 0.7;
+}
+
+.sliderControls:hover {
+  transform: translateY(-50%) scale(1.2);
+  opacity: 1;
+}
+
+.left {
+  left: 10px; /* Adjust left control positioning */
+}
+
+.right {
+  right: 10px; /* Adjust right control positioning */
+}
+
+.sliderBullets {
+  text-align: center;
+  margin-top: 10px; /* Space above the bullets */
+}
+
+.bullet {
+  display: inline-block;
+  font-size: 32px;
+  font-weight: bold;
+  color: #ccc; /* Default bullet color */
+  cursor: pointer;
+  transition: transform 0.3s, color 0.3s;
+  padding-right: 5px; /* Space between bullets */
+}
+
+.bullet:hover {
+  transform: scale(1.2); /* Scale up on hover */
+}
+
+.bullet.active {
+  color: var(--color-light-emerald-green); /* Active bullet color */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .slide {
+    width: 100%; /* Full width for mobile */
+  }
+
+  .sliderContent {
+    transition: transform 0.5s ease-in-out; /* Slightly faster on mobile */
+  }
+}

@@ -1,18 +1,9 @@
-.card {
-  border-radius: 10px;
-  overflow: hidden;
+.spacing {
+  padding-top: 180px;
 }
 
-.card-body {
-  padding: 2rem;
-}
-
-h3 {
-  font-size: 1.5rem;
-}
-
-@media (max-width: 576px) {
-  .card-body {
-    padding: 1rem;
+@media (max-width: 911px) {
+  .spacing {
+    padding: 60px;
   }
 }
