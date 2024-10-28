@@ -1,45 +1,56 @@
 import React from "react";
-import ABOUT_IMAGE from "@/assets/img/about/about.jpg";
+import Image from "next/image"; // se estiver utilizando Next.js
+import "bootstrap/dist/css/bootstrap.min.css";
+import styles from "./About.module.css";
+import img from "@/assets/img/about/about.jpg";
+import squares from "@/assets/img/utils/squares.png";
 
-const Section: React.FC = () => {
+const About: React.FC = () => {
+  const data = {
+    imgSrc: img,
+    altText: "",
+    title: "Quem Somos",
+    content:
+      "Nossa equipe reúne profissionais de alta competência e sólida trajetória no mercado financeiro, com ampla experiência nas áreas comercial, análise de crédito e reestruturação financeira. Combinamos décadas de atuação e conhecimento profundo para oferecer soluções estratégicas e personalizadas aos nossos clientes. Comprometidos com os mais altos padrões de ética e excelência, trabalhamos para proporcionar segurança e valor em cada interação. Conheça nossos sócios e descubra como nossa expertise pode impulsionar seus objetivos financeiros.",
+  };
   return (
-    <section className="bg-light position-relative py-5">
-      <div className="container">
-        <div className="row">
-          <div className="col-12 col-lg-5 d-flex flex-column align-items-start">
-            <img
-              className="img-fluid mb-5 d-lg-none"
-              src={ABOUT_IMAGE.src}
-              alt=""
+    <section
+      style={{
+        backgroundColor: "#F5F5F5",
+      }}
+    >
+      <div className="container px-4">
+        <div className={`row align-items-center ${styles.spacing}`}>
+          {/* Coluna da Imagem */}
+          <div className="col-md-6">
+            <Image
+              src={data.imgSrc}
+              alt={data.altText}
+              width={500}
+              height={500}
+              className="img-fluid"
             />
-            <h2 className="display-6 mb-4 fw-bold">
-              Conte com uma equipe que já participou da análise de mais de R$
-              50,0 bilhões em crédito
-            </h2>
-            <p className="text-muted mb-4">
-              Como parceira de diversas instituições financeiras, oferecemos um
-              serviço personalizado que permite comparar taxas de juros e demais
-              condições disponíveis em vários bancos, de forma que podemos
-              oferecer a solução de crédito mais interessante para você.
-            </p>
-            <p className="text-muted mb-4">
-              Conheça todos os nossos serviços e entenda como a Ostrya Capital
-              pode auxiliar você e sua empresa.
-            </p>
           </div>
-          <div
-            className="d-none d-lg-block position-absolute top-0 end-0 h-100"
-            style={{
-              width: "50%",
-              backgroundImage: `url('${ABOUT_IMAGE.src}')`,
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-            }}
-          ></div>
+
+          <div className="col-md-6">
+            <div className="pt-4">
+              <span
+                className="text-uppercase text-highlight fw-bold"
+                style={{ letterSpacing: "5px" }}
+              >
+                QUEM SOMOS
+              </span>
+            </div>
+            <h2 className="mb-4 text-medium mt-0 pt-0">{data.title}</h2>
+            <p>{data.content}</p>
+            <a href="" className="btn">
+              Conheça os Sócios
+            </a>
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-export default Section;
+export default About;

@@ -1,9 +1,0 @@
-.spacing {
-  padding-top: 180px;
-}
-
-@media (max-width: 911px) {
-  .spacing {
-    padding-top: 60px;
-  }
-}

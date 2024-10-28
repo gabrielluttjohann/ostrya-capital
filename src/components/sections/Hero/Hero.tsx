@@ -4,16 +4,19 @@ import { Container, Row } from "react-bootstrap";
 
 const cardData = [
   {
-    title: "Financiamento Pessoal",
-    text: "Descubra as melhores opções de financiamento para você.",
+    title: "Crédito",
+    text: "Oferecemos soluções de crédito flexíveis para atender às diversas necessidades de pessoas físicas e jurídicas.",
+    iconClass: "fas fa-money-check-alt",
   },
   {
-    title: "Financiamento Empresarial",
-    text: "Soluções de crédito para apoiar o crescimento da sua empresa.",
+    title: "Consultoria Financeira",
+    text: "Auxiliamos empresas na organização e otimização de suas finanças, promovendo segurança e crescimento patrimonial.",
+    iconClass: "fas fa-chart-line",
   },
   {
-    title: "Financiamento Imobiliário",
-    text: "Encontre as melhores taxas para o seu imóvel dos sonhos.",
+    title: "Consultoria de Investimentos",
+    text: "Elaboramos estratégias personalizadas de investimentos, alinhadas aos objetivos e perfil de cada cliente.",
+    iconClass: "fas fa-coins",
   },
 ];
 
@@ -33,14 +36,25 @@ const contentData = {
 };
 
 const MobileCards: React.FC = () => (
-  <Container className={`container mt-60 px-4 ${styles.outCardContainer}`}>
+  <Container className={` mt-60 px-4 ${styles.outCardContainer}`}>
     <Row>
       {cardData.map((card, index) => (
-        <div key={index} className="col-12">
-          <div className={`card ${styles.customCard}`}>
-            <div className="card-body">
-              <h5 className="card-title">{card.title}</h5>
-              <p className="card-text">{card.text}</p>
+        <div key={index} className="col-12 g-3">
+          <div className={`card ${styles.customCardMobile}`}>
+            <div
+              className="card-body d-flex flex-column"
+              style={{ height: "100%" }}
+            >
+              <div className={`${styles.cardTitleContainer} `}>
+                <div className={`${styles.circle}`}>
+                  <i className={`${card.iconClass} ${styles.cardIcon} fs-3`} />
+                  <h5 className={`card-title ${styles.cardTitle}`}>
+                    {card.title}
+                  </h5>
+                </div>
+              </div>
+              <p className={`card-text ${styles.colorLight}`}>{card.text}</p>
+              <div className={styles.bottomBorder}></div>
             </div>
           </div>
         </div>
@@ -51,15 +65,28 @@ const MobileCards: React.FC = () => (
 
 const DesktopCards: React.FC = () => (
   <div
-    className={`position-absolute start-50 translate-middle-x my-60 px-5 ${styles.cardContainer}`}
+    className={`position-absolute start-50 translate-middle-x my-60 px-3 ${styles.cardContainer}`}
   >
     <Row>
       {cardData.map((card, index) => (
-        <div key={index} className="col-md-4">
+        <div key={index} className="col-md-4 g-0">
           <div className={`card ${styles.customCard}`}>
-            <div className="card-body">
-              <h5 className="card-title">{card.title}</h5>
-              <p className="card-text">{card.text}</p>
+            <div
+              className="card-body px-5 d-flex flex-column"
+              style={{ height: "100%" }}
+            >
+              <div className={`${styles.cardTitleContainer}`}>
+                <div className={`${styles.circle} mb-3`}>
+                  <i className={`${card.iconClass} ${styles.cardIcon} fs-3`} />
+                  <h5 className={`card-title ${styles.cardTitle}`}>
+                    {card.title}
+                  </h5>
+                </div>
+              </div>
+              <p className={`color-light ${styles.cardParagraph}`}>
+                {card.text}
+              </p>
+              <div className={styles.bottomBorder}></div>
             </div>
           </div>
         </div>
@@ -108,8 +135,8 @@ const HeroContent: React.FC = () => {
 const Hero: React.FC = () => {
   return (
     <>
-      <section>
-        <div className={`bg-light ${styles.heroSection}`}>
+      <section className={styles.background}>
+        <div className={` ${styles.heroSection}`}>
           <div className="container d-flex flex-column justify-content-center position-relative h-100">
             <HeroContent />
           </div>

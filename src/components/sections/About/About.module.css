@@ -1,55 +1,10 @@
-.heading {
-  font-size: 38px;
-  color: var(--color-green);
-  font-weight: 700;
-  overflow-x: hidden;
+.spacing {
+  padding-top: 350px;
+  padding-bottom: 120px;
 }
 
-@media (max-width: 991.98px) {
-  .heading {
-    font-size: 30px;
-  }
-}
-
-.imageStack {
-  position: relative;
-  width: 100%;
-  z-index: 2;
-  overflow-x: hidden; /* Adicionado para evitar overflow horizontal */
-}
-
-.imageStack__item__bottom {
-  position: absolute;
-  right: 0;
-  top: -35%;
-  width: 65%;
-  z-index: -1;
-  overflow: hidden;
-}
-
-.imageStack__item__top {
-  overflow: hidden;
-  width: 40%;
-}
-
-.imageStack img {
-  max-width: 100%; /* Garantir que as imagens sejam responsivas */
-  width: auto;
-  display: block;
-  border: 10px solid #fff;
-  box-shadow: 0 15px 30px -18px rgba(0, 0, 0, 0.2);
-}
-
-@media (min-width: 992px) {
-  .aboutMargin {
-    margin-top: 40px;
-    margin-bottom: 40px;
-  }
-}
-
-@media (min-width: 375px) and (max-width: 991px) {
-  .aboutMargin {
-    margin-top: 40px; /* Reduzi para evitar overflow */
-    margin-bottom: 40px; /* Reduzi para evitar overflow */
+@media (min-width: 0px) and (max-width: 911px) {
+  .spacing {
+    padding-top: 120px;
   }
 }

@@ -5,17 +5,25 @@ import Assistance from "@/components/sections/Assistance/Assistance";
 import Section from "@/components/sections/Section/Section";
 import Footer from "@/components/sections/Footer/Footer";
 import CreditPJ from "@/components/sections/CreditPJ/CreditPJ";
+import Contact from "@/components/sections/ContactForm/ContactForm";
+import About from "@/components/sections/About/About";
+import CTASection from "@/components/sections/CTA/CTA";
+import CTA2 from "@/components/sections/CTA2/CTA2";
+import Finance from "@/components/sections/About/Finance/Finance";
 
 const Index: React.FC = () => {
   return (
     <>
       <Header />
       <Hero />
+      <About />
       <Assistance />
-      <CreditPF />
+      <CTA2 />
       <Section />
       <CreditPJ />
-      {/* <Footer /> */}
+      <Contact />
+      <Finance />
+      <Footer />
     </>
   );
 };

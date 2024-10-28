@@ -1,4 +1,8 @@
 /* Hero Section CSS */
+.background {
+  background-color: #f5f5f5;
+}
+
 .heroSection {
   position: relative;
   height: auto;
@@ -62,18 +66,54 @@
   transform: translate(-50%, -50%);
   margin-top: -100px;
   z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .customCard {
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
   border-radius: 0;
-  height: 250px;
+  border: none;
+  height: 395px;
+  box-shadow: none;
 }
 
+.customCardMobile {
+  background-color: #ffffff;
+  border-radius: 0;
+  border: none;
+  height: 395px;
+}
 
 .outCardContainer {
   display: none;
+}
+
+.cardParagraph {
+  display: flex;
+  align-items: flex-start;
+}
+.circle {
+  background-image: url("../../../assets/img/utils/circle.png");
+  background-repeat: no-repeat;
+  height: 150%;
+  background-size: contain;
+}
+
+.bottomBorder {
+  border-bottom: 3px solid var(--color-pastel-aqua-green);
+  margin-top: auto;
+  margin-bottom: 60px;
+  width: 20%;
+}
+
+.cardTitleContainer {
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-start;
 }
 
 @media (max-width: 911px) {

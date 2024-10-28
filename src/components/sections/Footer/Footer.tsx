@@ -86,8 +86,8 @@ const Footer: React.FC = () => {
               />
             </a>
             <p className="mb-5 text-white">
-              Conectando soluções financeiras para pessoas e empresas, com foco
-              em inovação e crescimento sustentável.
+              "Se alguém está sentado à sombra hoje é porque uma outra pessoa
+              plantou uma árvore um dia" <br /> <strong> - Warren Buffett</strong>
             </p>
             <SocialLinks links={socialLinks} />
           </div>

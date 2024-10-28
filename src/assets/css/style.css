@@ -35,8 +35,9 @@
   */
   --color-pastel-aqua-green: #73e6bb;
 
-  --color-text-dark: #000;
-  --color-text-light: #fff;
+  --color-text-black: #000;
+  --color-text-white: #fff;
+  --color-text-light: #969696
 
   --color-background-light: #f9f9f9;
 }
@@ -44,6 +45,21 @@
 .text-highlight {
   color: var(--color-light-emerald-green);
 }
+
+.color-light {
+  color: #858080
+}
+
+
+body {
+  font-family: "Jost", sans-serif; /*
+  color: var(--color-light-emerald-green);
+}
+
+.color-light {
+  color: #858080
+}
+
 
 body {
   font-family: "Jost", sans-serif; /* Atualizando para a fonte Joel */

@@ -1,25 +1,27 @@
+import { Container, Row } from "react-bootstrap";
+import img from "@/assets/img/placeholder/design-alt.png";
+
 const CTA2: React.FC = () => {
   return (
-    <section className="pt-120 bg-light">
-      <div className="container">
-        <div className="row">
-          <div className="col-md-8">
-            <h2 className="display-5 fw-bold">
-              Agende uma reunião com nossos especialistas
+    <section style={{ backgroundImage: `url(${img.src})` }} className="bg-light py-60">
+      <Container>
+        <Row>
+          <div className="text-center  px-4">
+            <span className="fs-1 text-highlight">|</span>
+            <h2 className="text-medium mb-4 mt-3">
+              Fale com um de nossos especialistas
             </h2>
-            <p className="fs-5 pt-3">
-              Nossos profissionais vão entender suas necessidades e apresentar
-              as melhores soluções financeiras, personalizadas para o seu perfil
-              e objetivos.
+            <p>
+              {" "}
+              Fale com um de nossos especialistas e descubra as melhores
+              soluções para suas necessidades financeiras.
             </p>
-          </div>
-          <div className="col-md-4 d-flex align-items-center">
-            <a href="" className="btn btn-primary p-4 fw-bold fs-5">
+            <a href="" className="btn fw-bold mt-5">
               Fale agora com um especialista
             </a>
           </div>
-        </div>
-      </div>
+        </Row>
+      </Container>
     </section>
   );
 };
