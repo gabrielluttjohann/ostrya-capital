@@ -10,6 +10,7 @@ import About from "@/components/sections/About/About";
 import CTASection from "@/components/sections/CTA/CTA";
 import CTA2 from "@/components/sections/CTA2/CTA2";
 import Finance from "@/components/sections/About/Finance/Finance";
+import Team from "@/components/sections/Partners/Partners";
 
 const Index: React.FC = () => {
   return (
@@ -23,6 +24,7 @@ const Index: React.FC = () => {
       <CreditPJ />
       <Contact />
       <Finance />
+      <Team />
       <Footer />
     </>
   );

@@ -1,50 +1,41 @@
-.header {
+.topbar {
+  font-size: 0.875rem;
+  background-color: #f8f9fa;
+  color: #6c757d;
   width: 100%;
-  z-index: 9999999;
+
 }
 
-.topBar {
-  background-color: #f8f9fa;
-  border-bottom: 1px solid #e0e0e0;
-  padding: 10px 0;
+.border {
+  border: none;
+}
+
+.header {
+  transition: all 0.3s ease;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Adiciona espaçamento para o conteúdo quando a navbar fica fixa */
+.fixed ~ .content {
+  margin-top: 60px; /* Ajuste conforme a altura da navbar */
+}
+
+.container {
+  padding: 0 !important;
+}
+
+.navbar-brand {
+  margin: 0;
 }
 
 .navbar {
-  transition: all 0.3s ease-in-out;
-  z-index: 1050;
-}
-
-.nav {
-  padding: 34px 0px;
-}
-
-@media (min-width: 0px) and (max-width: 991px) {
-  .nav {
-    padding: 0px;
-  }
-
-  .topBar {
-    display: none;
-  }
-
-  .mobile {
-    display: none;
-  }
-
-  .menuItem:hover {
-    background-color: var(--color-green);
-    color: white;
-  }
-
-  .menuText {
-    color: black;
-  }
-
-  .menuText:hover {
-    color: white;
-  }
-
-  .mobile {
-    display: hidden;
-  }
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }

@@ -1,38 +1,9 @@
 :root {
-  /* 
-  Use this color for prominent elements such as the header, 
-  footer and main buttons (call-to-action). Being a strong color, 
-  it conveys seriousness and confidence, which is essential for 
-  a financial advice website.
-   */
+ 
   --color-dark-forest-green: #013220;
-
-  /* 
-  It can be used for blocks of text or important sections, 
-  such as about the company, services offered or contact information. 
-  It is also a good choice for sidebars or navigation menus 
-  */
   --color-pine-green: #3b7761;
-
-  /* 
-  This color can be used in the background of cards or banners, offering 
-  contrast with darker elements without losing sophistication. It helps 
-  to break up content while maintaining a clean and professional appearance.
-  */
   --color-soft-mint-green: #4c997d;
-
-  /* 
-  Ideal for small details such as icons, borders or text highlights. 
-  It can also be used on secondary buttons, such as additional reading 
-  buttons or navigation buttons between sections.
-  */
   --color-light-emerald-green: #5dbb99;
-
-  /* 
-  Use this color for soft backgrounds, as sections between content 
-  blocks or to create spacing. It keeps the look light and modern, 
-  without taking the focus away from the main areas.
-  */
   --color-pastel-aqua-green: #73e6bb;
 
   --color-text-black: #000;
@@ -246,3 +217,38 @@ footer p {
   background-color: #81ecc5;
   border: 1px solid black;
 }
+
+
+
+
+/* Remove a borda e o estilo de botão do toggle no mobile */
+.navbar-toggler {
+  border: none;
+  background: transparent;
+  padding: 0;
+  outline: none;
+  box-shadow: none;
+}
+
+/* Ajusta o ícone do menu (hamburger) para que ele mantenha o estilo */
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='currentColor' stroke-width='2' d='M1 2h14M1 8h14M1 14h14'/%3E%3C/svg%3E");
+  width: 24px;
+  height: 24px;
+}
+
+/* Remove a borda e o aspecto de botão da Header do Offcanvas */
+.offcanvas-header {
+  border-bottom: none;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* Estiliza o título do Offcanvas para manter o layout limpo */
+.offcanvas-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #333;
+}
+
+

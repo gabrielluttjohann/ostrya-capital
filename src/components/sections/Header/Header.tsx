@@ -1,148 +1,98 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import styles from "./Header.module.css";
+import Offcanvas from "react-bootstrap/Offcanvas";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
 import { LOGO_IMAGE } from "@/constants/images.c";
+import styles from "./Header.module.css";
 
 const Header: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSticky, setIsSticky] = useState(false);
-  const headerRef = useRef<HTMLDivElement>(null);
-  const menuRef = useRef<HTMLDivElement>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-
-  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
-  const closeMenu = () => setIsMenuOpen(false);
-
-  const handleScroll = () => {
-    if (headerRef.current) {
-      const headerHeight = headerRef.current.offsetHeight;
-      const isStickyNow = window.scrollY > headerHeight;
-      setIsSticky(isStickyNow);
-
-      // Fechar o menu quando rolar para cima.
-      if (window.scrollY < headerHeight) {
-        setIsMenuOpen(false);
-      }
-    }
-  };
-
-  const handleClickOutside = (event: MouseEvent) => {
-    if (
-      menuRef.current &&
-      !menuRef.current.contains(event.target as Node) &&
-      buttonRef.current &&
-      !buttonRef.current.contains(event.target as Node)
-    ) {
-      closeMenu();
-    }
-  };
-
-  const handleResize = () => {
-    if (isMenuOpen) closeMenu();
-  };
+  const [isFixed, setIsFixed] = useState(false);
+  const topbarRef = useRef<HTMLDivElement>(null);
+  const navbarRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    window.addEventListener("resize", handleResize);
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      if (topbarRef.current && navbarRef.current) {
+        const topbarHeight = topbarRef.current.clientHeight;
 
+        // Verifica se o scrollY passou a altura da Topbar
+        if (window.scrollY >= topbarHeight) {
+          setIsFixed(true);
+        } else {
+          setIsFixed(false);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      window.removeEventListener("resize", handleResize);
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [isMenuOpen]);
+  }, []);
 
-  const NavItem: React.FC<{
-    link: string;
-    label: string;
-    closeMenu: () => void;
-  }> = ({ link, label, closeMenu }) => (
-    <li className={`nav-item px-2 ${styles.menuItem}`}>
-      <Link
-        href={link}
-        className={`${styles.menuText} nav-link`}
-        onClick={closeMenu}
-      >
+  const NavItem: React.FC<{ link: string; label: string }> = ({
+    link,
+    label,
+  }) => (
+    <Nav.Link as="li" className={styles.menuItem}>
+      <Link href={link} className={styles.menuText}>
         {label}
       </Link>
-    </li>
+    </Nav.Link>
   );
 
   return (
-    <header ref={headerRef} className={`${styles.header} bg-white`}>
-      <nav
-        className={`py-2 navbar-expand-lg bg-white shadow-sm ${styles.nav} ${
-          isSticky ? "fixed-top" : ""
-        }`}
+    <>
+      {/* Topbar */}
+      <div
+        ref={topbarRef}
+        className={`${styles.topbar} bg-light text-secondary py-3`}
       >
-        <div className="bg-white container">
-          <div className="mx-5 d-flex justify-content-between align-items-center">
-            <Link href="/" className="me-auto">
-              <Image src={LOGO_IMAGE} alt="Logo" width={100} height={50} />
-            </Link>
-
-            <div className="d-none d-lg-block mx-auto">
-              <ul className="navbar-nav">
-                <NavItem link="/" label="Início" closeMenu={closeMenu} />
-                <NavItem
-                  link="/servicos"
-                  label="Serviços"
-                  closeMenu={closeMenu}
-                />
-                <NavItem link="/sobre" label="Sobre" closeMenu={closeMenu} />
-              </ul>
-            </div>
-
-            <div className={styles.mobile}>
-              <a
-                className={`py-3 btn btn-outline-dark d-block d-sm-inline-block`}
-                href="/fale-conosco"
-              >
-                Fale Conosco
-              </a>
-            </div>
-
-            <button
-              ref={buttonRef}
-              className="navbar-toggler d-lg-none px-2 py-1 border"
-              type="button"
-              onMouseDown={(e) => e.preventDefault()}
-              onClick={toggleMenu}
-              aria-label="Toggle navigation"
-            >
-              {isMenuOpen ? "✖" : "☰"}
-            </button>
-          </div>
+        <div className="container d-flex justify-content-between">
+          <small>Contato: (11) 1234-5678</small>
+          <small>Email: contato@empresa.com</small>
         </div>
-      </nav>
+      </div>
 
-      {isMenuOpen && (
-        <div
-          ref={menuRef}
-          className={`navbar-collapse bg-white ${isSticky ? "fixed-top mt-60" : ""}`}
-        >
+      {/* Navbar com Offcanvas */}
+      <header
+        ref={navbarRef}
+        className={`${styles.header} ${isFixed ? styles.fixed : ""}  bg-white`}
+      >
+        <Navbar expand="sm" className="align-items-center py-0">
           <div className="container">
-            <ul className="navbar-nav me-auto p-2 mb-2 mb-lg-0">
-              <NavItem link="/" label="Início" closeMenu={closeMenu} />
-              <NavItem link="/sobre" label="Sobre" closeMenu={closeMenu} />
-              <NavItem
-                link="/servicos"
-                label="Serviços"
-                closeMenu={closeMenu}
-              />
-              <NavItem link="/sobre" label="Sobre" closeMenu={closeMenu} />
-              <NavItem
-                link="/fale-conosco"
-                label="Fale Conosco"
-                closeMenu={closeMenu}
-              />
-            </ul>
+            <Navbar.Brand href="/" className="d-flex align-items-center py-0">
+              <Image src={LOGO_IMAGE} alt="Logo" width={100} height={50} />
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="offcanvasNavbar" />
+            <Navbar.Offcanvas
+              id="offcanvasNavbar"
+              aria-labelledby="offcanvasNavbarLabel"
+              placement="end"
+            >
+              <Offcanvas.Header closeButton>
+                <Offcanvas.Title id="offcanvasNavbarLabel">
+                  Menu
+                </Offcanvas.Title>
+              </Offcanvas.Header>
+              <Offcanvas.Body>
+                <Nav
+                  className={`justify-content-end flex-grow-1 pe-3 `}
+                  as="ul"
+                >
+                  <NavItem link="/" label="Início" />
+                  <NavItem link="/servicos" label="Serviços" />
+                  <NavItem link="/sobre" label="Sobre" />
+                  <NavItem link="/fale-conosco" label="Fale Conosco" />
+                </Nav>
+              </Offcanvas.Body>
+            </Navbar.Offcanvas>
           </div>
-        </div>
-      )}
-    </header>
+        </Navbar>
+      </header>
+    </>
   );
 };
 
