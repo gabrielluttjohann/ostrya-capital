@@ -3,21 +3,20 @@
     {
       "title": "Crédito",
       "text": "Oferecemos soluções de crédito flexíveis para atender às diversas necessidades de pessoas físicas e jurídicas.",
-      "iconClass": "fas fa-money-check-alt"
+      "iconClass": ""
     },
     {
       "title": "Consultoria Financeira",
       "text": "Auxiliamos empresas na organização e otimização de suas finanças, promovendo segurança e crescimento patrimonial.",
-      "iconClass": "fas fa-chart-line"
+      "iconClass": ""
     },
     {
       "title": "Consultoria de Investimentos",
       "text": "Elaboramos estratégias personalizadas de investimentos, alinhadas aos objetivos e perfil de cada cliente.",
-      "iconClass": "fas fa-coins"
+      "iconClass": ""
     }
   ],
   "socialLinks": [
-    { "href": "#", "iconClass": "fab fa-facebook-f", "alt": "Facebook" },
     { "href": "#", "iconClass": "fab fa-linkedin-in", "alt": "LinkedIn" },
     { "href": "#", "iconClass": "fab fa-instagram", "alt": "Instagram" }
   ],

@@ -16,6 +16,12 @@
       "alt": "WhatsApp"
     }
   ],
+  "policiesLinks": [
+    {
+      "filePath": "/assets/documents/politicas-de-uso-de-dados.pdf",
+      "text": "Políticas de uso de dados"
+    }
+  ],
   "contactLinks": [
     {
       "href": "mailto:ostrya@ostrya.com.br",

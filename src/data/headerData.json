@@ -4,9 +4,10 @@
     "email": "ostrya@ostrya.com.br"
   },
   "menuItems": [
-    { "link": "/", "labelId": "01", "label": "Início" },
-    { "link": "/servicos", "labelId": "02", "label": "Serviços" },
-    { "link": "/sobre", "labelId": "03", "label": "Sobre" },
-    { "link": "/fale-conosco", "labelId": "04", "label": "Fale Conosco" }
+    { "link": "/", "labelId": "", "label": "Início" },
+    { "link": "/sobre", "labelId": "", "label": "Sobre" },
+    { "link": "/credito", "labelId": "", "label": "Crédito" },
+    { "link": "/consultoria-financeira", "labelId": "", "label": "Consultoria Financeira" },
+    { "link": "/fale-conosco", "labelId": "", "label": "Fale Conosco" }
   ]
 }
