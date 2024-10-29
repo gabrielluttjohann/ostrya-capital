@@ -1,0 +1,42 @@
+{
+  "socialLinks": [
+    {
+      "href": "https://instagram.com",
+      "iconClass": "fa-instagram",
+      "alt": "Instagram"
+    },
+    {
+      "href": "https://linkedin.com",
+      "iconClass": "fa-linkedin",
+      "alt": "LinkedIn"
+    },
+    {
+      "href": "https://wa.me",
+      "iconClass": "fa-whatsapp",
+      "alt": "WhatsApp"
+    }
+  ],
+  "contactLinks": [
+    {
+      "href": "mailto:ostrya@ostrya.com.br",
+      "text": "ostrya@ostrya.com.br"
+    },
+    {
+      "href": "tel:+5551999984375",
+      "text": "(51) 9999-84375"
+    }
+  ],
+  "addressLinks": [
+    {
+      "href": "#",
+      "text": "R. Tamandaré, 140, sala 901, Novo Hamburgo - RS, 93410-150"
+    }
+  ],
+  "quote": {
+    "text": "Se alguém está sentado à sombra hoje é porque uma outra pessoa plantou uma árvore um dia",
+    "author": "Warren Buffett"
+  },
+  "copyright": {
+    "text": "Copyright © Ostrya 2024. Todos os direitos reservados."
+  }
+}

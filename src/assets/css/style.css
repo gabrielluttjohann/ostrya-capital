@@ -14,7 +14,7 @@
 }
 
 .text-highlight {
-  color: var(--color-light-emerald-green);
+  color: var(--color-pine-green);
 }
 
 .color-light {
@@ -178,7 +178,7 @@ footer p {
   font-size: 1.188rem;
 }
 
-.text-light {
+.text-lighter {
   font-family: var(--font-jost-light);
   font-weight: 300;
 }
@@ -208,47 +208,15 @@ footer p {
 }
 
 .btn {
-  background-color: var(--color-pastel-aqua-green);
+  background-color: var(--color-pine-green);
   padding: 20px;
   border: 1px solid black;
+  color: white;
 }
 
 .btn:hover {
-  background-color: #81ecc5;
+  background-color: #51947b;
   border: 1px solid black;
+  color: white;
 }
-
-
-
-
-/* Remove a borda e o estilo de botão do toggle no mobile */
-.navbar-toggler {
-  border: none;
-  background: transparent;
-  padding: 0;
-  outline: none;
-  box-shadow: none;
-}
-
-/* Ajusta o ícone do menu (hamburger) para que ele mantenha o estilo */
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='currentColor' stroke-width='2' d='M1 2h14M1 8h14M1 14h14'/%3E%3C/svg%3E");
-  width: 24px;
-  height: 24px;
-}
-
-/* Remove a borda e o aspecto de botão da Header do Offcanvas */
-.offcanvas-header {
-  border-bottom: none;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-/* Estiliza o título do Offcanvas para manter o layout limpo */
-.offcanvas-title {
-  font-size: 1.25rem;
-  font-weight: 500;
-  color: #333;
-}
-
 

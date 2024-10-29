@@ -3,7 +3,7 @@ import BG from "@/assets/img/bg/bg-02.png";
 function Section() {
   return (
     <div
-      className=""
+      className="my-60 bg-light"
       style={{
         backgroundImage: `url(${BG.src})`,
         backgroundRepeat: "no-repeat",
@@ -11,7 +11,7 @@ function Section() {
         backgroundSize: "cover",
         objectFit: "fill",
         backgroundPosition: "center",
-        height: "60vh",
+        minHeight: "500px",
         width: "100%",
       }}
     ></div>

@@ -3,7 +3,6 @@
   background-color: #f8f9fa;
   color: #6c757d;
   width: 100%;
-
 }
 
 .border {
@@ -38,4 +37,10 @@
 .navbar {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
+}
+
+@media (max-width: 576px) {
+  .labelIdVisibility {
+    display: none;
+  }
 }

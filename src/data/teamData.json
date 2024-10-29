@@ -1,0 +1,26 @@
+{
+  "title": "Conheça os sócios fundadores.",
+  "description": "Nossa equipe é liderada por sócios dedicados e apaixonados pelo que fazem, que conduzem um grupo de profissionais altamente capacitados. Com vasta experiência e conhecimento, eles estão prontos para transformar seus desafios em soluções eficazes.",
+  "members": [
+    {
+      "id": "01",
+      "name": "Jorge Ferreira, CFA",
+      "role": "Sócio Fundador",
+      "socialLinks": {
+        "facebook": "#",
+        "linkedin": "#",
+        "twitter": "#"
+      }
+    },
+    {
+      "id": "02",
+      "name": "Geile Aline Lüttjohann",
+      "role": "Sócia Fundadora",
+      "socialLinks": {
+        "facebook": "#",
+        "linkedin": "#",
+        "twitter": "#"
+      }
+    }
+  ]
+}

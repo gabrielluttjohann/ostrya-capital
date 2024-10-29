@@ -1,5 +1,7 @@
 import Image from "next/image";
 import React from "react";
+import footerData from "@/data/footerData.json"; // Ajuste o caminho conforme sua estrutura de pastas
+
 const LOGO_IMAGE = require("@/assets/img/logo/logo-white.png");
 
 const SocialLinks: React.FC<{
@@ -27,7 +29,7 @@ const LinksList: React.FC<{
   links: { href: string; text: string }[];
 }> = ({ title, links }) => (
   <div className="col-12 col-md-6 col-lg-3 mb-5">
-    <h4 className="mb-4">{title}</h4>
+    <h4 className="mb-4 text-white">{title}</h4>
     <ul className="list-unstyled">
       {links.map((link, index) => (
         <li key={index} className="mb-2">
@@ -41,36 +43,6 @@ const LinksList: React.FC<{
 );
 
 const Footer: React.FC = () => {
-  const socialLinks = [
-    {
-      href: "https://instagram.com",
-      iconClass: "fa-instagram",
-      alt: "Instagram",
-    },
-    {
-      href: "https://linkedin.com",
-      iconClass: "fa-linkedin",
-      alt: "LinkedIn",
-    },
-    {
-      href: "https://wa.me",
-      iconClass: "fa-whatsapp",
-      alt: "WhatsApp",
-    },
-  ];
-
-  const contactLinks = [
-    { href: "mailto:contato@ostrya.com", text: "contato@ostrya.com" },
-    { href: "tel:+555199999999", text: "(51) 99999-9999" },
-  ];
-
-  const addressLinks = [
-    {
-      href: "#",
-      text: "R. Tamandaré, 140, sala 901, Novo Hamburgo - RS, 93410-150",
-    },
-  ];
-
   return (
     <footer className="py-120 bg-green text-white">
       <div className="container">
@@ -86,22 +58,20 @@ const Footer: React.FC = () => {
               />
             </a>
             <p className="mb-5 text-white">
-              "Se alguém está sentado à sombra hoje é porque uma outra pessoa
-              plantou uma árvore um dia" <br /> <strong> - Warren Buffett</strong>
+              "{footerData.quote.text}" <br />{" "}
+              <strong>- {footerData.quote.author}</strong>
             </p>
-            <SocialLinks links={socialLinks} />
+            <SocialLinks links={footerData.socialLinks} />
           </div>
           <div className="col-12 col-lg-9">
             <div className="row">
-              <LinksList title="Contato" links={contactLinks} />
-              <LinksList title="Endereço" links={addressLinks} />
+              <LinksList title="Contato" links={footerData.contactLinks} />
+              <LinksList title="Endereço" links={footerData.addressLinks} />
             </div>
           </div>
         </div>
         <div className="pt-5 text-center">
-          <p className="text-white">
-            Copyright © Ostrya 2024. Todos os direitos reservados.
-          </p>
+          <p className="text-white">{footerData.copyright.text}</p>
         </div>
       </div>
     </footer>

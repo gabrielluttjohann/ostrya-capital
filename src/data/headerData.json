@@ -1,0 +1,12 @@
+{
+  "contactInfo": {
+    "phone": "(51) 9999-84375",
+    "email": "ostrya@ostrya.com.br"
+  },
+  "menuItems": [
+    { "link": "/", "labelId": "01", "label": "Início" },
+    { "link": "/servicos", "labelId": "02", "label": "Serviços" },
+    { "link": "/sobre", "labelId": "03", "label": "Sobre" },
+    { "link": "/fale-conosco", "labelId": "04", "label": "Fale Conosco" }
+  ]
+}
