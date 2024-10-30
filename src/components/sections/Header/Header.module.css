@@ -44,3 +44,12 @@
     display: none;
   }
 }
+
+/* Header.module.css */
+.menuItem {
+  cursor: pointer;
+}
+
+.menuItem:hover {
+  color: #013220; /* Altere para a cor que preferir */
+}

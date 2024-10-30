@@ -17,15 +17,7 @@
   color: var(--color-pine-green);
 }
 
-.color-light {
-  color: #858080
-}
 
-
-body {
-  font-family: "Jost", sans-serif; /*
-  color: var(--color-light-emerald-green);
-}
 
 .color-light {
   color: #858080
@@ -33,7 +25,7 @@ body {
 
 
 body {
-  font-family: "Jost", sans-serif; /* Atualizando para a fonte Joel */
+  font-family: "Jost", sans-serif; 
   font-size: 1rem;
   line-height: 1.6;
   color: var(--color-text-dark); /* Cor do texto principal */
@@ -94,6 +86,11 @@ p {
 a {
   color: var(--color-dark-forest-green);
   text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover {
+ cursor: pointer;
 }
 
 /* Botões principais (call-to-action) */

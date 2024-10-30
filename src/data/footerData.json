@@ -1,17 +1,12 @@
 {
   "socialLinks": [
     {
-      "href": "https://instagram.com",
+      "href": "https://www.instagram.com/ostrya.capital?igsh=MWpxNXI4aHM2MW13Zg==",
       "iconClass": "fa-instagram",
       "alt": "Instagram"
     },
     {
-      "href": "https://linkedin.com",
-      "iconClass": "fa-linkedin",
-      "alt": "LinkedIn"
-    },
-    {
-      "href": "https://wa.me",
+      "href": "https://wa.me/5551999984375",
       "iconClass": "fa-whatsapp",
       "alt": "WhatsApp"
     }
@@ -39,8 +34,8 @@
     }
   ],
   "quote": {
-    "text": "Se alguém está sentado à sombra hoje é porque uma outra pessoa plantou uma árvore um dia",
-    "author": "Warren Buffett"
+    "text": "",
+    "author": ""
   },
   "copyright": {
     "text": "Copyright © Ostrya 2024. Todos os direitos reservados."

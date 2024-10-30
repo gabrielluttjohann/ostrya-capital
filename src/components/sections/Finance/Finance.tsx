@@ -34,7 +34,7 @@ const Finance: React.FC = () => {
   const { title, description, consultingLabel, iconTexts } = financeData;
 
   return (
-    <section className={`${styles.financeSection} px-4 my-120`}>
+    <section id="consultoria-financeira" className={`${styles.financeSection} px-4 my-120`}>
       <Container>
         <div className={styles.financeGrid}>
           <div className={styles.content}>

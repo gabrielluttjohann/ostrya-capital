@@ -1,26 +1,45 @@
 import React, { RefObject, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import styles from "./Header.module.css";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import useFixedOnScroll from "@/hooks/useFixedOnScroll";
 import headerData from "@/data/headerData.json";
-import LOGO_IMAGE from "@/assets/img/logo/logo.png"
+import LOGO_IMAGE from "@/assets/img/logo/logo.png";
 
-const NavItem: React.FC<{ link: string; labelId: string; label: string }> = ({
-  link,
-  labelId,
-  label,
-}) => (
-  <Nav.Link as="li" className={styles.menuItem}>
-    <Link href={link} className={styles.menuText}>
-      <div className="d-flex flex-column justify-content-start align-items-start p-0 m-0">
-        <span className={`text-highlight small ${styles.labelIdVisibility}`}>{labelId}</span>
-      </div>
-      {label}
-    </Link>
+// Função para rolar suavemente até a seção com offset
+const scrollToSection = (id: string, offset = 86) => {
+  const element = document.getElementById(id);
+  if (element) {
+    const elementPosition =
+      element.getBoundingClientRect().top + window.pageYOffset;
+    const offsetPosition = elementPosition - offset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
+  }
+};
+
+const NavItem: React.FC<{
+  sectionId: string;
+  labelId: string;
+  label: string;
+}> = ({ sectionId, labelId, label }) => (
+  <Nav.Link
+    as="li"
+    className={styles.menuItem}
+    onClick={() => scrollToSection(sectionId)}
+    style={{ cursor: "pointer" }}
+  >
+    <div className="d-flex flex-column justify-content-start align-items-start p-0 m-0">
+      <span className={`text-highlight small ${styles.labelIdVisibility}`}>
+        {labelId}
+      </span>
+    </div>
+    {label}
   </Nav.Link>
 );
 
@@ -50,7 +69,7 @@ const OffcanvasNavbar: React.FC<{
               {headerData.menuItems.map((item, index) => (
                 <NavItem
                   key={index}
-                  link={item.link}
+                  sectionId={item.link.substring(1)} // Remove a barra inicial
                   labelId={item.labelId}
                   label={item.label}
                 />
@@ -83,7 +102,7 @@ const Header: React.FC = () => {
   const isFixed = useFixedOnScroll(topbarRef, navbarRef);
 
   return (
-    <header className="m-0 p-0">
+    <header id="inicio" className="m-0 p-0">
       <Topbar topbarRef={topbarRef} />
       <OffcanvasNavbar navbarRef={navbarRef} isFixed={isFixed} />
     </header>

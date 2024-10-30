@@ -2,23 +2,29 @@
   "cardData": [
     {
       "title": "Crédito",
-      "text": "Oferecemos soluções de crédito flexíveis para atender às diversas necessidades de pessoas físicas e jurídicas.",
-      "iconClass": ""
+      "text": "Oferecemos soluções de crédito customizadas para empresas, empresários e investidores.",
+      "iconClass": "",
+      "sectionId": "credito"
     },
     {
       "title": "Consultoria Financeira",
-      "text": "Auxiliamos empresas na organização e otimização de suas finanças, promovendo segurança e crescimento patrimonial.",
-      "iconClass": ""
+      "text": "Auxiliamos empresas na organização e otimização de suas finanças, promovendo segurança, crescimento patrimonial e geração de valor para o negócio.",
+      "iconClass": "",
+      "sectionId": "consultoria-financeira"
     },
     {
       "title": "Consultoria de Investimentos",
       "text": "Elaboramos estratégias personalizadas de investimentos, alinhadas aos objetivos e perfil de cada cliente.",
-      "iconClass": ""
+      "iconClass": "",
+      "url": "https://ostrya.com.br"
     }
   ],
   "socialLinks": [
-    { "href": "#", "iconClass": "fab fa-linkedin-in", "alt": "LinkedIn" },
-    { "href": "#", "iconClass": "fab fa-instagram", "alt": "Instagram" }
+    {
+      "href": "https://www.instagram.com/ostrya.capital?igsh=MWpxNXI4aHM2MW13Zg==",
+      "iconClass": "fab fa-instagram",
+      "alt": "Instagram"
+    }
   ],
   "contentData": {
     "title": "Conte com uma equipe que já participou da análise de mais de R$ 50,0 bilhões em crédito",

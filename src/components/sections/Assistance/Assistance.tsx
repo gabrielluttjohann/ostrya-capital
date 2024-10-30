@@ -41,7 +41,7 @@ const Assistance: React.FC = () => {
   const cardsData = loadCardData(assistanceData);
 
   return (
-    <div
+    <div id="credito"
       className={`bg-light py-60 ${styles.spacing}`}
       style={{ backgroundImage: `url(${BG_ALT.src})` }}
     >
@@ -60,7 +60,7 @@ const Assistance: React.FC = () => {
           <div key={cardData.id}>
             <Card01
               id={cardData.id}
-              imageSrc={cardImages[cardData.id]} // Associa a imagem pelo ID
+              imageSrc={cardImages[cardData.id]} 
               title={cardData.title}
               content={cardData.content}
             />

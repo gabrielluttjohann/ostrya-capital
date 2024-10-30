@@ -3,6 +3,18 @@ import { Container, Row } from "react-bootstrap";
 import img from "@/assets/img/placeholder/design-alt.png";
 import ctaData from "@/data/ctaData.json";
 
+// Função de rolagem suave com offset para a seção "Team"
+const scrollToTeam = () => {
+  const teamSection = document.getElementById("time");
+  const offset = 86; // Ajuste este valor conforme necessário
+
+  if (teamSection) {
+    const topPosition =
+      teamSection.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top: topPosition, behavior: "smooth" });
+  }
+};
+
 // Componente CTAHeader
 const CTAHeader: React.FC = () => (
   <>
@@ -14,11 +26,11 @@ const CTAHeader: React.FC = () => (
 // Componente CTAContent
 const CTAContent: React.FC = () => <p>{ctaData.content}</p>;
 
-// Componente CTAButton
+// Componente CTAButton com rolagem suave e offset
 const CTAButton: React.FC = () => (
-  <a href="" className="btn fw-bold mt-5">
+  <button onClick={scrollToTeam} className="btn fw-bold mt-5">
     {ctaData.buttonText}
-  </a>
+  </button>
 );
 
 // Componente principal CTA

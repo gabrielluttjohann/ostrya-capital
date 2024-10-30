@@ -6,7 +6,7 @@ import aboutImage from "@/assets/img/about/about.jpg";
 
 const About: React.FC = () => {
   return (
-    <section style={{ backgroundColor: "#F5F5F5" }}>
+    <section id="sobre" style={{ backgroundColor: "#F5F5F5" }}>
       <div className="container px-4">
         <div className={`row align-items-center ${styles.spacing}`}>
           <ImageColumn imgSrc={aboutImage} altText={data.altText} />
