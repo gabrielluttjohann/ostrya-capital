@@ -3,8 +3,7 @@ import React from "react";
 import footerData from "@/data/footerData.json";
 import LOGO_IMAGE from "@/assets/img/logo/logo-white.png";
 
-// Use a referência correta para o PDF
-const POLICIES = "/assets/documents/politicas-de-uso-de-dados.pdf";
+const POLICIES = "./assets/documents/politicas-de-uso-de-dados.pdf";
 
 const SocialLinks: React.FC<{
   links: { href: string; iconClass: string; alt: string }[];
