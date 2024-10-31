@@ -1,4 +1,4 @@
-import React, { RefObject, useRef } from "react";
+import React, { RefObject, useRef, useState } from "react";
 import Image from "next/image";
 import styles from "./Header.module.css";
 import Offcanvas from "react-bootstrap/Offcanvas";
@@ -9,7 +9,7 @@ import headerData from "@/data/headerData.json";
 import LOGO_IMAGE from "@/assets/img/logo/logo.png";
 
 // Função para rolar suavemente até a seção com offset
-const scrollToSection = (id: string, offset = 86) => {
+const scrollToSection = (id: string, offset = 120) => {
   const element = document.getElementById(id);
   if (element) {
     const elementPosition =
@@ -27,11 +27,15 @@ const NavItem: React.FC<{
   sectionId: string;
   labelId: string;
   label: string;
-}> = ({ sectionId, labelId, label }) => (
+  onClick: () => void;
+}> = ({ sectionId, labelId, label, onClick }) => (
   <Nav.Link
     as="li"
     className={styles.menuItem}
-    onClick={() => scrollToSection(sectionId)}
+    onClick={() => {
+      scrollToSection(sectionId);
+      onClick();
+    }}
     style={{ cursor: "pointer" }}
   >
     <div className="d-flex flex-column justify-content-start align-items-start p-0 m-0">
@@ -46,7 +50,10 @@ const NavItem: React.FC<{
 const OffcanvasNavbar: React.FC<{
   navbarRef: RefObject<HTMLDivElement>;
   isFixed: boolean;
-}> = ({ navbarRef, isFixed }) => (
+  show: boolean;
+  handleClose: () => void;
+  handleShow: () => void;
+}> = ({ navbarRef, isFixed, show, handleClose, handleShow }) => (
   <div
     className={`${styles.header} ${isFixed ? styles.fixed : ""} py-3 bg-white`}
   >
@@ -55,11 +62,13 @@ const OffcanvasNavbar: React.FC<{
         <Navbar.Brand href="/" className="d-flex align-items-center py-0">
           <Image src={LOGO_IMAGE} alt="Logo" width={100} height={50} />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="offcanvasNavbar" />
+        <Navbar.Toggle aria-controls="offcanvasNavbar" onClick={handleShow} />
         <Navbar.Offcanvas
           id="offcanvasNavbar"
           aria-labelledby="offcanvasNavbarLabel"
           placement="end"
+          show={show}
+          onHide={handleClose}
         >
           <Offcanvas.Header closeButton>
             <Offcanvas.Title id="offcanvasNavbarLabel">Menu</Offcanvas.Title>
@@ -72,6 +81,7 @@ const OffcanvasNavbar: React.FC<{
                   sectionId={item.link.substring(1)} // Remove a barra inicial
                   labelId={item.labelId}
                   label={item.label}
+                  onClick={handleClose} // Fecha o Offcanvas ao clicar
                 />
               ))}
             </Nav>
@@ -97,14 +107,24 @@ const Topbar: React.FC<{ topbarRef: RefObject<HTMLDivElement> }> = ({
 );
 
 const Header: React.FC = () => {
+  const [show, setShow] = useState(false);
   const topbarRef = useRef<HTMLDivElement>(null);
   const navbarRef = useRef<HTMLDivElement>(null);
   const isFixed = useFixedOnScroll(topbarRef, navbarRef);
 
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <header id="inicio" className="m-0 p-0">
       <Topbar topbarRef={topbarRef} />
-      <OffcanvasNavbar navbarRef={navbarRef} isFixed={isFixed} />
+      <OffcanvasNavbar
+        navbarRef={navbarRef}
+        isFixed={isFixed}
+        show={show}
+        handleClose={handleClose}
+        handleShow={handleShow}
+      />
     </header>
   );
 };
