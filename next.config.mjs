@@ -1,6 +1,6 @@
-/** @type {import('next').NextConfig} */
+// next.config.js
 const nextConfig = {
-  output: 'export',
+  output: "export",
   reactStrictMode: true,
   images: {
     unoptimized: true, // Desativa a otimização de imagens
@@ -12,6 +12,9 @@ const nextConfig = {
     ],
   },
   webpack: (config, { dev, isServer }) => {
+    // Desativa o cache do Webpack
+    config.cache = false;
+
     if (dev && !isServer) {
       config.watchOptions = {
         poll: 1000,

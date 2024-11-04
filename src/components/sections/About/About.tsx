@@ -17,10 +17,10 @@ const About: React.FC = () => {
   );
 };
 
-const ImageColumn: React.FC<{ imgSrc: StaticImageData; altText: string }> = ({
-  imgSrc,
-  altText,
-}) => {
+const ImageColumn: React.FC<{
+  imgSrc: string | StaticImageData;
+  altText: string;
+}> = ({ imgSrc, altText }) => {
   return (
     <div className="col-md-6">
       <Image
@@ -29,7 +29,6 @@ const ImageColumn: React.FC<{ imgSrc: StaticImageData; altText: string }> = ({
         width={500}
         height={500}
         className="img-fluid"
-        
       />
     </div>
   );
