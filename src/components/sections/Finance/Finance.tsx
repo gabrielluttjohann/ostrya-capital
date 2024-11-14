@@ -34,41 +34,46 @@ const Finance: React.FC = () => {
   const { title, description, consultingLabel, iconTexts } = financeData;
 
   return (
-    <section id="consultoria-financeira" className={`${styles.financeSection} px-4 my-120`}>
-      <Container>
-        <div className={styles.financeGrid}>
-          <div className={styles.content}>
-            <span
-              className="fw-bold text-highlight text-uppercase"
-              style={{ letterSpacing: "5px" }}
-            >
-              {consultingLabel}
-            </span>
-            <h2 className="text-medium text-white">{title}</h2>
-            <p className="text-white">{description}</p>
+    <div style={{ backgroundColor: "#172627" }}>
+      <section
+        id="consultoria-financeira"
+        className={`${styles.financeSection} px-4 my-120`}
+      >
+        <Container>
+          <div className={styles.financeGrid}>
+            <div className={styles.content}>
+              <span
+                className="fw-bold text-highlight text-uppercase"
+                style={{ letterSpacing: "5px" }}
+              >
+                {consultingLabel}
+              </span>
+              <h2 className="text-medium text-white">{title}</h2>
+              <p className="text-white">{description}</p>
 
-            <div className="text-white fs-5 fw-bold">
-              {iconTexts.map((item, index) => (
-                <IconText
-                  key={index}
-                  icon={item.icon as IconKey}
-                  text={item.text}
-                />
-              ))}
+              <div className="text-white fs-5 fw-bold">
+                {iconTexts.map((item, index) => (
+                  <IconText
+                    key={index}
+                    icon={item.icon as IconKey}
+                    text={item.text}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div className={styles.imageContainer}>
+              <Image
+                src={img}
+                alt="Consultoria Financeira"
+                height={500}
+                className="w-100"
+              />
             </div>
           </div>
-
-          <div className={styles.imageContainer}>
-            <Image
-              src={img}
-              alt="Consultoria Financeira"
-              height={500}
-              className="w-100"
-            />
-          </div>
-        </div>
-      </Container>
-    </section>
+        </Container>
+      </section>
+    </div>
   );
 };
 

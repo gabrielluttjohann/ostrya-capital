@@ -28,12 +28,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     gaScript.async = true;
     gaScript.onload = initializeGA;
     document.head.appendChild(gaScript);
-
-    const whatsappScript = document.createElement("script");
-    whatsappScript.src =
-      "https://d335luupugsy2.cloudfront.net/js/loader-scripts/ddea7ee6-1dbc-4d9b-aba2-8a38f469afca-loader.js";
-    whatsappScript.async = true;
-    document.head.appendChild(whatsappScript);
   }, []);
 
   return (

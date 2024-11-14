@@ -2,7 +2,7 @@ import React from "react";
 import Image, { StaticImageData } from "next/image";
 import styles from "./About.module.css";
 import data from "@/data/aboutData.json";
-import aboutImage from "@/assets/img/about/about.jpg";
+import aboutImage from "@/assets/img/about/about.png";
 
 const About: React.FC = () => {
   return (
@@ -51,7 +51,7 @@ const ContentColumn: React.FC<{ title: string; content: string }> = ({
       </div>
       <h2 className="mb-4 text-medium mt-0 pt-0">{title}</h2>
       <p>{content}</p>
-      <a href="" className="btn">
+      <a href="#time" className="btn">
         Conheça os Sócios
       </a>
     </div>

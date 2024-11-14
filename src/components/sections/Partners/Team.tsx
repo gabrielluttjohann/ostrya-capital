@@ -6,85 +6,68 @@ import bg from "@/assets/img/placeholder/design-alt.png";
 import TEAM_01 from "@/assets/img/team/team-01.png";
 import TEAM_02 from "@/assets/img/team/team-02.png";
 import { StaticImageData } from "next/image";
+import { height } from "@fortawesome/free-solid-svg-icons/fa0";
 
-// Definindo os tipos para os links sociais, tornando facebook e twitter opcionais
 interface SocialLinks {
   facebook?: string;
   linkedin: string;
   twitter?: string;
 }
 
-// Definindo os tipos para os membros da equipe
 interface TeamMember {
   id: string;
   name: string;
   role: string;
   socialLinks: SocialLinks;
   image: StaticImageData;
+  descriptions: Array<string>;
 }
 
-// Mapeando os membros da equipe com as imagens correspondentes
 const teamMembers: TeamMember[] = teamData.members.map((member) => ({
   ...member,
   image: member.id === "01" ? TEAM_01 : TEAM_02,
 }));
 
-// Definindo os tipos para as props do Card
-interface CardProps {
+interface ProfileHighlightProps {
   name: string;
   role: string;
   image: StaticImageData;
   socialLinks: SocialLinks;
+  descriptions: Array<string>;
 }
 
-const Card: React.FC<CardProps> = ({ name, role, image, socialLinks }) => {
+const ProfileHighlight: React.FC<ProfileHighlightProps> = ({
+  name,
+  role,
+  image,
+  socialLinks,
+  descriptions,
+}) => {
   return (
-    <div
-      className={`d-flex justify-content-center`}
-      style={{ background: `url(${bg.src})`, padding: "20px" }}
-    >
-      <div
-        className={`bg-white ${styles.card}`}
-        style={{ width: "368px", height: "576px" }}
-      >
-        <img
-          src={image.src}
-          className={`${styles.card}`}
-          alt={name}
-          style={{ width: "100%", height: "386px", objectFit: "cover" }}
-        />
-        <div className="px-4 text-center" style={{ height: "150px" }}>
-          <h5>{name}</h5>
-          <p>{role}</p>
-          <div className="d-flex justify-content-center">
+    <div className={styles.profileHighlight} style={{ minHeight: "800px" }}>
+      <div className={`text-center`}>
+        <div className={`${styles.profileImageContainer}`}>
+          <img src={image.src} alt={name} className={styles.profileImage} />
+        </div>
+        <div className={`${styles.cardContent} p-4`}>
+          <h4 className="text-dark">{name}</h4>
+          <p className="text-primary">{role}</p>
+          <ul className={`${styles.descriptionList}`}>
+            {descriptions.map((description, index) => (
+              <li key={index} className={` ${styles.description}`}>
+                {description}
+              </li>
+            ))}
+          </ul>
+          <div className={`d-flex justify-content-center`}>
             {socialLinks.linkedin && (
               <a
                 href={socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mx-2"
+                className={`mx-2 ${styles.social}`}
               >
-                <i className="fab fa-linkedin-in"></i>
-              </a>
-            )}
-            {socialLinks.facebook && (
-              <a
-                href={socialLinks.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mx-2"
-              >
-                <i className="fab fa-facebook-f"></i>
-              </a>
-            )}
-            {socialLinks.twitter && (
-              <a
-                href={socialLinks.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mx-2"
-              >
-                <i className="fab fa-twitter"></i>
+                <i className="fab fa-linkedin"></i>
               </a>
             )}
           </div>
@@ -96,33 +79,36 @@ const Card: React.FC<CardProps> = ({ name, role, image, socialLinks }) => {
 
 const Team: React.FC = () => {
   return (
-    <div id="time" className="container pb-120">
-      <div className="row">
+    <section id="time" className="container pb-120">
+      <div className="row mb-60">
         <div className="col-12 text-center mb-5">
-          <p className="fs-1 text-highlight">|</p>
-          <h2 className="text-medium mb-3">{teamData.title}</h2>
-          <p className="text-muted">{teamData.description}</p>
+          <h2 className={`${styles.highlightText}`}>{teamData.title}</h2>
+          <p className={`text-muted ${styles.description}`}>
+            {teamData.description}
+          </p>
         </div>
       </div>
       <Slider01
-        autoPlayInterval={3000}
+        autoPlayInterval={4000}
         showControls={false}
         breakpoints={{
           0: { slidesPerView: 1 },
-          768: { slidesPerView: 2 },
+          768: { slidesPerView: 1 },
+          1200: { slidesPerView: 2 },
         }}
       >
         {teamMembers.map((member) => (
-          <Card
+          <ProfileHighlight
             key={member.id}
             name={member.name}
             role={member.role}
             image={member.image}
+            descriptions={member.descriptions}
             socialLinks={member.socialLinks}
           />
         ))}
       </Slider01>
-    </div>
+    </section>
   );
 };
 

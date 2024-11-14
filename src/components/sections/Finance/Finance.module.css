@@ -2,7 +2,7 @@
   padding: 60px 0;
   position: relative;
   background-size: cover;
-  background-image: url("../../../assets/img/bg/finance-bg.jpg");
+  background-image: url("../../../assets/img/bg/finance-bg.png");
 }
 
 .financeSection::before {
@@ -49,8 +49,8 @@
   .imageContainer {
     grid-column: 1;
     order: 2;
-    top: 0; /* Remover ajuste de sobreposição em telas menores */
-    margin-top: 2rem; /* Espaço entre o texto e a imagem */
+    top: 0; 
+    margin-top: 2rem; 
   }
 }
 
@@ -63,5 +63,12 @@
 .icon {
   font-size: 1.5rem;
   margin-right: 0.5rem;
-  color: #ffffff; /* Cor branca para os ícones */
+  color: #ffffff; 
+}
+
+
+@media (max-width: 576px) {
+  .imageContainer {
+    display: none;
+  }
 }

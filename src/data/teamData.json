@@ -1,11 +1,14 @@
 {
-  "title": "Conheça os sócios fundadores.",
+  "title": "Conheça os Sócios Fundadores",
   "description": "Nossa equipe é liderada por sócios dedicados e apaixonados pelo que fazem, que conduzem um grupo de profissionais altamente capacitados. Com vasta experiência e conhecimento, eles estão prontos para transformar seus desafios em soluções eficazes.",
   "members": [
     {
       "id": "01",
       "name": "Jorge Ferreira, CFA",
       "role": "Sócio Fundador",
+      "descriptions": [
+       "Economista, mestre em Finanças Corporativas (Unisinos) e CFA charterholder, possui experiência de 15 anos no mercado financeiro e de capitais. Sócio fundador da Ostrya Investimentos e Ostrya capital. Professor de finanças, economia e gestão em cursos de Graduação, MBA e Mestrado, na Unisinos. Professor de Economia na CFA Society Brazil. Já lecionou sobre investimentos em curso de formação de reguladores na Comissão de Valores Mobiliários (CVM). Trabalha com crédito corporativo desde 2016. Foi Superintendente Executivo dos Comitês de Crédito do Banrisul entre 2020 e 2023. Participou da análise, concessão e restruturação de crédito para as maiores empresas do Sul do país. Autor do livro “Análise de Investimentos e Mercado de Capitais”, utilizado em cursos de graduação. Autor de artigo acadêmico sobre o mercado financeiro publicado na Revista Contabilidade & Finanças/USP e citado em 13 países. Consultor de Títulos e Valores Mobiliários e Gestor de Carteiras (CVM). Analista de títulos e valores mobiliários (APIMEC)."
+      ],
       "socialLinks": {
         "linkedin": "https://www.linkedin.com/in/jorge-henrique-ferreira?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
       }
@@ -14,6 +17,9 @@
       "id": "02",
       "name": "Geile Aline Lüttjohann",
       "role": "Sócia Fundadora",
+      "descriptions": [
+        "Bacharel em Direito pela UNISINOS, possui especialização em Direito Empresarial e Direito Bancário (Verbo Jurídico), Possui certificações em Gestão Financeira e Desempenho Empresarial (Insper), Contabilidade Financeira (FGV), Crédito e Risco (FGV), Falências e Recuperação de Empresas (FGV) e Sustentabilidade Corporativa, Regulação e Transparência em ESG (FGV).Atualmente cursando Pós- Graduação em Contabilidade, Gestão Financeira e Fiscal, Pós-Graduação em Gestão Financeira e MBA em Gestão de Projetos e Metodologias Ágeis. Possui mais de 15 anos de experiência no mercado bancário, com foco na análise de empresas e concessão de crédito. Atua como advogada desde 2015, com experiência em contratos bancários e empresariais, além de atuação direta em processos de recuperação judicial de empresas e assessoria em processos de fusões e aquisições."
+      ],
       "socialLinks": {
         "linkedin": "https://www.linkedin.com/in/geile-l%C3%BCttjohann-b60b7b1a5/?originalSubdomain=br"
       }

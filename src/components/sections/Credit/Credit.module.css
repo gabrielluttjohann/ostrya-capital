@@ -7,7 +7,7 @@
   text-align: center;
   padding: 20px;
   border: 2px solid #f0f0f0;
-  transition: background-color 0.3s, transform 0.3s;
+  /* transition: background-color 0.3s, transform 0.3s; */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -16,7 +16,7 @@
 }
 
 .card:hover {
-  background-color: var(--color-blue);
+  /* background-color: var(--color-blue); */
   cursor: pointer;
   transform: translateY(-10px);
 }
@@ -36,7 +36,7 @@
   width: 80px; /* Largura do círculo */
   height: 80px; /* Altura do círculo */
   border-radius: 50%; /* Cria o círculo */
-  background-color: #f8f9fa; /* Cor de fundo do círculo (cinza claro) */
+  /* background-color: #f8f9fa; Cor de fundo do círculo (cinza claro) */
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,13 +1,17 @@
 {
   "contactInfo": {
-    "phone": "(51) 9999-84375",
+    "phone": "(51) 99998-4375",
     "email": "ostrya@ostrya.com.br"
   },
   "menuItems": [
     { "link": "#inicio", "labelId": "", "label": "Início" },
     { "link": "#sobre", "labelId": "", "label": "Sobre" },
     { "link": "#credito", "labelId": "", "label": "Crédito" },
-    { "link": "#consultoria-financeira", "labelId": "", "label": "Consultoria Financeira" },
+    {
+      "link": "#consultoria-financeira",
+      "labelId": "",
+      "label": "Consultoria Financeira"
+    },
     { "link": "#fale-conosco", "labelId": "", "label": "Fale Conosco" }
   ]
 }
