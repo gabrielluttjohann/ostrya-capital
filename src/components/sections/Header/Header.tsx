@@ -27,25 +27,45 @@ const NavItem: React.FC<{
   sectionId: string;
   labelId: string;
   label: string;
+  link: string;
   onClick: () => void;
-}> = ({ sectionId, labelId, label, onClick }) => (
-  <Nav.Link
-    as="li"
-    className={styles.menuItem}
-    onClick={() => {
-      scrollToSection(sectionId);
-      onClick();
-    }}
-    style={{ cursor: "pointer" }}
-  >
-    <div className="d-flex flex-column justify-content-start align-items-start p-0 m-0">
-      <span className={`text-highlight small ${styles.labelIdVisibility}`}>
-        {labelId}
-      </span>
-    </div>
-    {label}
-  </Nav.Link>
-);
+}> = ({ sectionId, labelId, label, link, onClick }) => {
+  const isExternalLink = link.startsWith("http");
+
+  return isExternalLink ? (
+    <Nav.Link
+      as="a"
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={styles.menuItem}
+    >
+      <div className="d-flex flex-column justify-content-start align-items-start p-0 m-0">
+        <span className={`text-highlight small ${styles.labelIdVisibility}`}>
+          {labelId}
+        </span>
+      </div>
+      {label}
+    </Nav.Link>
+  ) : (
+    <Nav.Link
+      as="li"
+      className={styles.menuItem}
+      onClick={() => {
+        scrollToSection(sectionId);
+        onClick();
+      }}
+      style={{ cursor: "pointer" }}
+    >
+      <div className="d-flex flex-column justify-content-start align-items-start p-0 m-0">
+        <span className={`text-highlight small ${styles.labelIdVisibility}`}>
+          {labelId}
+        </span>
+      </div>
+      {label}
+    </Nav.Link>
+  );
+};
 
 const OffcanvasNavbar: React.FC<{
   navbarRef: RefObject<HTMLDivElement>;
@@ -78,9 +98,12 @@ const OffcanvasNavbar: React.FC<{
               {headerData.menuItems.map((item, index) => (
                 <NavItem
                   key={index}
-                  sectionId={item.link.substring(1)} // Remove a barra inicial
+                  sectionId={
+                    item.link.startsWith("#") ? item.link.substring(1) : ""
+                  }
                   labelId={item.labelId}
                   label={item.label}
+                  link={item.link}
                   onClick={handleClose} // Fecha o Offcanvas ao clicar
                 />
               ))}

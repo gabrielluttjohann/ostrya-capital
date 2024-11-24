@@ -3,7 +3,6 @@ import { Container, Row } from "react-bootstrap";
 import img from "@/assets/img/placeholder/design-alt.png";
 import ctaData from "@/data/ctaData.json";
 
-
 // Componente CTAHeader
 const CTAHeader: React.FC = () => (
   <>

@@ -6,6 +6,7 @@ import CTA from "@/components/sections/CTA/CTA";
 import Finance from "@/components/sections/Finance/Finance";
 import Hero from "@/components/sections/Hero/Hero";
 import Team from "@/components/sections/Partners/Team";
+import Resources from "@/components/sections/Resources/Resources";
 import Section from "@/components/sections/Section/Section";
 
 const Home: React.FC = () => (
@@ -14,6 +15,7 @@ const Home: React.FC = () => (
     <About />
     <Assistance />
     <CTA />
+    <Resources />
     <Section />
     <Credit />
     <Finance />
